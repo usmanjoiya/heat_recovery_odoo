@@ -1,0 +1,97 @@
+<odoo>
+    <!-- Inherit Sale Order Form -->
+    <record id="view_order_form_inherit_custom" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.custom</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Button in header -->
+            <xpath expr="//header" position="inside">
+                <button name="action_get_products" type="object" string="Get Products" class="btn-primary"/>
+            </xpath>
+
+            <!-- Floor Type & Placement -->
+            <xpath expr="//sheet/group[@name='sale_header']" position="after">
+                <group>
+                    <group>
+                        <field name="floor_type"/>
+                        <field name="no_of_bedrooms"/>
+                        <field name="place_type"/>
+                        <field name="dwelling_total_area"/>
+                        <field name="floor_name_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="area_rate" readonly="1"/>
+                        <field name="bedroom_rate" readonly="1"/>
+                        <field name="extract_rate" readonly="1"/>
+                        <field name="correct_rate" readonly="1"/>
+                        <field name="req_cont_trickle" force_save="1" readonly="1"/>
+                        <field name="m3_h" force_save="1" readonly="1"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Products">
+                    <label for="basic_prod" string="Basic"/>
+                    <span>
+                        <field name="basic_prod"/>
+                    </span>
+                    <label for="upgraded_prod" string="Upgraded"/>
+                    <span>
+                        <field name="upgraded_prod"/>
+                    </span>
+                    <label for="premium_prod" string="Premium"/>
+                    <span>
+                        <field name="premium_prod"/>
+                    </span>
+                    <br/>
+                    <group>
+                        <field name="product_line_ids">
+                            <list edit="0" delete="0" create="0">
+                                <field name="product_id" />
+                                <field name="product_diameter"/>
+                                <field name="product_type"/>
+                                <field name="m3_h"/>
+                                <field name="prod_capacity" widget="percent"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
+                <page string="Room Measurements">
+                    <field name="room_measurement_ids">
+                        <list editable="bottom">
+                            <field name="room_id"/>
+                            <field name="length" required="1"/>
+                            <field name="width" required="1"/>
+                            <field name="area" readonly="1"/>
+                            <field name="supply_drops" readonly="1"/>
+                            <field name="supply" readonly="1"/>
+                            <field name="supply_boost2" readonly="1"/>
+                            <field name="supply_trickle2" readonly="1"/>
+                            <field name="supply_ducts" readonly="1"/>
+
+                        </list>
+                    </field>
+                </page>
+                <page string="Commission Table">
+                    <field name="commission_table_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="drops"/>
+                            <field name="point_id" string="Extract"/>
+                            <!--                            <field name="extract"/>-->
+                            <field name="high" column_invisible="1"/>
+                            <field name="boost" column_invisible="1"/>
+                            <field name="boost2" sum="boost2"/>
+                            <field name="trickle" column_invisible="1"/>
+                            <field name="trickle2" sum="trickle2"/>
+                            <field name="ducts"/>
+                            <field name="floor_id"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

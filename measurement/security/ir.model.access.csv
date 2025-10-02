@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_room_measurement_user,access.room.measurement.user,model_room_measurement,base.group_user,1,1,1,1
+access_commission_table_user,access.commission.table.user,model_commission_table,base.group_user,1,1,1,1
+access_commission_point_user,access.commission.point.user,model_commission_point,base.group_user,1,1,1,1
+access_dwelling_ventilation_user,access.dwelling.ventilation.user,model_dwelling_ventilation,base.group_user,1,1,1,1
+access_floor_names_user,floor.names.user,model_floor_names,base.group_user,1,1,1,1
+access_filter_products_user,sale.product.line,model_sale_order_product_line,base.group_user,1,1,1,1

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="delivery_price_rule_form_inherited" model="ir.ui.view">
+        <field name="name">delivery.price.rule.form.inherited</field>
+        <field name="model">delivery.price.rule</field>
+        <field name="inherit_id" ref="delivery.view_delivery_price_rule_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/group[1]" position="inside">
+                <field name="name" invisible="1"/>
+            </xpath>
+            <xpath expr="//form/group[2]" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+            <xpath expr="//form/group[2]" position="after">
+                <group>
+                    <field name="state_id" string="State"/>
+                    <field name="list_base_price" widget="monetary" string="Delivery Price" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

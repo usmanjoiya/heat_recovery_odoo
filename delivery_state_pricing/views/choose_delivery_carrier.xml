@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_choose_delivery_carrier_inherit_state" model="ir.ui.view">
+        <field name="name">choose.delivery.carrier.state.inherit</field>
+        <field name="model">choose.delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.choose_delivery_carrier_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='carrier_id']" position="after">
+                <field name="state_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
