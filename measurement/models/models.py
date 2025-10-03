@@ -27,9 +27,9 @@ class SaleOrder(models.Model):
     floor_name_ids = fields.Many2many('floor.names', 'sale_order_floor_rel', 'order_id', 'floor_id', string="Floors")
 
 
-    basic_prod = fields.Many2one('product.product', string="Basic Product")
-    upgraded_prod = fields.Many2one('product.product', string="Upgraded Product")
-    premium_prod = fields.Many2one('product.product', string="Premium Product")
+    basic_prod = fields.Many2one('product.product', string="Basic Product" ,domain="[('product_type', '=', 'base')]")
+    upgraded_prod = fields.Many2one('product.product', string="Upgraded Product" ,domain="[('product_type', '=', 'upgraded')]")
+    premium_prod = fields.Many2one('product.product', string="Premium Product", domain="[('product_type', '=', 'premium')]")
 
     product_line_ids = fields.One2many('sale.order.product.line', 'sale_id', string="Products (Filtered)")
 
@@ -98,7 +98,7 @@ class SaleOrder(models.Model):
     @api.onchange('extract_rate')
     def _req_cont_trickle(self):
         for order in self:
-            order.req_cont_trickle = order.extract_rate
+            order.req_cont_trickle = order.correct_rate
 
     @api.onchange('req_cont_trickle')
     def _m3_h(self):
@@ -328,3 +328,9 @@ class SaleOrderProductLine(models.Model):
     ], string="Product Type")
     m3_h = fields.Float(string="M³/h")
     prod_capacity = fields.Float(string="Capacity")
+
+
+class ProductProduct(models.Model):
+    _inherit = "product.product"
+
+    product_type = fields.Selection(related="product_tmpl_id.product_type", store=True, readonly=True)
