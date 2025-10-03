@@ -100,10 +100,10 @@ class SaleOrder(models.Model):
         for order in self:
             order.req_cont_trickle = order.correct_rate
 
-    @api.onchange('req_cont_trickle')
+    @api.onchange('correct_rate')
     def _m3_h(self):
         for order in self:
-            order.m3_h = order.req_cont_trickle * 3.6
+            order.m3_h = order.correct_rate * 3.6
 
 
 class RoomMeasurement(models.Model):
