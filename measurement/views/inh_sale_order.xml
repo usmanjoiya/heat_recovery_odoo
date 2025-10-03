@@ -26,7 +26,7 @@
                         <field name="bedroom_rate" readonly="1"/>
                         <field name="extract_rate" readonly="1"/>
                         <field name="correct_rate" readonly="1"/>
-                        <field name="req_cont_trickle" force_save="1" readonly="1"/>
+                        <field name="req_cont_trickle" force_save="1" readonly="1" invisible="1"/>
                         <field name="m3_h" force_save="1" readonly="1"/>
                     </group>
                 </group>
