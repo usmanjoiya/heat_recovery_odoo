@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="report_heat_recovery">
-        <t t-call="web.external_layout">
+        <t t-call="web.basic_layout">
             <div class="page" style="page-break-before:always; font-family: Arial, sans-serif;
     font-size: 12px; color: #333; ">
                 <main>
@@ -337,9 +337,12 @@
 
     <record id="action_report_heat_recovery" model="ir.actions.report">
         <field name="name">Heat Recovery Quotation</field>
-        <field name="model">sale.report.wizard</field>
-        <field name="report_type">qweb-html</field>
-        <field name="report_name">sale_report_wizard.report_heat_recovery</field>
-        <field name="report_file">sale_report_wizard.report_heat_recovery</field>
+        <field name="model">sale.order</field> <!-- bind it to sale.order -->
+        <field name="report_type">qweb-pdf</field> <!-- pdf instead of html (recommended for reports) -->
+        <field name="report_name">measurement.report_heat_recovery</field>
+        <field name="report_file">measurement.report_heat_recovery</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/> <!-- bind to Print menu -->
+        <field name="binding_type">report</field>
     </record>
+
 </odoo>
