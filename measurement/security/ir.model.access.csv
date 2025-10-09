@@ -5,3 +5,4 @@ access_commission_point_user,access.commission.point.user,model_commission_point
 access_dwelling_ventilation_user,access.dwelling.ventilation.user,model_dwelling_ventilation,base.group_user,1,1,1,1
 access_floor_names_user,floor.names.user,model_floor_names,base.group_user,1,1,1,1
 access_filter_products_user,sale.product.line,model_sale_order_product_line,base.group_user,1,1,1,1
+access_alrightness_pricess_user,access.alrightness.pricess.user,model_alrightness_pricess,base.group_user,1,1,1,1

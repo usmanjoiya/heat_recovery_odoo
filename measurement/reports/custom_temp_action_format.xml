@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <record id="paperformat_custom" model="report.paperformat">-->
+<!--        <field name="name">Custom Paperformat</field>-->
+<!--        <field name="default" eval="False"/>-->
+<!--        <field name="format">A4</field>-->
+<!--        <field name="orientation">Portrait</field>-->
+<!--        <field name="margin_top">25</field>-->
+<!--        <field name="margin_bottom">20</field>-->
+<!--        <field name="margin_left">21</field>-->
+<!--        <field name="margin_right">21</field>-->
+<!--        <field name="header_line" eval="False"/>-->
+<!--        <field name="header_spacing">15</field>-->
+<!--        <field name="dpi">90</field>-->
+<!--    </record>-->
+
+    <template id="external_layout_custom_standard">
+<!--        <t t-if="not o" t-set="o" t-value="doc"/>-->
+<!--        <t t-if="not company" t-set="company_id" t-value="o.company_id"/>-->
+        <div t-attf-class="header">
+            <div style="width: 100%; font-size: 13px;">
+                <!-- Column 1: Logo -->
+                <div style="width: 15%; float:right;">
+<!--                    <t t-if="company_id.logo">-->
+<!--                        <img t-if="company_id.logo" t-att-src="image_data_uri(company_id.logo)"-->
+<!--                             style="max-height: 100px; max-width: 100%;"/>-->
+<!--                    </t>-->
+<!--                    <t t-else="">-->
+<!--                        <img src="/woa_dp_report_layout/static/src/logo/logo.png"-->
+<!--                             style="max-height: 100px; max-width: 100%;"/>-->
+<!--                    </t>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <div class="article o_report_layout_standard">
+                <t t-raw="0"/> <!-- This is where report body comes in -->
+            </div>
+        </div>
+
+
+        <div t-attf-class="footer">
+            <div style="font-size:10px;">
+
+                <!-- Company Info -->
+                <div style="width: 100%; font-size: 13px;">
+                    <img src="/measurement/static/src/img/footer.png" style="max-height: 100px; max-width: 100%;"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>

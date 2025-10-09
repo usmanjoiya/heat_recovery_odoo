@@ -12,6 +12,26 @@ class SaleOrder(models.Model):
         [('top', 'Top'), ('wall', 'Wall')],
         string='Placement'
     )
+    supply_install = fields.Selection(
+        [('supply_fit_commission', 'Supply, Fit and Commission'),
+         ('supply_fit_only', 'Supply and Fit Only'),
+         ('supply_only', 'Supply Only (Self Install)')],
+        string='System Overview'
+    )
+
+    supply_kit = fields.Selection(
+        [('connection_kit', 'Connection Kit - Plenums, Valves, Radial pipe & Manifolds'),
+         ('ext_supply_extract', 'External Supply & Extract Premium Thermal Foam Kit'),
+         ('ext_supply_pvc', 'External Supply & Extract PVC Kit')],
+        string='System Overview'
+    )
+
+    supply_kit_install = fields.Selection(
+        [('connection_kit', 'Connection Kit - Plenums, Valves, Radial pipe & Manifolds'),
+         ('ext_supply_extract', 'External Supply & Extract Premium Thermal Foam Kit'),
+         ('ext_supply_pvc', 'External Supply & Extract PVC Kit')],
+        string='System Overview'
+    )
 
     no_of_bedrooms = fields.Integer(string="No. of Bedrooms")
     dwelling_total_area = fields.Float(string="Dwelling Total Area (sq m)")
@@ -30,7 +50,8 @@ class SaleOrder(models.Model):
     basic_prod = fields.Many2one('product.product', string="Basic Product" ,domain="[('product_type', '=', 'base')]")
     upgraded_prod = fields.Many2one('product.product', string="Upgraded Product" ,domain="[('product_type', '=', 'upgraded')]")
     premium_prod = fields.Many2one('product.product', string="Premium Product", domain="[('product_type', '=', 'premium')]")
-
+    alrightness_id = fields.Many2one('alrightness.pricess', string="Alrightness")
+    alrightness_price = fields.Float(string='Alrightness Price', compute="_compute_alrightness_price", store=True)
     product_line_ids = fields.One2many('sale.order.product.line', 'sale_id', string="Products (Filtered)")
 
     def action_get_products(self):
@@ -104,6 +125,18 @@ class SaleOrder(models.Model):
     def _m3_h(self):
         for order in self:
             order.m3_h = order.correct_rate * 3.6
+
+    @api.depends('dwelling_total_area','alrightness_id')
+    def _compute_alrightness_price(self):
+        for x in self:
+            if x.dwelling_total_area <= x.alrightness_id.area:
+                x.alrightness_price = x.alrightness_id.guide_price_1
+            elif x.dwelling_total_area > x.alrightness_id.area and x.dwelling_total_area <= x.alrightness_id.area2:
+                x.alrightness_price = x.alrightness_id.guide_price_2
+            elif x.dwelling_total_area > x.alrightness_id.area2 and x.dwelling_total_area <= x.alrightness_id.area3:
+                x.alrightness_price = x.alrightness_id.guide_price_3
+            elif x.dwelling_total_area > x.alrightness_id.area3:
+                x.alrightness_price = x.alrightness_id.guide_price_4
 
 
 class RoomMeasurement(models.Model):
@@ -293,25 +326,6 @@ class ProductTemplate(models.Model):
     prod_capacity = fields.Float(string="Product Capacity")
 
 
-# class SaleOrderLine(models.Model):
-#     _inherit = 'sale.order.line'
-#
-#     sale_id = fields.Many2one('sale.order', string="Sale Order", ondelete="cascade")
-#
-#     prod_capacity = fields.Float(string="Product Capacity", readonly=True)
-#     product_diameter = fields.Float(string="Product Diameter (mm)")
-#
-#     product_type = fields.Selection(
-#         [
-#             ('base', 'Base'),
-#             ('upgraded', 'Upgraded'),
-#             ('premium', 'Premium'),
-#         ],
-#         string="Product Type"
-#     )
-#
-#     m3_h = fields.Float(string="Flow Rate (m³/h)")
-
 
 
 class SaleOrderProductLine(models.Model):
@@ -334,3 +348,29 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     product_type = fields.Selection(related="product_tmpl_id.product_type", store=True, readonly=True)
+
+
+class AlrightnessPricess(models.Model):
+    _name = "alrightness.pricess"
+    _description = 'Alrightness Pricess'
+
+
+    name = fields.Char(string="Name")
+
+    area = fields.Float(string="Area 1 (m²)")
+    area2 = fields.Float(string="Area 2 (m²)")
+    area3 = fields.Float(string="Area 3 (m²)")
+    area4 = fields.Float(string="Area 4 (m²)")
+
+    guide_price_1 = fields.Float(string="Guide Price 1")
+    guide_price_2 = fields.Float(string="Guide Price 2")
+    guide_price_3 = fields.Float(string="Guide Price 3")
+    guide_price_4 = fields.Float(string="Guide Price 4")
+
+
+    @api.onchange('guide_price_1')
+    def _change_guide_price(self):
+        for x in self:
+            x.guide_price_2 = x.guide_price_1 * 2
+            x.guide_price_3 = x.guide_price_1 * 3
+            x.guide_price_4 = x.guide_price_1 * 4
