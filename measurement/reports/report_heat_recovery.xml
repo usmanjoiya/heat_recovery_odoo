@@ -358,13 +358,13 @@
                                 <tr style="text-align:center; font-weight:400; background:#fafafa;">
                                     <td style="border:1px solid #000; padding:6px; text-align:left;">Sub Total</td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="doc.basic_prod.lst_price"/>
+                                        £ <t t-esc="doc.basic_prod.lst_price"/>
                                     </td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="doc.upgraded_prod.lst_price"/>
+                                        £ <t t-esc="doc.upgraded_prod.lst_price"/>
                                     </td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="doc.premium_prod.lst_price"/>
+                                        £ <t t-esc="doc.premium_prod.lst_price"/>
                                     </td>
                                 </tr>
 
@@ -373,13 +373,13 @@
                                        t-value="doc.order_line.filtered(lambda l: 'standard delivery' in l.product_id.display_name.lower())"/>
                                     <td style="border:1px solid #000; padding:6px; text-align:left;">Shipping</td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
                                     </td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
                                     </td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
                                     </td>
                                 </tr>
 
@@ -425,13 +425,13 @@
                                        t-value="doc.premium_prod.lst_price + delivery_line.price_subtotal"/>
                                     <td style="border:1px solid #000; padding:6px; text-align:left;">Total Exc VAT</td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="basic_vat"/>
+                                        £ <t t-esc="basic_vat"/>
                                     </td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="upgrade_vat"/>
+                                        £ <t t-esc="upgrade_vat"/>
                                     </td>
                                     <td style="border:1px solid #000; padding:6px;">
-                                        <t t-esc="premium_vat"/>
+                                        £ <t t-esc="premium_vat"/>
                                     </td>
                                 </tr>
                                 <tr style="text-align:center; font-weight:400;">
@@ -494,7 +494,7 @@
                                         Estimated Cost
                                     </td>
                                     <td style="border:1px solid #000; padding:8px; font-weight:600;">£
-                                        <t t-esc="doc.alrightness_price"/>
+                                        <t t-esc="doc.alrightness_price" t-options="{'widget':'float', 'precision':2}"/>
                                     </td>
                                     <td style="border:1px solid #000; padding:8px; font-weight:600;">Price TBC</td>
                                     <td style="border:1px solid #000; padding:8px; font-weight:600;">£ 1,751.22</td>
