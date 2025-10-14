@@ -128,15 +128,16 @@ class SaleOrder(models.Model):
 
     @api.depends('dwelling_total_area','alrightness_id')
     def _compute_alrightness_price(self):
+        first_record = self.env['alrightness.pricess'].search([], limit=1)
         for x in self:
-            if x.dwelling_total_area <= x.alrightness_id.area:
-                x.alrightness_price = x.alrightness_id.guide_price_1
-            elif x.dwelling_total_area > x.alrightness_id.area and x.dwelling_total_area <= x.alrightness_id.area2:
-                x.alrightness_price = x.alrightness_id.guide_price_2
-            elif x.dwelling_total_area > x.alrightness_id.area2 and x.dwelling_total_area <= x.alrightness_id.area3:
-                x.alrightness_price = x.alrightness_id.guide_price_3
-            elif x.dwelling_total_area > x.alrightness_id.area3:
-                x.alrightness_price = x.alrightness_id.guide_price_4
+            if x.dwelling_total_area <= first_record.area:
+                x.alrightness_price = first_record.guide_price_1
+            elif x.dwelling_total_area > first_record.area and x.dwelling_total_area <= first_record.area2:
+                x.alrightness_price = first_record.guide_price_2
+            elif x.dwelling_total_area > first_record.area2 and x.dwelling_total_area <= first_record.area3:
+                x.alrightness_price = first_record.guide_price_3
+            elif x.dwelling_total_area > first_record.area3:
+                x.alrightness_price = first_record.guide_price_4
 
 
 class RoomMeasurement(models.Model):
@@ -343,6 +344,31 @@ class SaleOrderProductLine(models.Model):
     m3_h = fields.Float(string="M³/h")
     prod_capacity = fields.Float(string="Capacity")
 
+    def action_add_to_order_line(self):
+        """Add the selected product to the sale order lines."""
+        for rec in self:
+            if not rec.sale_id:
+                raise UserError("No related Sale Order found.")
+            if not rec.product_id:
+                raise UserError("No product selected to add.")
+
+            order = rec.sale_id
+
+            # Check if the product is already in order lines
+            existing_line = order.order_line.filtered(lambda l: l.product_id.id == rec.product_id.id)
+            if existing_line:
+                # If already exists, increase quantity
+                existing_line.product_uom_qty += 1
+            else:
+                # Otherwise create a new sale.order.line
+                order.order_line = [(0, 0, {
+                    'product_id': rec.product_id.id,
+                    'name': rec.product_id.display_name,
+                    'product_uom_qty': 1,
+                    'price_unit': rec.product_id.lst_price,
+                    'tax_ids': [(6, 0, rec.product_id.taxes_id.ids)],
+                })]
+
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
@@ -374,3 +400,65 @@ class AlrightnessPricess(models.Model):
             x.guide_price_2 = x.guide_price_1 * 2
             x.guide_price_3 = x.guide_price_1 * 3
             x.guide_price_4 = x.guide_price_1 * 4
+
+
+
+class SaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'
+
+    part_of_id = fields.Many2one('product.product',string="Part Of")
+
+
+
+class StockRule(models.Model):
+    _inherit = 'stock.rule'
+
+    @api.model
+    def _run_manufacture(self, procurements):
+        """
+        Extends Odoo's _run_manufacture() to also attach 'part_of_id' products
+        as raw materials in Manufacturing Orders linked to a Sale Order.
+        """
+        result = super()._run_manufacture(procurements)
+
+        for procurement, rule in procurements:
+            product = procurement.product_id
+            sale_line_id = procurement.values.get('sale_line_id')
+            if not sale_line_id:
+                continue
+
+            sale_line = self.env['sale.order.line'].browse(sale_line_id)
+            order = sale_line.order_id
+
+            # Find the manufacturing order created for this product
+            mo_domain = [
+                ('product_id', '=', product.id),
+                ('origin', '=', procurement.origin or order.name)
+            ]
+            mo = self.env['mrp.production'].search(mo_domain, limit=1)
+            if not mo:
+                continue
+
+            # Find related sale order lines whose "part_of_id" = this product
+            related_lines = order.order_line.filtered(
+                lambda l: l.part_of_id and l.part_of_id == sale_line.product_id
+            )
+
+            for comp_line in related_lines:
+                self.env['stock.move'].create({
+                    'description_picking': comp_line.product_id.display_name,
+                    'product_id': comp_line.product_id.id,
+                    'product_uom_qty': comp_line.product_uom_qty,
+                    'product_uom': comp_line.product_uom_id.id,
+                    'location_id': mo.location_src_id.id,
+                    'location_dest_id': mo.location_dest_id.id,
+                    'raw_material_production_id': mo.id,
+                    'company_id': mo.company_id.id,
+                    'state': 'draft',
+                    'sale_line_id': comp_line.id,
+                })
+
+        return result
+
+
+
