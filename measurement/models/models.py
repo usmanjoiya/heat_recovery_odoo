@@ -59,7 +59,7 @@ class SaleOrder(models.Model):
             if not order.m3_h or order.m3_h == 0.0:
                 raise UserError("You must do all the process to set the M3/H value before getting products.")
             # Clear and reload products
-            products = self.env['product.template'].search([('product_diameter', '>', 0)])
+            products = self.env['product.template'].search([('m3_h', '>', 0)])
             order.product_line_ids = [(5, 0, 0)]
             lines = []
 
@@ -311,7 +311,7 @@ class FloorNames(models.Model):
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    product_diameter = fields.Float(string="Product Diameter (mm)")
+    product_diameter = fields.Text(string="Product Diameter (mm)")
 
     product_type = fields.Selection(
         [
@@ -335,7 +335,7 @@ class SaleOrderProductLine(models.Model):
 
     sale_id = fields.Many2one('sale.order', string="Sale Order", ondelete="cascade")
     product_id = fields.Many2one('product.product', string="Product")
-    product_diameter = fields.Float(string="Diameter (mm)")
+    product_diameter = fields.Text(string="Diameter (mm)")
     product_type = fields.Selection([
         ('base', 'Base'),
         ('upgraded', 'Upgraded'),
