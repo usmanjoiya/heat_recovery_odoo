@@ -66,12 +66,12 @@
                                 string="Add"
                                 type="object"
                                 class="btn-primary"
-                                icon="fa-plus"/>
+                                icon="fa-plus" invisible="already_link"/>
                             </list>
                         </field>
                     </group>
                 </page>
-                <page string="Room Measurements">
+                <page string="Supply">
                     <field name="room_measurement_ids">
                         <list editable="bottom">
                             <field name="room_id"/>
@@ -87,7 +87,7 @@
                         </list>
                     </field>
                 </page>
-                <page string="Commission Table">
+                <page string="Extract">
                     <field name="commission_table_ids">
                         <list editable="bottom">
                             <field name="sequence" widget="handle"/>
