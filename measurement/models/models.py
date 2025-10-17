@@ -16,30 +16,22 @@ class SaleOrder(models.Model):
         [('supply_fit_commission', 'Supply, Fit and Commission'),
          ('supply_fit_only', 'Supply and Fit Only'),
          ('supply_only', 'Supply Only (Self Install)')],
-        string='System Overview Supply'
+        string='System Overview'
     )
 
     supply_kit = fields.Selection(
         [('connection_kit', 'Connection Kit - Plenums, Valves, Radial pipe & Manifolds'),
          ('ext_supply_extract', 'External Supply & Extract Premium Thermal Foam Kit'),
          ('ext_supply_pvc', 'External Supply & Extract PVC Kit')],
-        string='System Overview Ext'
+        string='System Overview'
     )
 
     supply_kit_install = fields.Selection(
         [('connection_kit', 'Connection Kit - Plenums, Valves, Radial pipe & Manifolds'),
          ('ext_supply_extract', 'External Supply & Extract Premium Thermal Foam Kit'),
          ('ext_supply_pvc', 'External Supply & Extract PVC Kit')],
-        string='System Overview Ext 2'
+        string='System Overview'
     )
-    line_price_of_kit = fields.Float('Kit price', compute='_get_line_kit_price')
-
-    def _get_line_kit_price(self):
-        amount = 0
-        for line in self.order_line:
-            if line.product_id.type != 'service' and not line.product_id.product_type:
-                amount += line.price_subtotal
-        self.line_price_of_kit = amount
 
     no_of_bedrooms = fields.Integer(string="No. of Bedrooms")
     dwelling_total_area = fields.Float(string="Dwelling Total Area (sq m)")
@@ -67,7 +59,7 @@ class SaleOrder(models.Model):
             if not order.m3_h or order.m3_h == 0.0:
                 raise UserError("You must do all the process to set the M3/H value before getting products.")
             # Clear and reload products
-            products = self.env['product.template'].search([('m3_h', '>', 0)],  order='product_type asc')
+            products = self.env['product.template'].search([('m3_h', '>', 0)])
             order.product_line_ids = [(5, 0, 0)]
             lines = []
 
@@ -86,17 +78,20 @@ class SaleOrder(models.Model):
 
             # --- Now pick the best products per type ---
             # group lines by type
-            base_line = max(order.product_line_ids.filtered(lambda l: l.product_type == 'base'),
-                            key=lambda l: l.prod_capacity, default=False)
-            upgraded_line = max(order.product_line_ids.filtered(lambda l: l.product_type == 'upgraded'),
-                                key=lambda l: l.prod_capacity, default=False)
-            premium_line = max(order.product_line_ids.filtered(lambda l: l.product_type == 'premium'),
-                               key=lambda l: l.prod_capacity, default=False)
+            base_line = order.product_line_ids.filtered(lambda l: l.product_type == 'base' and l.product_variant_id.area_m2_from >= order.dwelling_total_area and l.product_variant_id.area_m2_to <= order.dwelling_total_area)
+
+            upgraded_line = order.product_line_ids.filtered(lambda l: l.product_type == 'upgraded' and l.product_variant_id.area_m2_from >= order.dwelling_total_area and l.product_variant_id.area_m2_to <= order.dwelling_total_area)
+
+                # max(order.product_line_ids.filtered(lambda l: l.product_type == 'upgraded'),
+                #                 key=lambda l: l.prod_capacity, default=False)
+            premium_line = order.product_line_ids.filtered(lambda l: l.product_type == 'premium' and l.product_variant_id.area_m2_from >= order.dwelling_total_area and l.product_variant_id.area_m2_to <= order.dwelling_total_area)
+                # max(order.product_line_ids.filtered(lambda l: l.product_type == 'premium'),
+                #                key=lambda l: l.prod_capacity, default=False)
 
             # assign best products to sale.order fields
-            order.basic_prod = base_line.product_id.id if base_line else False
-            order.upgraded_prod = upgraded_line.product_id.id if upgraded_line else False
-            order.premium_prod = premium_line.product_id.id if premium_line else False
+            order.basic_prod = base_line[0].product_id.id if base_line else False
+            order.upgraded_prod = upgraded_line[0].product_id.id if upgraded_line else False
+            order.premium_prod = premium_line.product_id[0].id if premium_line else False
 
     @api.depends('dwelling_total_area')
     def _compute_area_rate(self):
@@ -321,6 +316,9 @@ class ProductTemplate(models.Model):
 
     product_diameter = fields.Text(string="Product Diameter (mm)")
 
+    area_m2_from = fields.Integer()
+    area_m2_to = fields.Integer()
+
     product_type = fields.Selection(
         [
             ('base', 'Base'),
@@ -351,20 +349,6 @@ class SaleOrderProductLine(models.Model):
     ], string="Product Type")
     m3_h = fields.Float(string="M³/h")
     prod_capacity = fields.Float(string="Capacity")
-    already_link = fields.Boolean(string='Linked', compute='_already_link_on_sale')
-
-    def _already_link_on_sale(self):
-        for line in self:
-            link = False
-            if line.sale_id and line.sale_id.state in ('sale', 'cancel'):
-                link = True
-            elif line.sale_id and line.sale_id.order_line:
-                get_product = line.sale_id.order_line.filtered(lambda l: l.product_id.id == line.product_id.id)
-                if get_product:
-                    link = True
-            line.already_link = link
-
-
 
     def action_add_to_order_line(self):
         """Add the selected product to the sale order lines."""
