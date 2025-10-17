@@ -10,8 +10,6 @@
                     <field name="product_type"/>
                     <field name="m3_h"/>
                     <field name="prod_capacity"/>
-                    <field name="area_m2_from"/>
-                    <field name="area_m2_to"/>
                 </group>
             </xpath>
         </field>
