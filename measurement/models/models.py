@@ -79,7 +79,7 @@ class SaleOrder(models.Model):
             # --- Now pick the best products per type ---
             # group lines by type
 
-            order.product_line_ids.filtered(lambda l: l.product_type == 'base' and l.product_variant_id.area_m2_from >= order.dwelling_total_area and l.product_variant_id.area_m2_to <= order.dwelling_total_area)
+            # order.product_line_ids.filtered(lambda l: l.product_type == 'base' and l.product_variant_id.area_m2_from >= order.dwelling_total_area and l.product_variant_id.area_m2_to <= order.dwelling_total_area)
             base_line = order.product_line_ids.filtered(lambda l: l.product_type == 'base' and l.product_id.area_m2_from >= order.dwelling_total_area and l.product_id.area_m2_to <= order.dwelling_total_area)
             upgraded_line = max(order.product_line_ids.filtered(lambda l: l.product_type == 'upgraded'),
                                 key=lambda l: l.prod_capacity, default=False)
