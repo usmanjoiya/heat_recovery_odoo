@@ -315,7 +315,8 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     product_diameter = fields.Text(string="Product Diameter (mm)")
-
+    area_m2_from = fields.Integer()
+    area_m2_to = fields.Integer()
     product_type = fields.Selection(
         [
             ('base', 'Base'),

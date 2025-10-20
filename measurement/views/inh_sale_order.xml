@@ -62,6 +62,7 @@
                                 <field name="product_type"/>
                                 <field name="m3_h"/>
                                 <field name="prod_capacity" widget="percent"/>
+                                <field name="already_link" invisible="1"/>
                                 <button name="action_add_to_order_line"
                                 string="Add"
                                 type="object"
