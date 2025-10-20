@@ -40,7 +40,40 @@
             </xpath>
 
             <xpath expr="//sheet/notebook" position="inside">
-                <page string="Products">
+                <page string="Extract">
+                    <field name="commission_table_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="drops"/>
+                            <field name="point_id" string="Extract"/>
+                            <!--                            <field name="extract"/>-->
+                            <field name="high" column_invisible="1"/>
+                            <field name="boost" column_invisible="1"/>
+                            <field name="boost2" sum="boost2"/>
+                            <field name="trickle" column_invisible="1"/>
+                            <field name="trickle2" sum="trickle2"/>
+                            <field name="ducts"/>
+                            <field name="floor_id"/>
+                        </list>
+                    </field>
+                </page>
+                <page string="Supply">
+                    <field name="room_measurement_ids">
+                        <list editable="bottom">
+                            <field name="room_id"/>
+                            <field name="length" required="1"/>
+                            <field name="width" required="1"/>
+                            <field name="area" readonly="1"/>
+                            <field name="supply_drops" readonly="1"/>
+                            <field name="supply" readonly="1"/>
+                            <field name="supply_boost2" readonly="1"/>
+                            <field name="supply_trickle2" readonly="1"/>
+                            <field name="supply_ducts" readonly="1"/>
+
+                        </list>
+                    </field>
+                </page>
+                <page string="Machine">
                     <label for="basic_prod" string="Basic"/>
                     <span>
                         <field name="basic_prod"/>
@@ -71,39 +104,6 @@
                             </list>
                         </field>
                     </group>
-                </page>
-                <page string="Supply">
-                    <field name="room_measurement_ids">
-                        <list editable="bottom">
-                            <field name="room_id"/>
-                            <field name="length" required="1"/>
-                            <field name="width" required="1"/>
-                            <field name="area" readonly="1"/>
-                            <field name="supply_drops" readonly="1"/>
-                            <field name="supply" readonly="1"/>
-                            <field name="supply_boost2" readonly="1"/>
-                            <field name="supply_trickle2" readonly="1"/>
-                            <field name="supply_ducts" readonly="1"/>
-
-                        </list>
-                    </field>
-                </page>
-                <page string="Extract">
-                    <field name="commission_table_ids">
-                        <list editable="bottom">
-                            <field name="sequence" widget="handle"/>
-                            <field name="drops"/>
-                            <field name="point_id" string="Extract"/>
-                            <!--                            <field name="extract"/>-->
-                            <field name="high" column_invisible="1"/>
-                            <field name="boost" column_invisible="1"/>
-                            <field name="boost2" sum="boost2"/>
-                            <field name="trickle" column_invisible="1"/>
-                            <field name="trickle2" sum="trickle2"/>
-                            <field name="ducts"/>
-                            <field name="floor_id"/>
-                        </list>
-                    </field>
                 </page>
             </xpath>
         </field>

@@ -8,12 +8,12 @@ class SaleOrder(models.Model):
     floor_type = fields.Selection(
         [
             ('concrete', 'Concrete Slab'),
-            ('engineers_choice', 'Engineers Choice'),
+            ('engineered_joists', 'Engineered joists'),
             ('solid_joist', 'Solid Joist')],
         string='Floor Type'
     )
     place_type = fields.Selection(
-        [('top', 'Roof Dents'), ('wall', 'Wall Cowl')],
+        [('roof_vents', 'Roof Vents'), ('wall_cowl', 'Wall Cowl')],
         string='Placement'
     )
 
