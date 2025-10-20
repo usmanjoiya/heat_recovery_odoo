@@ -80,16 +80,18 @@ class SaleOrder(models.Model):
             # group lines by type
 
             # order.product_line_ids.filtered(lambda l: l.product_type == 'base' and l.product_variant_id.area_m2_from >= order.dwelling_total_area and l.product_variant_id.area_m2_to <= order.dwelling_total_area)
-            base_line = order.product_line_ids.filtered(lambda l: l.product_type == 'base' and l.product_id.area_m2_from >= order.dwelling_total_area and l.product_id.area_m2_to <= order.dwelling_total_area)
-            upgraded_line = max(order.product_line_ids.filtered(lambda l: l.product_type == 'upgraded'),
-                                key=lambda l: l.prod_capacity, default=False)
-            premium_line = max(order.product_line_ids.filtered(lambda l: l.product_type == 'premium'),
-                               key=lambda l: l.prod_capacity, default=False)
+            base_line = order.product_line_ids.filtered(lambda l: l.product_type == 'base' and l.product_id.area_m2_from <= order.dwelling_total_area and l.product_id.area_m2_to >= order.dwelling_total_area)
+            upgraded_line = order.product_line_ids.filtered(lambda l: l.product_type == 'upgraded' and l.product_id.area_m2_from <= order.dwelling_total_area and l.product_id.area_m2_to >= order.dwelling_total_area)
+                # max(order.product_line_ids.filtered(lambda l: l.product_type == 'upgraded'),
+                #                 key=lambda l: l.prod_capacity, default=False)
+            premium_line =order.product_line_ids.filtered(lambda l: l.product_type == 'premium' and l.product_id.area_m2_from <= order.dwelling_total_area and l.product_id.area_m2_to >= order.dwelling_total_area)
+                # max(order.product_line_ids.filtered(lambda l: l.product_type == 'premium'),
+                #                key=lambda l: l.prod_capacity, default=False)
 
             # assign best products to sale.order fields
             order.basic_prod = base_line[0].product_id.id if base_line else False
-            order.upgraded_prod = upgraded_line.product_id.id if upgraded_line else False
-            order.premium_prod = premium_line.product_id.id if premium_line else False
+            order.upgraded_prod = upgraded_line[0].product_id.id if upgraded_line else False
+            order.premium_prod = premium_line[0].product_id.id if premium_line else False
 
     @api.depends('dwelling_total_area')
     def _compute_area_rate(self):
