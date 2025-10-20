@@ -1,36 +1,41 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 
+
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     floor_type = fields.Selection(
-        [('concrete', 'Concrete'), ('timber', 'Timber')],
+        [
+            ('concrete', 'Concrete Slab'),
+            ('engineers_choice', 'Engineers Choice'),
+            ('solid_joist', 'Solid Joist')],
         string='Floor Type'
     )
     place_type = fields.Selection(
-        [('top', 'Top'), ('wall', 'Wall')],
+        [('top', 'Roof Dents'), ('wall', 'Wall Cowl')],
         string='Placement'
     )
+
     supply_install = fields.Selection(
         [('supply_fit_commission', 'Supply, Fit and Commission'),
          ('supply_fit_only', 'Supply and Fit Only'),
          ('supply_only', 'Supply Only (Self Install)')],
-        string='System Overview'
+        string='System Overview Supplier'
     )
 
     supply_kit = fields.Selection(
         [('connection_kit', 'Connection Kit - Plenums, Valves, Radial pipe & Manifolds'),
          ('ext_supply_extract', 'External Supply & Extract Premium Thermal Foam Kit'),
          ('ext_supply_pvc', 'External Supply & Extract PVC Kit')],
-        string='System Overview'
+        string='System Overview Ext 1'
     )
 
     supply_kit_install = fields.Selection(
         [('connection_kit', 'Connection Kit - Plenums, Valves, Radial pipe & Manifolds'),
          ('ext_supply_extract', 'External Supply & Extract Premium Thermal Foam Kit'),
          ('ext_supply_pvc', 'External Supply & Extract PVC Kit')],
-        string='System Overview'
+        string='System Overview Ext 2'
     )
 
     no_of_bedrooms = fields.Integer(string="No. of Bedrooms")
