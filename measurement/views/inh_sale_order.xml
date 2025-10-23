@@ -19,10 +19,12 @@
                         <field name="no_of_bedrooms"/>
                         <field name="place_type"/>
                         <field name="dwelling_total_area"/>
+                        <field name="selective_diameter"/>
                         <field name="floor_name_ids" widget="many2many_tags"/>
                         <field name="supply_install"/>
                         <field name="supply_kit"/>
                         <field name="supply_kit_install"/>
+
                     </group>
                     <group>
                         <field name="area_rate" readonly="1"/>

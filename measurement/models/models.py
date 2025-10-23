@@ -13,6 +13,15 @@ class SaleOrder(models.Model):
             ('solid_joist', 'Solid Joist')],
         string='Floor Type'
     )
+    selective_diameter = fields.Selection(
+        [
+            ('125MM', '125MM'),
+            ('150MM', '150MM'),
+            ('180MM', '180MM'),
+         ],
+        string='Diameter'
+    )
+
     place_type = fields.Selection(
         [('roof_vents', 'Roof Vents'), ('wall_cowl', 'Wall Cowl')],
         string='Placement'
@@ -38,6 +47,14 @@ class SaleOrder(models.Model):
          ('ext_supply_pvc', 'External Supply & Extract PVC Kit')],
         string='System Overview Ext 2'
     )
+    line_price_of_kit = fields.Float('Kit price', compute='_get_line_kit_price')
+
+    def _get_line_kit_price(self):
+        amount = 0
+        for line in self.order_line:
+            if line.product_id.type != 'service' and not line.product_id.product_type:
+                amount += line.price_subtotal
+        self.line_price_of_kit = amount
 
     no_of_bedrooms = fields.Integer(string="No. of Bedrooms")
     dwelling_total_area = fields.Float(string="Dwelling Total Area (sq m)")
@@ -71,6 +88,7 @@ class SaleOrder(models.Model):
             order.product_line_ids = [(5, 0, 0)]
             lines = []
 
+
             for prod in products:
                 vals = {
                     'sale_id': order.id,
@@ -100,6 +118,23 @@ class SaleOrder(models.Model):
             order.basic_prod = base_line[0].product_id.id if base_line else False
             order.upgraded_prod = upgraded_line[0].product_id.id if upgraded_line else False
             order.premium_prod = premium_line[0].product_id.id if premium_line else False
+
+            Product = self.env['product.product']
+            product = Product.search([
+                ('main_kit_product', '=', True),
+                ('product_template_attribute_value_ids.attribute_id.name', '=', 'Ducting Diameter'),
+                    ('product_template_attribute_value_ids.product_attribute_value_id.name', '=', self.selective_diameter),
+                ('product_template_attribute_value_ids.attribute_id.name', '=', 'No of Manifolds'),
+                ('product_template_attribute_value_ids.product_attribute_value_id.name', '=', str(self.no_of_manifolds)),
+                ('product_template_attribute_value_ids.attribute_id.name', '=', 'No of Points'),
+                ('product_template_attribute_value_ids.product_attribute_value_id.name', '=', str(self.no_of_points)),
+            ])
+            if product and not self.order_line.filtered(lambda l: l.product_id.id == product[0].id):
+                self.order_line += self.order_line.new({
+                    'product_id': product[0],
+                    'product_uom_qty': 1,
+                })
+
 
     @api.depends('dwelling_total_area')
     def _compute_area_rate(self):
@@ -387,6 +422,7 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     product_diameter = fields.Text(string="Product Diameter (mm)")
+    main_kit_product = fields.Boolean('Main Kit Prodcut')
     area_m2_from = fields.Integer()
     area_m2_to = fields.Integer()
     product_type = fields.Selection(
@@ -444,18 +480,21 @@ class SaleOrderProductLine(models.Model):
 
             # Check if the product is already in order lines
             existing_line = order.order_line.filtered(lambda l: l.product_id.id == rec.product_id.id)
+            kit_exist = order.order_line.filtered(lambda l: l.product_id.main_kit_product == True)
             if existing_line:
                 # If already exists, increase quantity
                 existing_line.product_uom_qty += 1
             else:
                 # Otherwise create a new sale.order.line
-                order.order_line = [(0, 0, {
+                self.env['sale.order.line'].create({
+                    'order_id': order.id,
                     'product_id': rec.product_id.id,
                     'name': rec.product_id.display_name,
                     'product_uom_qty': 1,
                     'price_unit': rec.product_id.lst_price,
                     'tax_ids': [(6, 0, rec.product_id.taxes_id.ids)],
-                })]
+                    'part_of_id': kit_exist[0].product_id.id if kit_exist else False,
+                })
 
 
 class ProductProduct(models.Model):

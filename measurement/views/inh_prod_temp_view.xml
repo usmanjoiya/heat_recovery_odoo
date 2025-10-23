@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='general_information']" position="inside">
                 <group string="Custom Fields">
+                    <field name="main_kit_product"/>
                     <field name="product_diameter"/>
                     <field name="product_type"/>
                     <field name="m3_h"/>
