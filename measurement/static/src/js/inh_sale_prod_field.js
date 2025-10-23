@@ -20,6 +20,46 @@ import { ProductCombo } from "@sale/js/models/product_combo";
 import { getLinkedSaleOrderLines, serializeComboItem, getSelectedCustomPtav } from "@sale/js/sale_utils";
 
 
+
+// Your custom applyProduct function (copied & potentially modified)
+async function applyProduct(record, product) {
+    // handle custom values & no variants
+    const customAttributesCommands = [
+        x2ManyCommands.set([]),  // clear existing values
+    ];
+    for (const ptal of product.attribute_lines) {
+        const selectedCustomPTAV = getSelectedCustomPtav(ptal);
+        if (selectedCustomPTAV) {
+            customAttributesCommands.push(
+                x2ManyCommands.create(undefined, {
+                    custom_product_template_attribute_value_id: [
+                        selectedCustomPTAV.id,
+                        "we don't care",
+                    ],
+                    custom_value: ptal.customValue,
+                })
+            );
+        }
+    }
+
+    const noVariantPTAVIds = product.attribute_lines
+        .filter(ptal => ptal.create_variant === "no_variant")
+        .flatMap(ptal => ptal.selected_attribute_value_ids);
+
+    // update record with product info
+    const update_values = {
+        product_id: { id: product.id, display_name: product.display_name },
+        product_uom_qty: product.quantity,
+        product_no_variant_attribute_value_ids: [x2ManyCommands.set(noVariantPTAVIds)],
+        product_custom_attribute_value_ids: customAttributesCommands,
+    };
+    if (product.uom) {
+        update_values.product_uom_id = product.uom;
+    }
+    await record._update(update_values);
+}
+
+
 patch(SaleOrderLineProductField.prototype, {
 
     async _openProductConfigurator(edit = false, selectedComboItems = []) {
