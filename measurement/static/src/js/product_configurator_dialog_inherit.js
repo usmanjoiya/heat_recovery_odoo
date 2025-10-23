@@ -18,7 +18,6 @@ patch(ProductConfiguratorDialog.prototype, {
 
     async _loadData(onlyMainProduct) {
         console.log('📌 _loadData called with onlyMainProduct:', onlyMainProduct);
-        debugger;
 
             const result = await rpc(this.getValuesUrl, {
             product_template_id: this.props.productTemplateId,
@@ -35,9 +34,6 @@ patch(ProductConfiguratorDialog.prototype, {
             show_packaging: this.env.showPackaging,
             ...this._getAdditionalRpcParams(),
         });
-        console.log('🔍 product_template:', result.product_template);
-        console.log('🔍 product_template keys:', Object.keys(result.product_template || {}));
-        console.log('✅ Modified RPC data:', result);
         return result;
     }
 

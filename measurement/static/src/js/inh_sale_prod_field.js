@@ -36,7 +36,6 @@ patch(SaleOrderLineProductField.prototype, {
             ptavIds.push(...this._getNoVariantPtavIds(saleOrderLine));
             customPtavs = await this._getCustomPtavs(saleOrderLine);
         }
-        debugger;
         this.dialog.add(ProductConfiguratorDialog, {
             productTemplateId: saleOrderLine.product_template_id.id,
             ptavIds: ptavIds,

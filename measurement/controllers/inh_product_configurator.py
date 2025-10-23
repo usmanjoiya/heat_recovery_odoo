@@ -62,7 +62,7 @@ class SaleProductConfiguratorControllerInherit(SaleProductConfiguratorController
             attr_name = line.attribute_id.name
 
             # Check "No of MANIFOLDS"
-            if attr_name == "No of MANIFOLDS" and sale_order_data.get('no_of_manifolds'):
+            if attr_name == "No of Manifolds" and sale_order_data.get('no_of_manifolds'):
                 # find matching value by name or by numeric label
                 manifold_val = line.product_template_value_ids.filtered(
                     lambda v: str(v.name).strip() == str(sale_order_data['no_of_manifolds']).strip()
