@@ -169,6 +169,13 @@ class SaleOrder(models.Model):
         if not self.place_type:
             return
 
+        placement_products = self.env['placement.config'].search([]).mapped('product_id')
+        placement_product_ids = placement_products.ids
+
+        old_lines = self.order_line.filtered(lambda l: l.product_id.id in placement_product_ids)
+        if old_lines:
+            self.order_line -= old_lines
+
         for line in self.order_line:
             product = line.product_id
 
