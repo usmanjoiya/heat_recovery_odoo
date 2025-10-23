@@ -1,5 +1,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
+import re
 
 
 class SaleOrder(models.Model):
@@ -46,6 +47,8 @@ class SaleOrder(models.Model):
     correct_rate = fields.Float(string="Correct Rate", compute="_compute_correct_rate", store=True)
     req_cont_trickle = fields.Float(string="Required Continious Trickle")
     m3_h = fields.Float(string="M3/H")
+    no_of_manifolds=fields.Integer(string='Manifolds',compute="_get_no_of_manifolds")
+    no_of_points=fields.Integer(string='Points', compute="_compute_no_of_points")
 
     room_measurement_ids = fields.One2many('room.measurement', 'order_id', string="Room Measurements")
     commission_table_ids = fields.One2many('commission.table', 'order_id', string="Commissioning Table")
@@ -146,6 +149,63 @@ class SaleOrder(models.Model):
                 x.alrightness_price = first_record.guide_price_3
             elif x.dwelling_total_area > first_record.area3:
                 x.alrightness_price = first_record.guide_price_4
+
+    def _get_no_of_manifolds(self):
+        for order in self:
+            if order.floor_type == "concrete":
+                order.no_of_manifolds = 4
+            else:
+                order.no_of_manifolds = 2
+
+    def _compute_no_of_points(self):
+        for order in self:
+            total_room_drops = sum(order.room_measurement_ids.mapped('supply_drops'))
+            total_commission_drops = sum(order.commission_table_ids.mapped('drops'))
+            order.no_of_points = total_room_drops + total_commission_drops
+
+
+    @api.onchange('place_type')
+    def _onchange_place_type_add_products(self):
+        if not self.place_type:
+            return
+
+        for line in self.order_line:
+            product = line.product_id
+
+            ducting_attr = next(
+                (av for av in product.product_template_attribute_value_ids
+                 if av.attribute_id.name == 'Ducting Diameter'),
+                None
+            )
+            if not ducting_attr:
+                continue
+
+            match = re.search(r'\d+', ducting_attr.name)
+            if not match:
+                continue
+
+            diameter_value = int(match.group(0))
+
+            placement_configs = self.env['placement.config'].search([
+                ('place_type', '=', self.place_type),
+                ('diameter', '=', diameter_value)
+            ])
+
+            existing_product_ids = self.order_line.mapped('product_id').ids
+
+            for config in placement_configs:
+                existing_line = self.order_line.filtered(lambda l: l.product_id.id == config.product_id.id)
+                if existing_line:
+                    existing_line.product_uom_qty = config.quantity
+                    existing_line.part_of_id = product
+                    continue
+
+                self.order_line += self.order_line.new({
+                    'product_id': config.product_id.id,
+                    'product_uom_qty': config.quantity,
+                    'part_of_id': product,
+                })
+
 
 
 class RoomMeasurement(models.Model):
@@ -430,7 +490,6 @@ class SaleOrderLine(models.Model):
     part_of_id = fields.Many2one('product.product',string="Part Of")
 
 
-
 class StockRule(models.Model):
     _inherit = 'stock.rule'
 
@@ -480,6 +539,23 @@ class StockRule(models.Model):
                 })
 
         return result
+
+
+class PlacementConfig(models.Model):
+    _name = "placement.config"
+    _description = 'Placement Config'
+
+
+    name = fields.Char(string="Name")
+
+    place_type = fields.Selection(
+        [('roof_vents', 'Roof Vents'), ('wall_cowl', 'Wall Cowl')],
+        string='Placement'
+    )
+    diameter = fields.Integer(string="Diameter (mm)")
+    quantity = fields.Integer(string="QTY")
+    product_id = fields.Many2one('product.product', string="Product")
+
 
 
 

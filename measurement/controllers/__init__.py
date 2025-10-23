@@ -1,0 +1,1 @@
+from . import inh_product_configurator

@@ -14,9 +14,16 @@
         'views/dwelling_ventilation_views.xml',
         'views/inh_prod_temp_view.xml',
         'views/alrightness_pricess_views.xml',
+        'views/placement_config.xml',
         'reports/report_heat_recovery.xml',
         'reports/custom_temp_action_format.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'measurement/static/src/js/product_configurator_dialog_inherit.js',
+            'measurement/static/src/js/inh_sale_prod_field.js',
+        ],
+    },
     'installable': True,
     'application': False,
     'auto_install': False,
