@@ -13,9 +13,13 @@ class ChooseDeliveryCarrier(models.TransientModel):
         readonly=False,
     )
 
+    zip_code = fields.Char(string="Postal Code", compute="_compute_state_id")
+
+
     @api.depends("order_id")
     def _compute_state_id(self):
         for wizard in self:
+            wizard.zip_code = wizard.order_id.partner_shipping_id.zip
             wizard.state_id = wizard.order_id.partner_shipping_id.state_id
 
     def _get_delivery_rate(self):

@@ -5,8 +5,14 @@ class DeliveryPriceRule(models.Model):
     _inherit = 'delivery.price.rule'
 
     variable = fields.Selection(
-        selection_add=[("state", "State")],
-        ondelete={"state": "set default"},
+        selection_add=[
+            ("state", "State"),
+            ("zip", "Postal Code"),
+        ],
+        ondelete={
+            "state": "set default",
+            "zip": "set default",
+        },
     )
 
     state_id = fields.Many2one(
@@ -21,6 +27,8 @@ class DeliveryPriceRule(models.Model):
         store=False,
     )
 
+    zip_code = fields.Char(string="Postal Code")
+
     @api.depends('carrier_id.state_ids')
     def _compute_available_states(self):
         for rule in self:
@@ -30,9 +38,13 @@ class DeliveryPriceRule(models.Model):
     @api.depends('state_id', 'list_base_price', 'currency_id')
     def _compute_name(self):
         for rule in self:
-            if rule.state_id:
-                price = rule.currency_id and format_amount(self.env, rule.list_base_price,
-                                                           rule.currency_id) or "%.2f" % rule.list_base_price
+            price = rule.currency_id and format_amount(
+                self.env, rule.list_base_price, rule.currency_id
+            ) or "%.2f" % rule.list_base_price
+
+            if rule.variable == "zip" and rule.zip_code:
+                rule.name = _("Postal Code %s → %s") % (rule.zip_code, price)
+            elif rule.variable == "state" and rule.state_id:
                 rule.name = _("State %s → %s") % (rule.state_id.name, price)
             else:
                 super()._compute_name()
@@ -65,7 +77,12 @@ class DeliveryCarrier(models.Model):
 
     def _match_rule(self, order, rule):
         """Check state or other conditions."""
+        partner = order.partner_shipping_id if order else False
         state = order.partner_shipping_id.state_id if order else False
+        zip_code = partner.zip
+
+        if rule.variable == "zip" and zip_code:
+            return rule.zip_code and zip_code == rule.zip_code
 
         if rule.variable == "state":
             # Match by exact state
