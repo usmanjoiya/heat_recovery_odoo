@@ -42,8 +42,8 @@ class DeliveryPriceRule(models.Model):
                 self.env, rule.list_base_price, rule.currency_id
             ) or "%.2f" % rule.list_base_price
 
-            if rule.variable == "zip" and rule.zip_code:
-                rule.name = _("Postal Code %s → %s") % (rule.zip_code, price)
+            if rule.variable == "zip" and rule.postal_id:
+                rule.name = _("Postal Code %s → %s") % (rule.postal_id.name, price)
             elif rule.variable == "state" and rule.state_id:
                 rule.name = _("State %s → %s") % (rule.state_id.name, price)
             else:
@@ -80,9 +80,10 @@ class DeliveryCarrier(models.Model):
         partner = order.partner_shipping_id if order else False
         state = order.partner_shipping_id.state_id if order else False
         zip_code = partner.zip
+        postal_id =  order.partner_shipping_id.postal_id
 
-        if rule.variable == "zip" and zip_code:
-            return rule.zip_code and zip_code == rule.zip_code
+        if rule.variable == "zip" and postal_id:
+            return rule.postal_id and postal_id and (rule.postal_id.id == postal_id.id)
 
         if rule.variable == "state":
             # Match by exact state
