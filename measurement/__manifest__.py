@@ -1,6 +1,6 @@
 {
     'name': "Measurement Module",
-    'version': '1.0',
+    'version': '1.1',
     'summary': "Different measurement scenerio for the home for heat recovery.",
     'description': """
     This module extend different measurement scenerio

@@ -1,6 +1,6 @@
 {
     'name': "Delivery State Pricing",
-    'version': '1.0',
+    'version': '1.1',
     'summary': "Adds state-based pricing rules to delivery methods.",
     'description': """
         This module extends the delivery price rule to allow for
