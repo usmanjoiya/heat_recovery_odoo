@@ -20,7 +20,7 @@ class DeliveryPriceRule(models.Model):
         string="State",
         domain="[('id', 'in', available_state_ids)]",
     )
-
+    postal_id = fields.Many2one('postal.code')
     available_state_ids = fields.Many2many(
         'res.country.state',
         compute="_compute_available_states",

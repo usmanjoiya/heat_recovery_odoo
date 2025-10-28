@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="attr_ducting_diameter" model="product.attribute">
+            <field name="name">Ducting Diameter</field>
+        </record>
+
+        <record id="attr_no_manifolds" model="product.attribute">
+            <field name="name">No of Manifolds</field>
+        </record>
+
+        <record id="attr_no_points" model="product.attribute">
+            <field name="name">No of Points</field>
+        </record>
+    </data>
+</odoo>

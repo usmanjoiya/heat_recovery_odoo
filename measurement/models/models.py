@@ -29,7 +29,6 @@ class SaleOrder(models.Model):
 
     supply_install = fields.Selection(
         [('supply_fit_commission', 'Supply, Fit and Commission'),
-         ('supply_fit_only', 'Supply and Fit Only'),
          ('supply_only', 'Supply Only (Self Install)')],
         string='System Overview Supplier'
     )
@@ -66,6 +65,11 @@ class SaleOrder(models.Model):
     m3_h = fields.Float(string="M3/H")
     no_of_manifolds=fields.Integer(string='Manifolds',compute="_get_no_of_manifolds")
     no_of_points=fields.Integer(string='Points', compute="_compute_no_of_points")
+    no_of_radial_ducting = fields.Float(
+        string="No of Radial Ducting",
+        compute="_compute_no_of_radial_ducting",
+        store=True,
+    )
 
     room_measurement_ids = fields.One2many('room.measurement', 'order_id', string="Room Measurements")
     commission_table_ids = fields.One2many('commission.table', 'order_id', string="Commissioning Table")
@@ -78,6 +82,7 @@ class SaleOrder(models.Model):
     alrightness_id = fields.Many2one('alrightness.pricess', string="Alrightness")
     alrightness_price = fields.Float(string='Alrightness Price', compute="_compute_alrightness_price", store=True)
     product_line_ids = fields.One2many('sale.order.product.line', 'sale_id', string="Products (Filtered)")
+
 
     def action_get_products(self):
         for order in self:
@@ -120,13 +125,17 @@ class SaleOrder(models.Model):
             order.premium_prod = premium_line[0].product_id.id if premium_line else False
 
             Product = self.env['product.product']
+            attr_diameter = self.env.ref('measurement.attr_ducting_diameter')
+            attr_manifolds = self.env.ref('measurement.attr_no_manifolds')
+            attr_points = self.env.ref('measurement.attr_no_points')
+            print('attribute_idsssssssssssssssssssss',attr_diameter.name,attr_manifolds.id,attr_points.id )
             product = Product.search([
                 ('main_kit_product', '=', True),
-                ('product_template_attribute_value_ids.attribute_id.name', '=', 'Ducting Diameter'),
+                ('product_template_attribute_value_ids.attribute_id.name', '=', attr_diameter.name),
                     ('product_template_attribute_value_ids.product_attribute_value_id.name', '=', self.selective_diameter),
-                ('product_template_attribute_value_ids.attribute_id.name', '=', 'No of Manifolds'),
+                ('product_template_attribute_value_ids.attribute_id.name', '=', attr_manifolds.name),
                 ('product_template_attribute_value_ids.product_attribute_value_id.name', '=', str(self.no_of_manifolds)),
-                ('product_template_attribute_value_ids.attribute_id.name', '=', 'No of Points'),
+                ('product_template_attribute_value_ids.attribute_id.name', '=', attr_points.name),
                 ('product_template_attribute_value_ids.product_attribute_value_id.name', '=', str(self.no_of_points)),
             ])
             if product and not self.order_line.filtered(lambda l: l.product_id.id == product[0].id):
@@ -134,6 +143,50 @@ class SaleOrder(models.Model):
                     'product_id': product[0],
                     'product_uom_qty': 1,
                 })
+
+            placement_products = self.env['placement.config'].search([]).mapped('product_id')
+            placement_product_ids = placement_products.ids
+
+            old_lines = self.order_line.filtered(lambda l: l.product_id.id in placement_product_ids)
+            if old_lines:
+                self.order_line -= old_lines
+
+            for line in self.order_line:
+                product = line.product_id
+
+                ducting_attr = next(
+                    (av for av in product.product_template_attribute_value_ids
+                     if av.attribute_id.name == 'Ducting Diameter'),
+                    None
+                )
+                if not ducting_attr:
+                    continue
+
+                match = re.search(r'\d+', ducting_attr.name)
+                if not match:
+                    continue
+
+                diameter_value = int(match.group(0))
+
+                placement_configs = self.env['placement.config'].search([
+                    ('place_type', '=', self.place_type),
+                    ('diameter', '=', diameter_value)
+                ])
+
+                existing_product_ids = self.order_line.mapped('product_id').ids
+
+                for config in placement_configs:
+                    existing_line = self.order_line.filtered(lambda l: l.product_id.id == config.product_id.id)
+                    if existing_line:
+                        existing_line.product_uom_qty = config.quantity
+                        existing_line.part_of_id = product
+                        continue
+
+                    self.order_line += self.order_line.new({
+                        'product_id': config.product_id.id,
+                        'product_uom_qty': config.quantity,
+                        'part_of_id': product,
+                    })
 
 
     @api.depends('dwelling_total_area')
@@ -248,6 +301,24 @@ class SaleOrder(models.Model):
                     'part_of_id': product,
                 })
 
+    @api.depends('order_line.product_id')
+    def _compute_no_of_radial_ducting(self):
+        for order in self:
+            total_qty = 0.0
+            for line in order.order_line:
+                product = line.product_id
+                if product.main_kit_product:
+                    bom = self.env['mrp.bom'].search(
+                        [('product_id', '=', product.id)],
+                        limit=1
+                    )
+                    if bom:
+                        radial_bom_line = bom.bom_line_ids.filtered(
+                            lambda l: l.product_id.is_radial_pipe
+                        )
+                        if radial_bom_line:
+                            total_qty += sum(radial_bom_line.mapped('product_qty')) * 50
+            order.no_of_radial_ducting = total_qty
 
 
 class RoomMeasurement(models.Model):
@@ -418,6 +489,26 @@ class FloorNames(models.Model):
     floor_name = fields.Char(string='Floor Name')
 
 
+class PostalCode(models.Model):
+    _name = 'postal.code'
+    _description = 'Portal Code'
+
+    name = fields.Char(string='Postal code')
+    state_id = fields.Many2one('res.country.state')
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    postal_id = fields.Many2one('postal.code')
+
+
+class ResCountryState(models.Model):
+    _inherit = 'res.country.state'
+
+    name = fields.Char(string='Postal code')
+    postal_ids = fields.One2many('postal.code', 'state_id')
+
+
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
@@ -437,6 +528,11 @@ class ProductTemplate(models.Model):
     m3_h = fields.Float(string="Flow Rate (m³/h)")
 
     prod_capacity = fields.Float(string="Product Capacity")
+
+
+
+
+
 
 
 class SaleOrderProductLine(models.Model):
@@ -501,6 +597,8 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     product_type = fields.Selection(related="product_tmpl_id.product_type", store=True, readonly=True)
+    is_radial_pipe = fields.Boolean('Is Radial Pipe')
+
 
 
 class AlrightnessPricess(models.Model):

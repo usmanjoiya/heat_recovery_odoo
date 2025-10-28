@@ -12,7 +12,7 @@ class ChooseDeliveryCarrier(models.TransientModel):
         store=False,
         readonly=False,
     )
-
+    postal_id = fields.Many2one('postal.code')
     zip_code = fields.Char(string="Postal Code", compute="_compute_state_id")
 
 

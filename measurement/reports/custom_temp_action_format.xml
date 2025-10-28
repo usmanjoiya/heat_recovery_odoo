@@ -16,10 +16,10 @@
 <!--    </record>-->
 
     <template id="external_layout_custom_standard">
-<!--        <t t-if="not o" t-set="o" t-value="doc"/>-->
-<!--        <t t-if="not company" t-set="company_id" t-value="o.company_id"/>-->
+        <t t-if="not o" t-set="o" t-value="docs"/>
+        <t t-if="not company" t-set="company_id" t-value="o.company_id"/>
         <div t-attf-class="header">
-            <div style="width: 100%; font-size: 13px;">
+            <div style="width: 100%; font-size: 14px; font-family: sans-serif;">
                 <!-- Column 1: Logo -->
                 <div style="width: 15%; float:right;">
 <!--                    <t t-if="company_id.logo">-->
@@ -27,9 +27,32 @@
 <!--                             style="max-height: 100px; max-width: 100%;"/>-->
 <!--                    </t>-->
 <!--                    <t t-else="">-->
-<!--                        <img src="/woa_dp_report_layout/static/src/logo/logo.png"-->
-<!--                             style="max-height: 100px; max-width: 100%;"/>-->
+                        <img src="/measurement/static/src/img/heat recovery logo.png"
+                             style="max-height: 100px; max-width: 100%;"/>
 <!--                    </t>-->
+                </div>
+                <div style="font-size: 12px; font-family: sans-serif; float:left;">
+                    <t t-if="o.partner_id">
+                        <span t-esc="o.partner_id.name"/>
+                        <br/>
+                        <span t-esc="o.partner_id.street"/>
+                        <span t-esc="o.partner_id.street2"/>
+                        <br/>
+                        <span t-esc="o.partner_id.city"/>
+                        <t t-if="o.partner_id.state_id">,
+                            <span t-esc="o.partner_id.state_id.name"/>
+                        </t>
+                        <t t-if="o.partner_id.zip">
+                            <span t-esc="o.partner_id.zip"/>
+                        </t>
+                        <br/>
+                        <t t-if="o.partner_id.country_id">
+                            <span t-esc="o.partner_id.country_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-esc="o.partner_id.phone"/>,
+                        <span t-esc="o.partner_id.email"/>
+                    </t>
                 </div>
             </div>
         </div>

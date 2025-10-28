@@ -15,6 +15,7 @@
             <xpath expr="//form/group[2]" position="after">
                 <group>
                     <field name="state_id" string="State"/>
+                    <field name="postal_id" string="Postal"/>
                     <field name="zip_code" string="Postal Code"/>
                     <field name="list_base_price" widget="monetary" string="Delivery Price" />
                 </group>

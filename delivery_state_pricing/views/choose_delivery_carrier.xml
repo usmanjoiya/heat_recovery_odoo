@@ -7,6 +7,7 @@
             <xpath expr="//field[@name='carrier_id']" position="after">
                 <field name="zip_code"/>
                 <field name="state_id"/>
+                <field name="postal_id"/>
             </xpath>
         </field>
     </record>

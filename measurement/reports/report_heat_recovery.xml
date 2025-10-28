@@ -313,17 +313,17 @@
                                 </tr>
                                 <tr>
                                     <td style="border: 1px solid #000;text-align:center;font-weight: 700;">
-                                        <span t-field="doc.supply_kit"/>
+                                        <span>External Supply &amp; Extract Premium Thermal Foam Kit</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="border: 1px solid #000;text-align:center;font-weight: 700;">
-                                        <span t-field="doc.supply_kit_install"/>
+                                        <span>Connection Kit - Plenums, Valves, Radial pipe &amp; Manifolds</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="border: 1px solid #000;text-align:center;font-weight: 700;">
-                                        <span>N/A</span>
+                                        <span t-esc="doc.no_of_radial_ducting"/> <span> Meters Length of 75mm Semi-Rigid Radial</span>
                                     </td>
                                 </tr>
                             </table>

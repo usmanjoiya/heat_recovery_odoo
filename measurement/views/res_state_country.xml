@@ -1,0 +1,17 @@
+<odoo>
+    <!-- Tree/List View -->
+    <record id="view_res_country_state_form_inherit_custom" model="ir.ui.view">
+        <field name="name">res.country.state.form.inherit.custom</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='country_id']" position="after">
+                <field name="postal_ids">
+                        <list editable="bottom">
+                            <field name="name"/>
+                        </list>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>
