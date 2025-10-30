@@ -509,7 +509,7 @@ class PostalCode(models.Model):
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    postal_id = fields.Many2one('shipping.cost')
+    # postal_id = fields.Many2one('shipping.cost')
     postal_id_domain = fields.Many2many('postal.code')
 
 
