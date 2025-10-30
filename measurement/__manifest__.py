@@ -19,6 +19,7 @@
         'views/alrightness_pricess_views.xml',
         'views/placement_config.xml',
         'views/floor_conf_view.xml',
+        'views/inh_res_country_view.xml',
         'data/prod_attrs_name.xml',
         'reports/report_heat_recovery.xml',
         'reports/custom_temp_action_format.xml',

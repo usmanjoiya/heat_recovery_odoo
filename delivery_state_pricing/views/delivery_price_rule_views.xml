@@ -14,9 +14,10 @@
             </xpath>
             <xpath expr="//form/group[2]" position="after">
                 <group>
-                    <field name="state_id" string="State"/>
-                    <field name="postal_id" string="Postal"/>
-                    <field name="zip_code" string="Postal Code"/>
+                    <field name="country_id" string="country" invisible="variable != 'country'"/>
+                    <field name="state_id" string="State" invisible="variable != 'state'"/>
+                    <field name="postal_id" string="Postal" invisible="1"/>
+                    <field name="zip_code" string="Postal Code" invisible="1"/>
                     <field name="list_base_price" widget="monetary" string="Delivery Price" />
                 </group>
             </xpath>

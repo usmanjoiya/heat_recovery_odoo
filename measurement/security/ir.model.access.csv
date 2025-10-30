@@ -7,4 +7,5 @@ access_floor_names_user,floor.names.user,model_floor_names,base.group_user,1,1,1
 access_filter_products_user,sale.product.line,model_sale_order_product_line,base.group_user,1,1,1,1
 access_alrightness_pricess_user,access.alrightness.pricess.user,model_alrightness_pricess,base.group_user,1,1,1,1
 access_placement_config_user,access.placement.config.user,model_placement_config,base.group_user,1,1,1,1
-access_placement_config_user,postal.code.user,model_postal_code,base.group_user,1,1,1,1
+access__postal_code_config,postal.code.user,model_postal_code,base.group_user,1,1,1,1
+access_shipping_cost_user,shipping.cost.user,model_shipping_cost,base.group_user,1,1,1,1

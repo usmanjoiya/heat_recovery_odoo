@@ -7,27 +7,29 @@ class DeliveryPriceRule(models.Model):
     variable = fields.Selection(
         selection_add=[
             ("state", "State"),
-            ("zip", "Postal Code"),
+            ("country", "Country"),
         ],
         ondelete={
             "state": "set default",
-            "zip": "set default",
+            "country": "set default",
         },
     )
-
+    country_id = fields.Many2one(
+        'res.country',
+        string="Country",
+    )
     state_id = fields.Many2one(
         'res.country.state',
         string="State",
-        domain="[('id', 'in', available_state_ids)]",
     )
-    postal_id = fields.Many2one('postal.code')
+    postal_id = fields.Many2one('shipping.cost')
     available_state_ids = fields.Many2many(
         'res.country.state',
-        compute="_compute_available_states",
-        store=False,
     )
 
     zip_code = fields.Char(string="Postal Code")
+
+    postal_id_domain = fields.Many2many('postal.code')
 
     @api.depends('carrier_id.state_ids')
     def _compute_available_states(self):
@@ -42,8 +44,8 @@ class DeliveryPriceRule(models.Model):
                 self.env, rule.list_base_price, rule.currency_id
             ) or "%.2f" % rule.list_base_price
 
-            if rule.variable == "zip" and rule.postal_id:
-                rule.name = _("Postal Code %s → %s") % (rule.postal_id.name, price)
+            if rule.variable == "country" and rule.postal_id:
+                rule.name = _("Country %s → %s") % (rule.country_id.name, price)
             elif rule.variable == "state" and rule.state_id:
                 rule.name = _("State %s → %s") % (rule.state_id.name, price)
             else:
@@ -58,9 +60,17 @@ class DeliveryCarrier(models.Model):
         order = self.env.context.get("order")
         price = 0.0
         rules = self.env["delivery.price.rule"].search([("carrier_id", "=", self.id)], order="sequence")
+        state = self.env.context.get("wizard_state") or (order.partner_shipping_id.state_id if order else False)
+        postal_id = self.env.context.get("wizard_postal_id") or (order.partner_shipping_id.postal_id if order else False)
+        order_weight = self.env.context.get("order_weight")
+        #
+        # if postal_id:
+        #     cost = postal_id.cost
+        # elif state:
+        #     cost = state.cost
+
         for rule in rules:
-            if self._match_rule(order, rule):
-                # Compute factor properly
+            if self._match_rule(order, rule, state, postal_id):
                 factor = 1.0
                 if rule.variable_factor == "weight":
                     factor = weight
@@ -71,26 +81,37 @@ class DeliveryCarrier(models.Model):
                 elif rule.variable_factor == "wv":
                     factor = wv
 
-                price = rule.list_base_price + (rule.list_price * factor)
+                # Pick cost based on rule type
+                if rule.variable == "state" and state:
+                    if order_weight > 0.00:
+                        price = state.cost * order_weight
+                    else:
+                        price = state.cost
+                elif rule.variable == "country" and postal_id:
+                    if order_weight > 0.00:
+                        price = postal_id.cost * order_weight
+                    else:
+                        price = postal_id.cost
+                else:
+                    price = rule.list_base_price
+
+                # price = cost           #rule.list_base_price + (rule.list_price * factor)
                 break
         return price
 
-    def _match_rule(self, order, rule):
-        """Check state or other conditions."""
-        partner = order.partner_shipping_id if order else False
-        state = order.partner_shipping_id.state_id if order else False
-        zip_code = partner.zip
-        postal_id =  order.partner_shipping_id.postal_id
+    def _match_rule(self, order, rule, state=None, postal_id=None):
+        # if not state:
+        #     state = order.partner_shipping_id.state_id if order else False
+        # if not postal_id:
+        #     postal_id = order.partner_shipping_id.postal_id if order else False
 
-        if rule.variable == "zip" and postal_id:
-            return rule.postal_id and postal_id and (rule.postal_id.id == postal_id.id)
+        if rule.variable == "country":
+            return True
 
-        if rule.variable == "state":
-            # Match by exact state
-            return rule.state_id and state and (rule.state_id.id == state.id)
+        elif rule.variable == "state":
+            return True
 
-        # Fallbacks: weight, qty, volume
-        if rule.variable == "weight":
+        elif rule.variable == "weight":
             value = order.shipping_weight
         elif rule.variable == "quantity":
             value = sum(order.order_line.mapped("product_uom_qty"))

@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_country_form_inherit_shipping_cost" model="ir.ui.view">
+        <field name="name">res.country.form.inherit.shipping.cost</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_form"/>
+        <field name="arch" type="xml">
+            <!-- Place after the field 'state_ids' -->
+            <xpath expr="//field[@name='state_ids']" position="after">
+                <separator string="Shipping Costs"/>
+                <field name="shipping_cost_ids">
+                    <list editable="bottom">
+                        <field name="name"/>
+                        <field name="cost"/>
+                    </list>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

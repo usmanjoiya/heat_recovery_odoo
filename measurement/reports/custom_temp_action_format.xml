@@ -43,7 +43,7 @@
                             <span t-esc="o.partner_id.state_id.name"/>
                         </t>
                         <t t-if="o.partner_id.zip">
-                            <span t-esc="o.partner_id.zip"/>
+                            <span t-esc="o.partner_id.postal_id.name"/>
                         </t>
                         <br/>
                         <t t-if="o.partner_id.country_id">

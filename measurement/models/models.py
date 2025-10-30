@@ -70,6 +70,7 @@ class SaleOrder(models.Model):
         compute="_compute_no_of_radial_ducting",
         store=True,
     )
+    global_discount = fields.Float(string="Discount (%)", default=0.0)
 
     room_measurement_ids = fields.One2many('room.measurement', 'order_id', string="Room Measurements")
     commission_table_ids = fields.One2many('commission.table', 'order_id', string="Commissioning Table")
@@ -82,6 +83,14 @@ class SaleOrder(models.Model):
     alrightness_id = fields.Many2one('alrightness.pricess', string="Alrightness")
     alrightness_price = fields.Float(string='Alrightness Price', compute="_compute_alrightness_price", store=True)
     product_line_ids = fields.One2many('sale.order.product.line', 'sale_id', string="Products (Filtered)")
+
+    @api.onchange('global_discount')
+    def _onchange_discounted_price(self):
+        """Compute discounted price based on sale_price and discount."""
+        for order in self:
+            for line in order.product_line_ids:
+                new_sale_price = line.product_id.list_price * (1 - (order.global_discount / 100))
+                line.sale_price = new_sale_price
 
 
     def action_get_products(self):
@@ -101,6 +110,7 @@ class SaleOrder(models.Model):
                     'product_diameter': prod.product_diameter,
                     'product_type': prod.product_type,
                     'm3_h': prod.m3_h,
+                    'sale_price': prod.product_variant_id.list_price,  # 👈 capture the sale price
                     'prod_capacity': (order.m3_h / prod.m3_h * 100) if order.m3_h and prod.m3_h else 0.0,
                 }
                 lines.append((0, 0, vals))
@@ -499,7 +509,27 @@ class PostalCode(models.Model):
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    postal_id = fields.Many2one('postal.code')
+    postal_id = fields.Many2one('shipping.cost')
+    postal_id_domain = fields.Many2many('postal.code')
+
+
+    @api.model
+    def create(self, vals):
+        """Set postal_id automatically on create, based on zip."""
+        if vals.get('zip') and not vals.get('postal_id'):
+            postal = self.env['shipping.cost']._get_postal_from_zip(vals['zip'])
+            if postal:
+                vals['postal_id'] = postal.id
+        return super().create(vals)
+
+    def write(self, vals):
+        """Update postal_id automatically when zip changes."""
+        res = super().write(vals)
+        if 'zip' in vals:
+            for partner in self:
+                postal = self.env['shipping.cost']._get_postal_from_zip(partner.zip)
+                partner.postal_id = postal.id if postal else False
+        return res
 
 
 class ResCountryState(models.Model):
@@ -507,6 +537,7 @@ class ResCountryState(models.Model):
 
     name = fields.Char(string='Postal code')
     postal_ids = fields.One2many('postal.code', 'state_id')
+    cost = fields.Float(String='Cost')
 
 
 class ProductTemplate(models.Model):
@@ -551,6 +582,10 @@ class SaleOrderProductLine(models.Model):
     prod_capacity = fields.Float(string="Capacity")
     already_link = fields.Boolean(string='Linked', compute='_already_link_on_sale')
 
+    sale_price = fields.Float(string="Sale Price")
+    discount = fields.Float(string="Discount (%)", default=0.0)
+    discounted_price = fields.Float(string="Discounted Price")
+
     def _already_link_on_sale(self):
         for line in self:
             link = False
@@ -587,7 +622,7 @@ class SaleOrderProductLine(models.Model):
                     'product_id': rec.product_id.id,
                     'name': rec.product_id.display_name,
                     'product_uom_qty': 1,
-                    'price_unit': rec.product_id.lst_price,
+                    'price_unit': rec.sale_price,
                     'tax_ids': [(6, 0, rec.product_id.taxes_id.ids)],
                     'part_of_id': kit_exist[0].product_id.id if kit_exist else False,
                 })
@@ -703,3 +738,30 @@ class PlacementConfig(models.Model):
 
 
 
+class ShippingCost(models.Model):
+    _name = 'shipping.cost'
+    _description = 'Shipping Cost'
+
+    name = fields.Char(string='Postal code')
+    cost = fields.Float(string='Cost')
+    country_id = fields.Many2one('res.country', string="Country")
+
+    @api.model
+    def _get_postal_from_zip(self, zip_code):
+        """Find matching shipping.cost record by checking prefixes of zip (5→4→3→2)."""
+        if not zip_code:
+            return False
+        zip_code = zip_code.strip().upper()
+        ShippingCost = self.env['shipping.cost']
+        for length in [5, 4, 3, 2]:
+            prefix = zip_code[:length]
+            postal = ShippingCost.search([('name', '=', prefix)], limit=1)
+            if postal:
+                return postal
+        return False
+
+
+class ResCountry(models.Model):
+    _inherit = 'res.country'
+
+    shipping_cost_ids = fields.One2many('shipping.cost','country_id')

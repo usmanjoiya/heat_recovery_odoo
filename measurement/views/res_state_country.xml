@@ -6,11 +6,12 @@
         <field name="inherit_id" ref="base.view_country_state_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='country_id']" position="after">
-                <field name="postal_ids">
-                        <list editable="bottom">
-                            <field name="name"/>
-                        </list>
-                </field>
+                <field name="cost"/>
+                <!--                <field name="postal_ids">-->
+<!--                        <list editable="bottom">-->
+<!--                            <field name="name"/>-->
+<!--                        </list>-->
+<!--                </field>-->
             </xpath>
         </field>
     </record>

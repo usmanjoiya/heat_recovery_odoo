@@ -184,7 +184,7 @@
                                 <br/>
                                 <div style="text-align:center;">
                                     <img src="/measurement/static/src/img/Machine.png"
-                                         style="max-width:60%; height:auto;"/>
+                                         style="max-width:60%; height:auto; border-right:1px solid Transparent;"/>
                                 </div>
                             </div>
 
@@ -323,97 +323,130 @@
                                 </tr>
                                 <tr>
                                     <td style="border: 1px solid #000;text-align:center;font-weight: 700;">
-                                        <span t-esc="doc.no_of_radial_ducting"/> <span> Meters Length of 75mm Semi-Rigid Radial</span>
+                                        <span t-esc="doc.no_of_radial_ducting" t-options="{'widget':'float', 'precision':0}"/> <span> Meters Length of 75mm Semi-Rigid Radial</span>
                                     </td>
                                 </tr>
                             </table>
 
-                            <table style="width:100%; border-collapse:collapse; margin:25px 0; font-size:14px;">
+                            <table style="width:100%; margin:25px 0; font-size:14px;">
                                 <tr style="background-color:#70ad47; color:#000; font-weight:600; text-align:center;">
                                     <td colspan="4" style="padding:8px; border:1px solid #000;">MVHR Units and Kit Total
                                         Pricing
                                     </td>
                                 </tr>
                                 <tr style="background:#f2f2f2; font-weight:600; text-align:center;">
-                                    <td style="border:1px solid #000; padding:6px;"/>
-                                    <td style="border:1px solid #000; padding:6px;">Basic</td>
-                                    <td style="border:1px solid #000; padding:6px;">Upgraded</td>
-                                    <td style="border:1px solid #000; padding:6px;">Premium</td>
+                                    <td style="border:1px solid #000; padding:6px; width:40%;"/>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">Basic</td>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">Upgraded</td>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">Premium</td>
                                 </tr>
                                 <tr style="text-align:center; font-weight:400;">
-                                    <td style="border:1px solid #000; padding:6px; font-weight:600;">Manufacturer and
+                                    <td style="border:1px solid #000; padding:6px; font-weight:600; width:40%;">Manufacturer and
                                         Model
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-esc="doc.basic_prod.name"/>
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-esc="doc.upgraded_prod.name"/>
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-esc="doc.premium_prod.name"/>
                                     </td>
                                 </tr>
 
                                 <tr style="text-align:center; font-weight:400; background:#fafafa;">
-                                    <td style="border:1px solid #000; padding:6px; text-align:left;">Sub Total</td>
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        £ <t t-esc="doc.basic_prod.lst_price + doc.line_price_of_kit"/>
+                                    <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Sub Total</td>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.basic_prod">
+                                            £ <t t-esc="doc.basic_prod.lst_price + doc.line_price_of_kit"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
+
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        £ <t t-esc="doc.upgraded_prod.lst_price + doc.line_price_of_kit"/>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.upgraded_prod">
+                                            £ <t t-esc="doc.upgraded_prod.lst_price + doc.line_price_of_kit"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
+
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        £ <t t-esc="doc.premium_prod.lst_price + doc.line_price_of_kit"/>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.premium_prod">
+                                            £ <t t-esc="doc.premium_prod.lst_price + doc.line_price_of_kit"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
                                     </td>
                                 </tr>
 
                                 <tr style="text-align:center; font-weight:400;">
                                     <t t-set="delivery_line"
                                        t-value="doc.order_line.filtered(lambda l: 'standard delivery' in l.product_id.display_name.lower())"/>
-                                    <td style="border:1px solid #000; padding:6px; text-align:left;">Shipping</td>
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Shipping</td>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
                                     </td>
                                 </tr>
 
                                 <tr style="text-align:center; font-weight:400; background:#fafafa;">
-                                    <td style="border:1px solid #000; padding:6px; text-align:left;">VAT</td>
+                                    <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">VAT</td>
 
                                     <!-- Basic -->
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        <t t-if="doc.basic_prod.taxes_id">
-                                            <t t-foreach="doc.basic_prod.taxes_id" t-as="tax">
-                                                <t t-esc="str(tax.amount) + '%'"/>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.basic_prod">
+                                            <t t-if="doc.basic_prod.taxes_id">
+                                                <t t-foreach="doc.basic_prod.taxes_id" t-as="tax">
+                                                    <t t-esc="str(tax.amount) + '%'"/>
+                                                </t>
                                             </t>
+                                            <t t-if="not doc.basic_prod.taxes_id">0%</t>
                                         </t>
-                                        <t t-if="not doc.basic_prod.taxes_id">0%</t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
+
                                     </td>
 
                                     <!-- Upgraded -->
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        <t t-if="doc.upgraded_prod.taxes_id">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.upgraded_prod">
+                                            <t t-if="doc.upgraded_prod.taxes_id">
                                             <t t-foreach="doc.upgraded_prod.taxes_id" t-as="tax">
                                                 <t t-esc="str(tax.amount) + '%'"/>
                                             </t>
                                         </t>
                                         <t t-if="not doc.upgraded_prod.taxes_id">0%</t>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
                                     </td>
 
                                     <!-- Premium -->
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        <t t-if="doc.premium_prod.taxes_id">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.premium_prod">
+                                            <t t-if="doc.premium_prod.taxes_id">
                                             <t t-foreach="doc.premium_prod.taxes_id" t-as="tax">
                                                 <t t-esc="str(tax.amount) + '%'"/>
                                             </t>
                                         </t>
                                         <t t-if="not doc.premium_prod.taxes_id">0%</t>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
                                     </td>
                                 </tr>
                                 <tr style="text-align:center; font-weight:400;">
@@ -423,51 +456,85 @@
                                        t-value="doc.upgraded_prod.lst_price + delivery_line.price_subtotal + doc.line_price_of_kit"/>
                                     <t t-set="premium_vat"
                                        t-value="doc.premium_prod.lst_price + delivery_line.price_subtotal + doc.line_price_of_kit"/>
-                                    <td style="border:1px solid #000; padding:6px; text-align:left;">Total Exc VAT</td>
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        £ <t t-esc="basic_vat"/>
+                                    <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Total Exc VAT</td>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.basic_prod">
+                                            £ <t t-esc="basic_vat"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
+
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        £ <t t-esc="upgrade_vat"/>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.upgraded_prod">
+                                            £ <t t-esc="upgrade_vat"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
+
                                     </td>
-                                    <td style="border:1px solid #000; padding:6px;">
-                                        £ <t t-esc="premium_vat"/>
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
+                                        <t t-if="doc.premium_prod">
+                                            £ <t t-esc="premium_vat"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
                                     </td>
                                 </tr>
                                 <tr style="text-align:center; font-weight:400;">
-                                    <td style="border:1px solid #000; padding:6px; text-align:left;">Total Inc VAT</td>
+                                    <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Total Inc VAT</td>
 
                                     <!-- Basic -->
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-set="shipping_line"
                                            t-value="doc.order_line.filtered(lambda l: l.product_id.name == 'Standard delivery')[:1]"/>
                                         <t t-set="shipping_price"
                                            t-value="shipping_line.price_total if shipping_line else 0.0"/>
                                         <t t-set="basic_total"
                                            t-value="(doc.basic_prod.lst_price + doc.line_price_of_kit) * (1 + (doc.basic_prod.taxes_id and doc.basic_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
-                                        <t t-esc="'£ {:.2f}'.format(basic_total)"/>
+                                        <t t-if="doc.basic_prod">
+                                            <t t-esc="'£ {:.2f}'.format(basic_total)"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
+
                                     </td>
 
                                     <!-- Upgraded -->
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-set="shipping_line"
                                            t-value="doc.order_line.filtered(lambda l: l.product_id.name == 'Standard delivery')[:1]"/>
                                         <t t-set="shipping_price"
                                            t-value="shipping_line.price_total if shipping_line else 0.0"/>
                                         <t t-set="upgrade_total"
                                            t-value="(doc.upgraded_prod.lst_price+ doc.line_price_of_kit) * (1 + (doc.upgraded_prod.taxes_id and doc.upgraded_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
-                                        <t t-esc="'£ {:.2f}'.format(upgrade_total)"/>
+                                        <t t-if="doc.upgraded_prod">
+                                            <t t-esc="'£ {:.2f}'.format(upgrade_total)"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
                                     </td>
 
                                     <!-- Premium -->
-                                    <td style="border:1px solid #000; padding:6px;">
+                                    <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-set="shipping_line"
                                            t-value="doc.order_line.filtered(lambda l: l.product_id.name == 'Standard delivery')[:1]"/>
                                         <t t-set="shipping_price"
                                            t-value="shipping_line.price_total if shipping_line else 0.0"/>
                                         <t t-set="premium_total"
                                            t-value="(doc.premium_prod.lst_price + doc.line_price_of_kit) * (1 + (doc.premium_prod.taxes_id and doc.premium_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
-                                        <t t-esc="'£ {:.2f}'.format(premium_total)"/>
+                                        <t t-if="doc.premium_prod">
+                                            <t t-esc="'£ {:.2f}'.format(premium_total)"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
+
                                     </td>
                                 </tr>
 

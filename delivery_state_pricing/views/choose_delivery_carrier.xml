@@ -5,9 +5,16 @@
         <field name="inherit_id" ref="delivery.choose_delivery_carrier_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='carrier_id']" position="after">
-                <field name="zip_code"/>
+                <field name="zip_code" invisible="1"/>
                 <field name="state_id"/>
                 <field name="postal_id"/>
+            </xpath>
+             <!-- Make weight_uom_name invisible -->
+            <xpath expr="//field[@name='weight_uom_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='total_weight']" position="attributes">
+                <attribute name="string">No of Pallets</attribute>
             </xpath>
         </field>
     </record>
