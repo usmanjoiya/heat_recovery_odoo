@@ -512,14 +512,14 @@ class ResPartner(models.Model):
     postal_id = fields.Many2one('shipping.cost')
     postal_id_domain = fields.Many2many('postal.code')
 
-
     @api.model
     def create(self, vals):
         """Set postal_id automatically on create, based on zip."""
-        if vals.get('zip') and not vals.get('postal_id'):
-            postal = self.env['shipping.cost']._get_postal_from_zip(vals['zip'])
-            if postal:
-                vals['postal_id'] = postal.id
+        for val in vals:
+            if val.get('zip') and not val.get('postal_id'):
+                postal = self.env['shipping.cost']._get_postal_from_zip(val['zip'])
+                if postal:
+                    val['postal_id'] = postal.id
         return super().create(vals)
 
     def write(self, vals):
