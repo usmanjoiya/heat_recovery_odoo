@@ -390,13 +390,28 @@
                                        t-value="doc.order_line.filtered(lambda l: 'standard delivery' in l.product_id.display_name.lower())"/>
                                     <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Shipping</td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
-                                        £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        <t t-if="doc.basic_prod">
+                                            £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
-                                        £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        <t t-if="doc.upgraded_prod">
+                                            £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
-                                        £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        <t t-if="doc.premium_prod">
+                                            £ <t t-esc="delivery_line.price_subtotal if delivery_line else 0.0"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span/>
+                                        </t>
                                     </td>
                                 </tr>
 

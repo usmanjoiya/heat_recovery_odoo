@@ -60,8 +60,8 @@ class DeliveryCarrier(models.Model):
         order = self.env.context.get("order")
         price = 0.0
         rules = self.env["delivery.price.rule"].search([("carrier_id", "=", self.id)], order="sequence")
-        state = self.env.context.get("wizard_state") or (order.partner_shipping_id.state_id if order else False)
-        postal_id = self.env.context.get("wizard_postal_id") or (order.partner_shipping_id.postal_id if order else False)
+        state = self.env.context.get("wizard_state")
+        postal_id = self.env.context.get("wizard_postal_id")
         order_weight = self.env.context.get("order_weight")
         #
         # if postal_id:
@@ -100,15 +100,19 @@ class DeliveryCarrier(models.Model):
         return price
 
     def _match_rule(self, order, rule, state=None, postal_id=None):
-        # if not state:
-        #     state = order.partner_shipping_id.state_id if order else False
-        # if not postal_id:
-        #     postal_id = order.partner_shipping_id.postal_id if order else False
+        if not state:
+            state = self.env.context.get("wizard_state")
+        if not postal_id:
+            postal_id = self.env.context.get("wizard_postal_id")
 
         if rule.variable == "country":
+            if not postal_id:
+                return False
             return True
 
         elif rule.variable == "state":
+            if not state:
+                return False
             return True
 
         elif rule.variable == "weight":
