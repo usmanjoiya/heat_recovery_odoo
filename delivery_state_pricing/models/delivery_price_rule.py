@@ -111,7 +111,11 @@ class DeliveryCarrier(models.Model):
             return True
 
         elif rule.variable == "state":
-            if not state:
+            if state.id == rule.state_id.id:
+                return True
+            elif state != rule.state_id.id:
+                return False
+            elif not state:
                 return False
             return True
 

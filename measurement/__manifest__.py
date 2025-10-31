@@ -7,7 +7,7 @@
     """,
     'author': "Shaheer",
     'category': 'Sales',
-    'depends': ['base','sale','mail','contacts'],
+    'depends': ['base', 'product', 'sale','mail','contacts','product'],
     'data': [
         'security/ir.model.access.csv',
         'views/inh_sale_order.xml',
@@ -20,6 +20,7 @@
         'views/placement_config.xml',
         'views/floor_conf_view.xml',
         'views/inh_res_country_view.xml',
+        'views/inh_prod_category_view.xml',
         'data/prod_attrs_name.xml',
         'reports/report_heat_recovery.xml',
         'reports/custom_temp_action_format.xml',
