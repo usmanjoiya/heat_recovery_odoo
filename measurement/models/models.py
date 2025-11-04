@@ -123,8 +123,8 @@ class SaleOrder(models.Model):
                 order.base_cost += order.milage_one_way * order.per_mile_cost
             if order.nights:
                 order.base_cost += order.nights * order.per_night_cost
-            if order.coring:
-                order.base_cost += order.coring
+            #if order.coring:
+                #order.base_cost += order.coring
             if order.commission:
                 commission_mapping = {
                     '0': 0.00,
