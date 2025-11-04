@@ -106,14 +106,11 @@ class SaleOrder(models.Model):
     calculator_tool_ids = fields.One2many('calculator.tool', 'order_id', string="Calculator Tool")
     coring_coster_line_ids = fields.One2many('coring.coster.line','order_id',string="Coring Coster")
 
-
     @api.depends('coring_coster_line_ids')
     def _get_coring_value(self):
         for order in self:
-            if order.coring_coster_line_ids:
-                order.coring = sum(line.sub_total for line in order.coring_coster_line_ids)
-
-
+            order.coring = sum(
+                line.sub_total for line in order.coring_coster_line_ids) if order.coring_coster_line_ids else 0.0
 
     @api.depends('milage_one_way', 'nights', 'coring', 'commission', 'men_needed', 'days', 'trip_needed')
     def _compute_base_cost(self):
@@ -123,8 +120,8 @@ class SaleOrder(models.Model):
                 order.base_cost += order.milage_one_way * order.per_mile_cost
             if order.nights:
                 order.base_cost += order.nights * order.per_night_cost
-            #if order.coring:
-                #order.base_cost += order.coring
+            if order.coring:
+                order.base_cost += order.coring
             if order.commission:
                 commission_mapping = {
                     '0': 0.00,
