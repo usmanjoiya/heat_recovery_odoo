@@ -33,6 +33,9 @@
                         <field name="correct_rate" readonly="1"/>
                         <field name="req_cont_trickle" force_save="1" readonly="1" invisible="1"/>
                         <field name="m3_h" force_save="1" readonly="1"/>
+                        <field name="per_men_cost"/>
+                        <field name="per_night_cost"/>
+                        <field name="per_mile_cost"/>
                         <field name="no_of_manifolds" invisible="1"/>
                         <field name="no_of_points" invisible="1"/>
                     </group>
@@ -42,7 +45,44 @@
             <xpath expr="//field[@name='order_line']/list" position="inside">
                 <field name="part_of_id"/>
             </xpath>
-
+            <xpath expr="//page[@name='order_lines']" position="after">
+                <page string="Calculator Tool">
+                    <form>
+                        <button name="action_add_calculator_product"
+                                string="Add Calculator Product"
+                                type="object"
+                                class="btn-primary"
+                                icon="fa-plus"/>
+                        <group>
+                            <group class="group_left" string="INSTALL PRICING TOOL">
+                                <field name="milage_one_way"/>
+                                <field name="nights"/>
+                                <field name="coring"/>
+                                <field name="commission"/>
+                                <field name="men_needed"/>
+                                <field name="days"/>
+                                <field name="trip_needed"/>
+                            </group>
+                            <group class="group_right" string="COST">
+                                <field name="base_cost" force_save="1"/>
+                                <field name="profit"/>
+                                <field name="total" force_save="1"/>
+                            </group>
+                        </group>
+                    </form>
+                </page>
+                <page string="Coring Coster">
+                    <field name="coring_coster_line_ids">
+                        <list editable="bottom">
+                            <field name="core_size"/>
+                            <field name="amount"/>
+                            <field name="cost"/>
+                            <field name="sub_total"/>
+                            <field name="total_cost"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
             <xpath expr="//page[@name='order_lines']" position="before">
                 <page string="Extract">
                     <field name="commission_table_ids">
@@ -115,6 +155,23 @@
                         </field>
                     </group>
                 </page>
+<!--                <page string="Calculator Tool">-->
+<!--                    <field name="calculator_tool_ids">-->
+<!--                        <list editable="bottom">-->
+<!--                            <field name="milage_one_way"/>-->
+<!--                            <field name="nights"/>-->
+<!--                            <field name="coring"/>-->
+<!--                            <field name="commission"/>-->
+<!--                            <field name="men_needed"/>-->
+<!--                            <field name="days"/>-->
+<!--                            <field name="trip_needed"/>-->
+<!--                            <field name="base_cost"/>-->
+<!--                            <field name="profit"/>-->
+<!--                            <field name="total"/>-->
+
+<!--                        </list>-->
+<!--                    </field>-->
+<!--                </page>-->
             </xpath>
             <xpath expr="//page[@name='order_lines']" position="attributes">
                 <attribute name="string">Kit Material</attribute>

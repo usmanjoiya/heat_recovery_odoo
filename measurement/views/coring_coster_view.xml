@@ -1,0 +1,50 @@
+<odoo>
+    <!-- Tree/List View -->
+    <record id="view_coring_coster_list" model="ir.ui.view">
+        <field name="name">coring.coster.list</field>
+        <field name="model">coring.coster</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="core_size"/>
+                <field name="amount" column_invisible="1"/>
+                <field name="cost" />
+                <field name="sub_total" column_invisible="1" />
+                <field name="total_cost" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+     Form View
+    <record id="view_coring_cost_form" model="ir.ui.view">
+        <field name="name">coring.coster.form</field>
+        <field name="model">coring.coster</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="core_size"/>
+                        <field name="amount" invisible="1"/>
+                        <field name="cost"/>
+                        <field name="sub_total" invisible="1"/>
+                        <field name="total_cost" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_coring_coster" model="ir.actions.act_window">
+        <field name="name">Coring Cost Configuration</field>
+        <field name="res_model">coring.coster</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu Item under Sales > Configuration -->
+    <menuitem id="menu_floor_conf"
+              name="Coring Cost Config"
+              parent="sale.menu_sale_config"
+              action="action_coring_coster"
+              sequence="25"/>
+</odoo>

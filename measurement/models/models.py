@@ -71,6 +71,26 @@ class SaleOrder(models.Model):
         store=True,
     )
     global_discount = fields.Float(string="Discount (%)", default=0.0)
+    milage_one_way = fields.Integer(string="MILAGE ONE WAY")
+    nights = fields.Integer(string="NIGHTS")
+    coring = fields.Float(string="CORING", compute="_get_coring_value")
+    commission = fields.Selection(
+        [
+            ('0', '0'),
+            ('175', '175'),
+            ('250', '250')],
+        string='COMMISSIONING'
+    )
+    men_needed = fields.Integer(string="MEN NEEDED")
+    days = fields.Integer(string="DAYS")
+    trip_needed = fields.Integer(string="TRIPS NEEDED")
+    base_cost = fields.Float(string="BASE COST", compute="_compute_base_cost", store=True)
+    profit = fields.Float(string="PROFIT")
+    total = fields.Float(string="TOTAL", compute="_get_total_cost", store=True)
+
+    per_men_cost = fields.Float(string="Per Men Cost",default=130.00)
+    per_night_cost = fields.Float(string="Per Night Cost",default=115.00)
+    per_mile_cost = fields.Float(string="Per Mile Cost",default=0.45)
 
     room_measurement_ids = fields.One2many('room.measurement', 'order_id', string="Room Measurements")
     commission_table_ids = fields.One2many('commission.table', 'order_id', string="Commissioning Table")
@@ -83,6 +103,81 @@ class SaleOrder(models.Model):
     alrightness_id = fields.Many2one('alrightness.pricess', string="Alrightness")
     alrightness_price = fields.Float(string='Alrightness Price', compute="_compute_alrightness_price", store=True)
     product_line_ids = fields.One2many('sale.order.product.line', 'sale_id', string="Products (Filtered)")
+    calculator_tool_ids = fields.One2many('calculator.tool', 'order_id', string="Calculator Tool")
+    coring_coster_line_ids = fields.One2many('coring.coster.line','order_id',string="Coring Coster")
+
+
+    @api.depends('coring_coster_line_ids')
+    def _get_coring_value(self):
+        for order in self:
+            if order.coring_coster_line_ids:
+                order.coring = sum(line.sub_total for line in order.coring_coster_line_ids)
+
+
+
+    @api.depends('milage_one_way', 'nights', 'coring', 'commission', 'men_needed', 'days', 'trip_needed')
+    def _compute_base_cost(self):
+        for order in self:
+            order.base_cost = 0.0
+            if order.milage_one_way:
+                order.base_cost += order.milage_one_way * order.per_mile_cost
+            if order.nights:
+                order.base_cost += order.nights * order.per_night_cost
+            if order.coring:
+                order.base_cost += order.coring
+            if order.commission:
+                commission_mapping = {
+                    '0': 0.00,
+                    '175': 175.00,
+                    '250': 200.00,
+                }
+                order.base_cost += commission_mapping.get(order.commission, 0.0)
+            if order.men_needed:
+                order.base_cost += order.men_needed * order.per_men_cost
+            if order.days:
+                order.base_cost += order.days * (order.men_needed * order.per_men_cost)
+            if order.trip_needed:
+                total_trip_cost = (order.milage_one_way * order.per_mile_cost) * 2
+                order.base_cost += total_trip_cost
+
+    @api.depends('base_cost','profit')
+    def _get_total_cost(self):
+        for order in self:
+            order.total = 0.0
+            if order.profit:
+                order.total = order.profit + order.base_cost
+            else:
+                order.total += order.base_cost
+
+    @api.model
+    def _get_service_product(self):
+        """Helper to fetch the calculator service product"""
+        product = self.env.ref('measurement.service_product_calculator_tool', raise_if_not_found=False)
+        if not product:
+            raise UserError(_("The service product 'Calculator Tool' is missing. Please check XML ID 'service_product_calculator_tool'."))
+        return product.product_variant_id
+
+    def action_add_calculator_product(self):
+        """Add the calculator service product to order lines"""
+        for order in self:
+            if not order.total:
+                raise UserError(_("Total value is missing, please compute it before adding the product."))
+
+            product = order._get_service_product()
+
+            # Check if product already exists in order lines
+            existing_line = order.order_line.filtered(lambda l: l.product_id == product)
+            if existing_line:
+                existing_line.price_unit = order.total
+                existing_line.product_uom_qty = 1
+            else:
+                order.order_line = [(0, 0, {
+                    'product_id': product.id,
+                    'product_uom_qty': 1,
+                    'price_unit': order.total,
+                    'name': product.name,
+                })]
+        return True
 
     @api.onchange('global_discount')
     def _onchange_discounted_price(self):
@@ -811,3 +906,74 @@ class ProductCategory(models.Model):
         default=2.25,
         help='Custom multiplier factor for this category'
     )
+
+
+
+class CoringCoster(models.Model):
+    _name = 'coring.coster'
+    _description = 'Coring Coster'
+
+    name = fields.Char(string="Name")
+    core_size = fields.Char(string="Core Size")
+    amount = fields.Float(string="Amount")
+    cost = fields.Float(string="Cost")
+    sub_total = fields.Integer(string="Sub Total")
+    total_cost = fields.Integer(string="Total")
+
+
+
+class CalculatorTool(models.Model):
+    _name = 'calculator.tool'
+    _description = 'Calculator Tool'
+
+    order_id = fields.Many2one('sale.order', string='Sale Order', ondelete='cascade')
+    milage_one_way = fields.Integer(string="MILAGE ONE WAY")
+    nights = fields.Integer(string="NIGHTS")
+    coring = fields.Float(string="CORING")
+    commission = fields.Selection(
+        [
+            ('0', '0'),
+            ('175', '175'),
+            ('250', '250')],
+        string='COMMISSIONING'
+    )
+    men_needed = fields.Integer(string="MEN NEEDED")
+    days = fields.Integer(string="DAYS")
+    trip_needed = fields.Integer(string="TRIPS NEEDED")
+    base_cost = fields.Float(string="BASE COST")
+    profit = fields.Float(string="PROFIT")
+    total = fields.Float(string="TOTAL")
+
+class CoringCosterLine(models.Model):
+    _name = 'coring.coster.line'
+    _description = 'Coring Coster'
+
+    order_id = fields.Many2one('sale.order', string='Sale Order', ondelete='cascade')
+    core_size = fields.Many2one('coring.coster', string="Core Size")
+    amount = fields.Float(string="Amount")
+    cost = fields.Float(string="Cost")
+    sub_total = fields.Integer(string="Sub Total",compute="_compute_sub_total", store=True)
+    total_cost = fields.Integer(string="Total", compute="_compute_total", store=True)
+
+
+    @api.onchange('core_size')
+    def _get_cost(self):
+        for core in self:
+            if core.core_size:
+                core.cost = core.core_size.cost
+
+    @api.depends('amount')
+    def _compute_sub_total(self):
+        for core in self:
+            if core.amount:
+                core.sub_total = core.amount * core.cost
+
+    @api.depends('order_id.coring_coster_line_ids.sub_total')
+    def _compute_total(self):
+        for core in self:
+            if core.order_id:
+                core.total_cost = sum(core.order_id.coring_coster_line_ids.mapped('sub_total'))
+            else:
+                core.total_cost = 0.0
+
+
