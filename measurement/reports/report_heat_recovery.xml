@@ -359,7 +359,7 @@
                                     <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Sub Total</td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.basic_prod">
-                                            £ <t t-esc="doc.basic_prod.lst_price + doc.line_price_of_kit"/>
+                                            £ <t t-esc="doc.basic_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -368,7 +368,7 @@
                                     </td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.upgraded_prod">
-                                            £ <t t-esc="doc.upgraded_prod.lst_price + doc.line_price_of_kit"/>
+                                            £ <t t-esc="doc.upgraded_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -377,7 +377,7 @@
                                     </td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.premium_prod">
-                                            £ <t t-esc="doc.premium_prod.lst_price + doc.line_price_of_kit"/>
+                                            £ <t t-esc="doc.premium_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -466,11 +466,11 @@
                                 </tr>
                                 <tr style="text-align:center; font-weight:400;">
                                     <t t-set="basic_vat"
-                                       t-value="doc.basic_prod.lst_price + delivery_line.price_subtotal + doc.line_price_of_kit"/>
+                                       t-value="doc.basic_prod.lst_price + delivery_line.price_subtotal + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
                                     <t t-set="upgrade_vat"
-                                       t-value="doc.upgraded_prod.lst_price + delivery_line.price_subtotal + doc.line_price_of_kit"/>
+                                       t-value="doc.upgraded_prod.lst_price + delivery_line.price_subtotal + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
                                     <t t-set="premium_vat"
-                                       t-value="doc.premium_prod.lst_price + delivery_line.price_subtotal + doc.line_price_of_kit"/>
+                                       t-value="doc.premium_prod.lst_price + delivery_line.price_subtotal + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
                                     <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Total Exc VAT</td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.basic_prod">
@@ -509,7 +509,7 @@
                                         <t t-set="shipping_price"
                                            t-value="shipping_line.price_total if shipping_line else 0.0"/>
                                         <t t-set="basic_total"
-                                           t-value="(doc.basic_prod.lst_price + doc.line_price_of_kit) * (1 + (doc.basic_prod.taxes_id and doc.basic_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
+                                           t-value="(doc.basic_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod) * (1 + (doc.basic_prod.taxes_id and doc.basic_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
                                         <t t-if="doc.basic_prod">
                                             <t t-esc="'£ {:.2f}'.format(basic_total)"/>
                                         </t>
@@ -526,7 +526,7 @@
                                         <t t-set="shipping_price"
                                            t-value="shipping_line.price_total if shipping_line else 0.0"/>
                                         <t t-set="upgrade_total"
-                                           t-value="(doc.upgraded_prod.lst_price+ doc.line_price_of_kit) * (1 + (doc.upgraded_prod.taxes_id and doc.upgraded_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
+                                           t-value="(doc.upgraded_prod.lst_price+ doc.line_price_of_kit + doc.line_price_of_service_prod) * (1 + (doc.upgraded_prod.taxes_id and doc.upgraded_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
                                         <t t-if="doc.upgraded_prod">
                                             <t t-esc="'£ {:.2f}'.format(upgrade_total)"/>
                                         </t>
@@ -542,7 +542,7 @@
                                         <t t-set="shipping_price"
                                            t-value="shipping_line.price_total if shipping_line else 0.0"/>
                                         <t t-set="premium_total"
-                                           t-value="(doc.premium_prod.lst_price + doc.line_price_of_kit) * (1 + (doc.premium_prod.taxes_id and doc.premium_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
+                                           t-value="(doc.premium_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod) * (1 + (doc.premium_prod.taxes_id and doc.premium_prod.taxes_id[0].amount or 0.0) / 100.0) + shipping_price"/>
                                         <t t-if="doc.premium_prod">
                                             <t t-esc="'£ {:.2f}'.format(premium_total)"/>
                                         </t>

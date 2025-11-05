@@ -47,6 +47,8 @@ class SaleOrder(models.Model):
         string='System Overview Ext 2'
     )
     line_price_of_kit = fields.Float('Kit price', compute='_get_line_kit_price')
+    line_price_of_service_prod = fields.Float('Service Product Pricce', compute='_get_line_service_prod_price')
+
 
     def _get_line_kit_price(self):
         amount = 0
@@ -54,6 +56,14 @@ class SaleOrder(models.Model):
             if line.product_id.type != 'service' and not line.product_id.product_type:
                 amount += line.price_subtotal
         self.line_price_of_kit = amount
+
+    def _get_line_service_prod_price(self):
+        amount = 0
+        product = self._get_service_product()
+        for line in self.order_line:
+            if line.product_id.type == 'service' and line.product_id == product:
+                amount += line.price_subtotal
+        self.line_price_of_service_prod = amount
 
     no_of_bedrooms = fields.Integer(string="No. of Bedrooms")
     dwelling_total_area = fields.Float(string="Dwelling Total Area (sq m)")
@@ -421,6 +431,43 @@ class SaleOrder(models.Model):
                         if radial_bom_line:
                             total_qty += sum(radial_bom_line.mapped('product_qty')) * 50
             order.no_of_radial_ducting = total_qty
+
+
+    def action_open_delivery_wizard(self):
+        """Open the Add Shipping wizard and auto-apply custom carrier logic."""
+        self.ensure_one()
+        state_id = self.partner_shipping_id.state_id
+        postal_id = self.partner_shipping_id.postal_id
+        view_id = self.env.ref('delivery.choose_delivery_carrier_view_form').id
+
+        carrier = self.env['delivery.carrier'].search(
+            [('name', '=', 'State-Based Shipping')], limit=1
+        )
+
+        wizard = self.env['choose.delivery.carrier'].create({
+            'order_id': self.id,
+            'total_weight': self._get_estimated_weight(),
+            'carrier_id': carrier.id if carrier else self.carrier_id.id,
+        })
+
+        wizard.state_id = state_id
+        wizard.postal_id = postal_id
+        wizard._onchange_carrier_id()
+        wizard._get_delivery_rate()
+        wizard.write({
+            'delivery_price': wizard.delivery_price,
+            'delivery_message': wizard.delivery_message,
+        })
+        return {
+            'name': _('Add a shipping method'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'choose.delivery.carrier',
+            'view_id': view_id,
+            'views': [(view_id, 'form')],
+            'target': 'new',
+            'res_id': wizard.id,
+        }
 
 
 class RoomMeasurement(models.Model):
