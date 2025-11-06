@@ -35,7 +35,7 @@
     <!-- Menu Item under Sales > Configuration -->
     <menuitem id="menu_floor_conf"
               name="Dwell Type Config"
-              parent="sale.menu_sale_config"
+              parent="menu_my_custom_config_root"
               action="action_floor_conf"
               sequence="20"/>
 </odoo>

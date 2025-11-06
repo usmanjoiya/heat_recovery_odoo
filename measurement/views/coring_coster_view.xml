@@ -42,9 +42,9 @@
     </record>
 
     <!-- Menu Item under Sales > Configuration -->
-    <menuitem id="menu_floor_conf"
+    <menuitem id="menu_coring_cost_conf"
               name="Coring Cost Config"
-              parent="sale.menu_sale_config"
+              parent="menu_my_custom_config_root"
               action="action_coring_coster"
               sequence="25"/>
 </odoo>

@@ -45,7 +45,7 @@
 
     <menuitem id="menu_placement_config"
               name="Placement Config"
-              parent="sale.menu_sale_config"
+              parent="menu_my_custom_config_root"
               action="action_placement_config"
               sequence="12"/>
 </odoo>

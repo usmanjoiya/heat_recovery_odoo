@@ -37,7 +37,7 @@
     <!-- Menu Item under Sales > Configuration -->
     <menuitem id="menu_dwelling_ventilation"
               name="Dwelling Ventilation Rate"
-              parent="sale.menu_sale_config"
+              parent="menu_my_custom_config_root"
               action="action_dwelling_ventilation"
               sequence="50"/>
 </odoo>
