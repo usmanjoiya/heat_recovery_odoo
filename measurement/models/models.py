@@ -521,7 +521,7 @@ class RoomMeasurement(models.Model):
                 rec.supply_drops = 0
             elif 1 <= rec.supply_trickle2 <= 12.9:
                 rec.supply_drops = 1
-            elif rec.supply_trickle2 >= 13:
+            elif 12.9 < rec.supply_trickle2 >= 13:
                 rec.supply_drops = 2
             else:
                 rec.supply_drops = 0
