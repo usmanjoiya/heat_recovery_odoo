@@ -49,6 +49,12 @@
         <field name="view_mode">list,form</field>
     </record>
 
+    <record id="action_commission_table" model="ir.actions.act_window">
+        <field name="name">Extract</field>
+        <field name="res_model">commission.table</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
     <menuitem id="menu_my_custom_config_root"
           name="Heat Recovery Configurations"
           parent="sale.menu_sale_config"
@@ -58,5 +64,11 @@
               name="Airtightness Pricess"
               parent="menu_my_custom_config_root"
               action="action_alrightness_pricess"
+              sequence="10"/>
+
+    <menuitem id="menu_commission_table"
+              name="Extract"
+              parent="menu_my_custom_config_root"
+              action="action_commission_table"
               sequence="10"/>
 </odoo>
