@@ -533,7 +533,7 @@ class RoomMeasurement(models.Model):
                 rec.supply_ducts = 0
             elif 1 <= rec.supply_trickle2 <= 12.95:
                 rec.supply_ducts = 1
-            elif 12.95 < rec.supply_trickle2 <= 12.99999:
+            elif 12.95 < rec.supply_trickle2 <= 12.99:
                 rec.supply_ducts = 2
             elif rec.supply_trickle2 >= 13:
                 rec.supply_ducts = 4
