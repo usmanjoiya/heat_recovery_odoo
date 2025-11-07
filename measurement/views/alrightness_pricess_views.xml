@@ -51,7 +51,7 @@
 
     <record id="action_commission_table" model="ir.actions.act_window">
         <field name="name">Extract</field>
-        <field name="res_model">commission.table</field>
+        <field name="res_model">commission.point</field>
         <field name="view_mode">list,form</field>
     </record>
 
