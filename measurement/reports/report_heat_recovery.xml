@@ -359,7 +359,7 @@
                                     <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Sub Total</td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.basic_prod">
-                                            £ <t t-esc="doc.basic_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
+                                            £ <t t-esc="doc.basic_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod" t-options="{'widget':'float', 'precision':2}"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -368,7 +368,7 @@
                                     </td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.upgraded_prod">
-                                            £ <t t-esc="doc.upgraded_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
+                                            £ <t t-esc="doc.upgraded_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod" t-options="{'widget':'float', 'precision':2}"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -377,7 +377,7 @@
                                     </td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.premium_prod">
-                                            £ <t t-esc="doc.premium_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod"/>
+                                            £ <t t-esc="doc.premium_prod.lst_price + doc.line_price_of_kit + doc.line_price_of_service_prod" t-options="{'widget':'float', 'precision':2}"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -474,7 +474,7 @@
                                     <td style="border:1px solid #000; padding:6px; text-align:left; width:40%;">Total Exc VAT</td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.basic_prod">
-                                            £ <t t-esc="basic_vat"/>
+                                            £ <t t-esc="basic_vat" t-options="{'widget':'float', 'precision':2}"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -483,7 +483,7 @@
                                     </td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.upgraded_prod">
-                                            £ <t t-esc="upgrade_vat"/>
+                                            £ <t t-esc="upgrade_vat" t-options="{'widget':'float', 'precision':2}"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -492,7 +492,7 @@
                                     </td>
                                     <td style="border:1px solid #000; padding:6px; width:20%;">
                                         <t t-if="doc.premium_prod">
-                                            £ <t t-esc="premium_vat"/>
+                                            £ <t t-esc="premium_vat" t-options="{'widget':'float', 'precision':2}"/>
                                         </t>
                                         <t t-else="">
                                             <span/>
@@ -946,7 +946,7 @@
                                 </tr>
                             </table>
                             <br/>
-                            <div style="width:100%; text-align:center;">
+                            <div style="width:100%; text-align:center; margin-top:44px; margin-bottom: 0px !important;">
                                 <img src="/measurement/static/src/img/5P001.png"
                                      alt="Heat Pump Kit"
                                      style="max-width:100%; height:auto;"/>
@@ -1137,10 +1137,9 @@
                                         </table>
                                     </td>
                                 </tr>
-                                vertical-align:middle;
                             </table>
                             <br/>
-                            <div style="text-align:center;">
+                            <div style="text-align:center; margin-top:44px; margin-bottom: 0px !important;">
                                 <img src="/measurement/static/src/img/Solar.png"
                                      alt="Solar Panels Footer"
                                      style="width:100%; height:auto;"/>

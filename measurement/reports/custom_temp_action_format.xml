@@ -49,9 +49,9 @@
                         <t t-if="o.partner_id.country_id">
                             <span t-esc="o.partner_id.country_id.name"/>
                         </t>
-                        <br/>
-                        <span t-esc="o.partner_id.phone"/>,
-                        <span t-esc="o.partner_id.email"/>
+<!--                        <br/>-->
+<!--                        <span t-esc="o.partner_id.phone"/>,-->
+<!--                        <span t-esc="o.partner_id.email"/>-->
                     </t>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <div style="font-size:10px;">
 
                 <!-- Company Info -->
-                <div style="width: 100%; font-size: 13px;">
+                <div style="width: 100%; font-size: 13px; margin-top:none;">
                     <img src="/measurement/static/src/img/footer.png" style="max-height: 100px; max-width: 100%;"/>
                 </div>
             </div>
