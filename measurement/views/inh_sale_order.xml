@@ -11,6 +11,14 @@
                 <button name="action_get_products" type="object" string="Get Products" class="btn-primary"/>
             </xpath>
 
+            <xpath expr="//div[label[@for='margin']]" position="after">
+                <div class="d-flex float-end" colspan="2">
+                    <label for="total_margin"/>
+                    <div>
+                        <field name="total_margin" class="oe_inline"/>
+                    </div>
+                </div>
+            </xpath>
             <!-- Floor Type & Placement -->
             <xpath expr="//sheet/group[@name='sale_header']" position="after">
                 <group>
@@ -46,6 +54,17 @@
                 <field name="part_of_id"/>
             </xpath>
             <xpath expr="//page[@name='order_lines']" position="after">
+                <page string="Coring Coster">
+                    <field name="coring_coster_line_ids">
+                        <list editable="bottom">
+                            <field name="core_size"/>
+                            <field name="amount"/>
+                            <field name="cost"/>
+                            <field name="sub_total"/>
+                            <field name="total_cost"/>
+                        </list>
+                    </field>
+                </page>
                 <page string="Calculator Tool">
                     <form>
                         <button name="action_add_calculator_product"
@@ -70,17 +89,6 @@
                             </group>
                         </group>
                     </form>
-                </page>
-                <page string="Coring Coster">
-                    <field name="coring_coster_line_ids">
-                        <list editable="bottom">
-                            <field name="core_size"/>
-                            <field name="amount"/>
-                            <field name="cost"/>
-                            <field name="sub_total"/>
-                            <field name="total_cost"/>
-                        </list>
-                    </field>
                 </page>
             </xpath>
             <xpath expr="//page[@name='order_lines']" position="before">

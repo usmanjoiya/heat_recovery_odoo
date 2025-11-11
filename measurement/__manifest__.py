@@ -7,7 +7,7 @@
     """,
     'author': "Shaheer",
     'category': 'Sales',
-    'depends': ['base', 'product', 'sale','mail','contacts','product'],
+    'depends': ['base', 'product', 'sale','mail','contacts','product','sale_margin'],
     'data': [
         'security/ir.model.access.csv',
         'views/alrightness_pricess_views.xml',
@@ -24,6 +24,7 @@
         'views/coring_coster_view.xml',
         'data/prod_attrs_name.xml',
         'data/service_prod_cal.xml',
+        'data/data_cron.xml',
         'reports/report_heat_recovery.xml',
         'reports/custom_temp_action_format.xml',
     ],

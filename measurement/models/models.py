@@ -101,6 +101,13 @@ class SaleOrder(models.Model):
     per_men_cost = fields.Float(string="Per Men Cost",default=130.00)
     per_night_cost = fields.Float(string="Per Night Cost",default=115.00)
     per_mile_cost = fields.Float(string="Per Mile Cost",default=0.45)
+    total_margin = fields.Monetary(
+        string='Total Margin (Goods only)',
+        compute='_compute_total_margin',
+        store=True,
+        currency_field='currency_id'
+    )
+
 
     room_measurement_ids = fields.One2many('room.measurement', 'order_id', string="Room Measurements")
     commission_table_ids = fields.One2many('commission.table', 'order_id', string="Commissioning Table")
@@ -483,6 +490,17 @@ class SaleOrder(models.Model):
             'target': 'new',
             'res_id': wizard.id,
         }
+
+    @api.depends('order_line.margin', 'order_line.product_id.type', 'amount_untaxed')
+    def _compute_total_margin(self):
+        for order in self:
+            # consider only goods (non-service) lines
+            goods_lines = order.order_line.filtered(
+                lambda l: l.product_id and l.product_id.type != 'service'
+            )
+            if goods_lines:
+                order.total_margin = sum(goods_lines.mapped('margin'))
+            order.total_margin += order.profit if order.profit else 0.0
 
 
 class RoomMeasurement(models.Model):
