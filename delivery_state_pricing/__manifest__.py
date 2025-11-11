@@ -1,6 +1,6 @@
 {
     'name': "Delivery State Pricing",
-    'version': '1.2',
+    'version': '1.3',
     'summary': "Adds state-based pricing rules to delivery methods.",
     'description': """
         This module extends the delivery price rule to allow for
@@ -8,7 +8,7 @@
     """,
     'author': "Shaheer",
     'category': 'Sales/Delivery',
-    'depends': ['delivery', 'sale_management'],
+    'depends': ['delivery', 'sale_management','measurement'],
     'data': [
         'views/delivery_price_rule_views.xml',
         'views/choose_delivery_carrier.xml',
