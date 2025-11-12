@@ -18,4 +18,6 @@ from . import inh_res_country
 from . import inh_res_country_state
 from . import inh_res_partner
 from . import inh_sale_order
+from . import inh_sale_order_line
+from . import inh_stock_rule
 from . import cron_job
