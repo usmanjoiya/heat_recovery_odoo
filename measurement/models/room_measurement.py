@@ -16,6 +16,7 @@ class RoomMeasurement(models.Model):
     supply_ducts = fields.Integer(string='Ducts', compute='_compute_supply_ducts', store=True)
 
     room_id = fields.Char(string='Room #')
+    room_name_id = fields.Many2one('room.name', string="Room Name")
     length = fields.Float(string='Length (m)')
     width = fields.Float(string='Width (m)')
     area = fields.Float(string='Area (sq m)', compute='_compute_area', store=True)
@@ -25,10 +26,10 @@ class RoomMeasurement(models.Model):
         for record in self:
             record.area = record.length * record.width
 
-    @api.depends('room_id')
+    @api.depends('room_name_id')
     def _compute_supply_name(self):
         for record in self:
-            record.supply = record.room_id
+            record.supply = record.room_name_id.name
 
     @api.depends('area', 'order_id.correct_rate')
     def _compute_supply_trickle2(self):
@@ -72,3 +73,11 @@ class RoomMeasurement(models.Model):
                 rec.supply_ducts = 4
             else:
                 rec.supply_ducts = 0
+
+
+
+class RoomNames(models.Model):
+    _name = 'room.name'
+    _description = 'Room Names'
+
+    name = fields.Char(string='Room Name')
