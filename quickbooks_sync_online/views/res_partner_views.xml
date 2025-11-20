@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page name="quickbooks_online" string="QuickBooks Online">
+                    <group>
+                        <field name="qbo_state" readonly="1"/>
+                        <field name="qbo_transaction_date" widget="datetime" readonly="1"/>
+                        <field name="qbo_transaction_info" readonly="1"/>
+                        <field name="qbo_partner_ids">
+                                <list>
+                                <field name="qbo_id"/>
+                                <field name="qbo_name"/>
+                                <field name="qbo_lib_type"/>
+                                <field name="is_imported"/>
+                                <field name="is_exported"/>
+                                <field name="company_id"/>
+                            </list>
+                        </field>
+                        <field name="qbo_update_required" readonly="1"/>
+                    </group>
+                    <group groups="base.group_no_one">
+                        <div colspan="2">
+                            <button type="object"
+                                    name="to_qbo_json"
+                                    class="btn btn-outline-primary"
+                                    string="DISPLAY EXPORT JSON: debug"
+                            />
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_qbo_info_form" model="ir.ui.view">
+        <field name="name">res.partner.qbo.info.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Partner QBO info" create="0" edit="0" delete="0">
+                <header>
+                    <button type='object' name='open_current_object' string="Open Full Form"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                    </group>
+                    <hr/>
+                    <group>
+                        <field name="qbo_state" readonly="1"/>
+                        <field name="qbo_transaction_date" widget="datetime" readonly="1"/>
+                        <field name="qbo_transaction_info" readonly="1"/>
+                        <field name="qbo_partner_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_qbo_todo_res_partner_list" model="ir.ui.view">
+        <field name="name">res.partner.qbo.todo.list</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <list string="Partners ToDo List" create="0" edit="0" delete="0"
+                  decoration-info="qbo_state == 'pending'"
+                  decoration-warning="qbo_state == 'rejected'"
+                  decoration-danger="qbo_state == 'failed'">
+                <field name="name"/>
+                <field name="qbo_state"/>
+                <field name="qbo_transaction_date" widget="datetime"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_res_partner_export_to_qbo" model="ir.actions.server">
+        <field name="name">Export to QBO</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="code">
+            action = records.export_partner_to_qbo()
+        </field>
+    </record>
+
+    <record id="action_res_partner_update_in_qbo" model="ir.actions.server">
+        <field name="name">Update in QBO</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="code">
+            records.update_partner_in_qbo()
+        </field>
+    </record>
+
+    <record id="action_qbo_todo_res_partner" model="ir.actions.act_window">
+        <field name="name">Partners ToDo List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_id" ref="view_qbo_todo_res_partner_list"/>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_qbo_todo_res_partner_list')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_partner_qbo_info_form')})]"/>
+        <field name="domain">
+            [
+                '|', '|',
+                ('qbo_state', '=', 'pending'),
+                ('qbo_state', '=', 'rejected'),
+                ('qbo_state', '=', 'failed')
+            ]
+        </field>
+    </record>
+
+</odoo>

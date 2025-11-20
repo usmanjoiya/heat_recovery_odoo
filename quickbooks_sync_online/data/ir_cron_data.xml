@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+         <record id="refresh_qbo_access_token_cron" model="ir.cron" forcecreate="True">
+           <field name="name">Refresh Intuit Access-Token [cron]</field>
+           <field name="interval_number">56</field>
+           <field name="interval_type">minutes</field>
+           <field name="active" eval="True"/>
+           <field name="user_id" ref="base.user_root"/>
+<!--           <field name="numbercall">-1</field>-->
+           <field name="model_id" ref="base.model_res_company"/>
+           <field name="state">code</field>
+           <field name="code">model.refresh_qbo_access_token()</field>
+         </record>
+
+        <record id="trigger_invoice_to_qbo_cron" model="ir.cron" forcecreate="True">
+           <field name="name">Send Invoices to Intuit [cron]</field>
+           <field name="interval_number">5</field>
+           <field name="interval_type">minutes</field>
+           <field name="active" eval="True"/>
+           <field name="user_id" ref="base.user_root"/>
+<!--           <field name="numbercall">-1</field>-->
+           <field name="model_id" ref="base.model_res_company"/>
+           <field name="state">code</field>
+           <field name="code">model.export_invoices_to_qbo_cron()</field>
+         </record>
+
+        <record id="trigger_get_intuit_payments_cron" model="ir.cron" forcecreate="True">
+           <field name="name">Receive Intuit Payments [cron]</field>
+           <field name="interval_number">12</field>
+           <field name="interval_type">minutes</field>
+           <field name="active" eval="True"/>
+           <field name="user_id" ref="base.user_root"/>
+<!--           <field name="numbercall">-1</field>-->
+           <field name="model_id" ref="base.model_res_company"/>
+           <field name="state">code</field>
+           <field name="code">model.import_intuit_payments_cron()</field>
+         </record>
+
+        <record id="export_intuit_payments_cron" model="ir.cron" forcecreate="True">
+           <field name="name">Send Payments to Intuit [cron]</field>
+           <field name="interval_number">9</field>
+           <field name="interval_type">minutes</field>
+           <field name="active" eval="True"/>
+           <field name="user_id" ref="base.user_root"/>
+<!--           <field name="numbercall">-1</field>-->
+           <field name="model_id" ref="base.model_res_company"/>
+           <field name="state">code</field>
+           <field name="code">model.export_intuit_payments_cron()</field>
+         </record>
+
+        <record id="update_records_to_qbo_cron" model="ir.cron" forcecreate="True">
+           <field name="name">Update Records to Intuit [cron]</field>
+           <field name="interval_number">14</field>
+           <field name="interval_type">minutes</field>
+           <field name="active" eval="True"/>
+           <field name="user_id" ref="base.user_root"/>
+<!--           <field name="numbercall">-1</field>-->
+           <field name="model_id" ref="base.model_res_company"/>
+           <field name="state">code</field>
+           <field name="code">model.update_records_to_intuit()</field>
+         </record>
+
+    </data>
+</odoo>

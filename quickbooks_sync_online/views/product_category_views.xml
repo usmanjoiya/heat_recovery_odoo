@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.form.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/." position="inside">
+                <notebook>
+                    <page name="quickbooks_online" string="QuickBooks Online">
+                        <group>
+                            <field name="qbo_detailed_type"/>
+                            <field name="qbo_state" readonly="1"/>
+                            <field name="qbo_transaction_date" widget="datetime" readonly="1"/>
+                            <field name="qbo_transaction_info" readonly="1"/>
+                            <field name="qbo_product_categ_ids">
+                                <list>
+                                    <field name="qbo_id"/>
+                                    <field name="qbo_name"/>
+                                    <field name="product_type"/>
+                                    <field name="is_imported"/>
+                                    <field name="is_exported"/>
+                                    <field name="company_id"/>
+                                </list>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+        
+</odoo>

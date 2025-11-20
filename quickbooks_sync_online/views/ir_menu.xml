@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- MAIN -->
+    <menuitem
+        id="menu_qbo_sync"
+        name="QuickBooks Online"
+        web_icon="quickbooks_sync_online,static/description/icon.png"
+        sequence="10"/>
+
+    <!-- SERVER JOBS -->
+    <menuitem
+        id="qbo_queue_job_menu"
+        name="Server Jobs"
+        parent="menu_qbo_sync"
+        action="action_queue_job_tree"
+        sequence="20"
+        groups="quickbooks_sync_online.qbo_security_group_manager"/>
+
+    <!-- ToDo LIST -->
+    <menuitem
+        id="menu_qbo_export_list"
+        parent="menu_qbo_sync"
+        name="ToDo List"
+        sequence="30"
+        groups="quickbooks_sync_online.qbo_security_group_manager"/>
+
+    <!-- ToDo LIST Items -->
+    <menuitem
+        id="menu_qbo_export_list_invoice"
+        parent="menu_qbo_export_list"
+        name="Invoices"
+        action="action_qbo_todo_account_move"
+        sequence="10"
+        groups="quickbooks_sync_online.qbo_security_group_manager"/>
+
+    <menuitem
+        id="menu_qbo_export_list_payment"
+        parent="menu_qbo_export_list"
+        name="Payments"
+        action="action_qbo_todo_account_payment"
+        sequence="20"
+        groups="quickbooks_sync_online.qbo_security_group_manager"/>
+
+    <menuitem
+        id="menu_qbo_export_list_partner"
+        parent="menu_qbo_export_list"
+        name="Partners"
+        action="action_qbo_todo_res_partner"
+        sequence="30"
+        groups="quickbooks_sync_online.qbo_security_group_manager"/>
+
+    <menuitem
+        id="menu_qbo_export_list_product"
+        parent="menu_qbo_export_list"
+        name="Products"
+        action="action_qbo_todo_product_product"
+        sequence="40"
+        groups="quickbooks_sync_online.qbo_security_group_manager"/>
+
+    <!-- MAPPING -->
+    <menuitem
+        id="menu_qbo_sync_mapping"
+        parent="menu_qbo_sync"
+        name="Mapping"
+        sequence="40"/>
+
+    <!-- MAPPING Items-->
+    <menuitem
+        action="action_menu_data_qbo_map_invoice"
+        id="menu_menu_data_qbo_map_invoice"
+        parent="menu_qbo_sync_mapping"
+        name="Invoices"
+        sequence="10"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_payment"
+        id="menu_menu_data_qbo_map_payment"
+        parent="menu_qbo_sync_mapping"
+        name="Payments"
+        sequence="20"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_partner"
+        id="menu_menu_data_qbo_map_partner"
+        parent="menu_qbo_sync_mapping"
+        name="Partners"
+        sequence="30"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_product"
+        id="menu_menu_data_qbo_map_product"
+        parent="menu_qbo_sync_mapping"
+        name="Products"
+        sequence="40"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_department"
+        id="menu_menu_data_qbo_map_department"
+        parent="menu_qbo_sync_mapping"
+        name="Departments"
+        sequence="50"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_account"
+        id="menu_menu_data_qbo_map_account"
+        parent="menu_qbo_sync_mapping"
+        name="Accounts"
+        sequence="60"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_tax"
+        id="menu_menu_data_qbo_map_tax"
+        parent="menu_qbo_sync_mapping"
+        name="Taxes"
+        sequence="70"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_taxcode"
+        id="menu_menu_data_qbo_map_taxcode"
+        parent="menu_qbo_sync_mapping"
+        name="Taxcodes"
+        groups="base.group_no_one"
+        sequence="80"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_term"
+        id="menu_menu_data_qbo_map_term"
+        parent="menu_qbo_sync_mapping"
+        name="Payment Terms"
+        sequence="90"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_payment_method"
+        id="menu_menu_data_qbo_map_payment_method"
+        parent="menu_qbo_sync_mapping"
+        name="Payment Methods"
+        sequence="100"/>
+
+    <menuitem
+        action="action_menu_data_qbo_map_sale_order"
+        id="menu_menu_data_qbo_map_sale_order"
+        parent="menu_qbo_sync_mapping"
+        name="Sale Receipts"
+        groups="base.group_no_one"
+        sequence="110"/>
+
+    <!-- IMPORT -->
+    <menuitem
+        id="menu_qbo_sync_import"
+        parent="menu_qbo_sync"
+        name="Import"
+        sequence="50"
+        groups="quickbooks_sync_online.qbo_security_group_manager"/>
+
+    <!-- IMPORT Items-->
+    <menuitem
+        action="action_qbo_map_partner_import_from_qbo"
+        id="menu_qbo_map_partner_import_from_qbo"
+        parent="menu_qbo_sync_import"
+        name="Import Partners"
+        sequence="10"/>
+
+    <menuitem
+        action="action_qbo_map_product_import_from_qbo"
+        id="menu_qbo_map_product_import_from_qbo"
+        parent="menu_qbo_sync_import"
+        name="Import Products"
+        sequence="20"/>
+
+    <menuitem
+        action="action_qbo_map_department_import_from_qbo"
+        id="menu_qbo_map_department_import_from_qbo"
+        parent="menu_qbo_sync_import"
+        name="Import Departments"
+        sequence="30"/>
+
+    <menuitem
+        action="action_qbo_map_account_import_from_qbo"
+        id="menu_qbo_map_account_import_from_qbo"
+        parent="menu_qbo_sync_import"
+        name="Import Accounts"
+        sequence="40"/>
+
+    <menuitem
+        action="action_qbo_map_tax_import_from_qbo"
+        id="menu_qbo_map_tax_import_from_qbo"
+        parent="menu_qbo_sync_import"
+        name="Import Taxes"
+        sequence="50"/>
+
+    <menuitem
+        action="action_qbo_map_taxcode_import_from_qbo"
+        id="menu_qbo_map_taxcode_import_from_qbo"
+        parent="menu_qbo_sync_import"
+        name="Import Taxcodes"
+        sequence="60"/>
+
+    <menuitem
+        action="action_qbo_map_term_import_from_qbo"
+        id="menu_qbo_map_term_import_from_qbo"
+        parent="menu_qbo_sync_import"
+        name="Import Payment Terms"
+        sequence="70"/>
+
+    <menuitem
+        action="action_qbo_map_payment_method_import_from_qbo"
+        id="menu_qbo_map_payment_method_import_from_qbo"
+        parent="menu_qbo_sync_import"
+        name="Import Payment Methods"
+        sequence="80"/>
+
+    <menuitem
+        id="menu_qbo_map_import_from_qbo_advanced"
+        parent="menu_qbo_sync_import"
+        name="Advanced"
+        sequence="90"
+    >
+        <menuitem
+            action="action_qbo_map_import_all_from_qbo"
+            id="menu_qbo_map_import_all_from_qbo"
+            name="Import All"
+            sequence="10"
+        />
+    </menuitem>
+
+    <!-- CONFIGURATION -->
+    <menuitem
+        id="qbo_sync_menu_config"
+        name="Configuration"
+        parent="menu_qbo_sync"
+        sequence="60"/>
+
+    <!-- CONFIGURATION Items-->
+    <menuitem id="qbo_sync_config_settings_menu"
+        name="Settings"
+        parent="qbo_sync_menu_config"
+        action="qbo_sync_config_settings_action"
+        groups="base.group_system"
+        sequence="10"/>
+
+</odoo>
