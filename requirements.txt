@@ -1,2 +1,2 @@
-quickbooks
+python-quickbooks
 pycountry
