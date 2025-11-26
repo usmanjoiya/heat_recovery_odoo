@@ -7,9 +7,16 @@
             <field name="sequence">90</field>
         </record>
 
+        <record id="res_groups_privilege_quick_book" model="res.groups.privilege">
+            <field name="name">Quick Books</field>
+            <field name="category_id" ref="qbo_security_category"/>
+            <field name="sequence">1</field>
+        </record>
+
         <record id="qbo_security_group_user" model="res.groups">
             <field name="name">User</field>
 <!--            <field name="category_id" ref="qbo_security_category" />-->
+            <field name="privilege_id" ref="res_groups_privilege_quick_book" />
         </record>
 
         <record id="qbo_security_group_manager" model="res.groups">
@@ -17,6 +24,7 @@
             <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
             <field name="implied_ids" eval="[(4, ref('qbo_security_group_user'))]" />
 <!--            <field name="category_id" ref="qbo_security_category" />-->
+            <field name="privilege_id" ref="res_groups_privilege_quick_book" />
         </record>
     </data>
 
