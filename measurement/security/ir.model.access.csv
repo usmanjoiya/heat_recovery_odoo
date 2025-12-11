@@ -12,4 +12,3 @@ access_shipping_cost_user,shipping.cost.user,model_shipping_cost,base.group_user
 access_coring_coster_user,coring.coster.user,model_coring_coster,base.group_user,1,1,1,1
 access_calculator_tool_user,calculator.tool.user,model_calculator_tool,base.group_user,1,1,1,1
 access_coring_coster_line_user,coring.coster.line.user,model_coring_coster_line,base.group_user,1,1,1,1
-access_room_name_user,room.name.user,model_room_name,base.group_user,1,1,1,1
