@@ -12,6 +12,7 @@ from . import room_measurement
 from . import sale_order_prod_line
 from . import shipping_cost
 from . import inh_prod_category
+from . import inh_mrp_bom
 from . import inh_prod_prod
 from . import inh_prod_temp
 from . import inh_res_country

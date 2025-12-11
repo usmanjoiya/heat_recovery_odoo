@@ -11,18 +11,13 @@ class ProductTemplate(models.Model):
         for template in templates:
             x_factor = template.categ_id.x_factor or 1.0
             variants = template.product_variant_ids
+            for variant in variants:
+                variant._compute_product_lst_price()
             if len(variants) == 1:
                 variant = variants[0]
                 cost = variant.standard_price
                 new_sale = cost * x_factor
-                variant.sudo().write({'lst_price': new_sale})
-                # Also maybe update template list_price
                 template.sudo().write({'list_price': new_sale})
-            else:
-                for variant in variants:
-                    cost = variant.standard_price
-                    new_sale = cost * x_factor
-                    variant.sudo().write({'lst_price': new_sale})
         _logger = self.env['ir.logging']
         _logger.sudo().create({
             'name': _('Product Sale Price Scheduler'),
