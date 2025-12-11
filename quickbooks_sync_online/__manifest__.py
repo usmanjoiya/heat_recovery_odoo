@@ -69,7 +69,7 @@ QuickBooks Online Payment Links''',
         'data/ir_cron_data.xml',
         'data/res_company_data.xml',
         'data/mail_template_data.xml',
-        'data/queue_job_data.xml',
+        # 'data/queue_job_data.xml',
     ],
     'external_dependencies': {
         'python': [
