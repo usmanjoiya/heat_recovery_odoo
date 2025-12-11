@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <data noupdate="0">
+        <record id="qbo_security_category" model="ir.module.category">
+            <field name="name">QuickBooks Online</field>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="res_groups_privilege_quick_book" model="res.groups.privilege">
+            <field name="name">Quick Books</field>
+            <field name="category_id" ref="qbo_security_category"/>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="qbo_security_group_user" model="res.groups">
+            <field name="name">User</field>
+<!--            <field name="category_id" ref="qbo_security_category" />-->
+            <field name="privilege_id" ref="res_groups_privilege_quick_book" />
+        </record>
+
+        <record id="qbo_security_group_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            <field name="implied_ids" eval="[(4, ref('qbo_security_group_user'))]" />
+<!--            <field name="category_id" ref="qbo_security_category" />-->
+            <field name="privilege_id" ref="res_groups_privilege_quick_book" />
+        </record>
+    </data>
+
+    <record model="res.groups" id="base.group_user">
+        <field name="implied_ids" eval="[(4, ref('qbo_security_group_user'))]" />
+    </record>
+
+    <record id="qbo_map_partner_rule" model="ir.rule">
+        <field name="name">QBO Map Customer Rule</field>
+        <field name="model_id" ref="model_qbo_map_partner"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_product_rule" model="ir.rule">
+        <field name="name">QBO Map Product Rule</field>
+        <field name="model_id" ref="model_qbo_map_product"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_account_move_rule" model="ir.rule">
+        <field name="name">QBO Map Invoice Rule</field>
+        <field name="model_id" ref="model_qbo_map_account_move"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_account_rule" model="ir.rule">
+        <field name="name">QBO Map Account Rule</field>
+        <field name="model_id" ref="model_qbo_map_account"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_tax_rule" model="ir.rule">
+        <field name="name">QBO Map Tax Rule</field>
+        <field name="model_id" ref="model_qbo_map_tax"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_taxcode_rule" model="ir.rule">
+        <field name="name">QBO Map Taxcode Rule</field>
+        <field name="model_id" ref="model_qbo_map_taxcode"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_term_rule" model="ir.rule">
+        <field name="name">QBO Map Term Rule</field>
+        <field name="model_id" ref="model_qbo_map_term"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_payment_rule" model="ir.rule">
+        <field name="name">QBO Map Payment Rule</field>
+        <field name="model_id" ref="model_qbo_map_payment"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_payment_method_rule" model="ir.rule">
+        <field name="name">QBO Map Payment Method Rule</field>
+        <field name="model_id" ref="model_qbo_map_payment_method"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_sale_order_rule" model="ir.rule">
+        <field name="name">QBO Map Sale Order Rule</field>
+        <field name="model_id" ref="model_qbo_map_sale_order"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="qbo_map_department_rule" model="ir.rule">
+        <field name="name">QBO Map Department Rule</field>
+        <field name="model_id" ref="model_qbo_map_department"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

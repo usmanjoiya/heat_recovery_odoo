@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_qbo_map_import_all_from_qbo" model="ir.actions.server">
+        <field name="name">Import All</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="code">
+            model.initial_import_from_qbo()
+        </field>
+    </record>
+
+</odoo>

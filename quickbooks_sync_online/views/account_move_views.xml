@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="apply_qbo_taxes" string="Apply QBO Taxes" type="object"
+                        groups="account.group_account_invoice"
+                        invisible="not qbo_invoice_ids or state != 'draft' or move_type in ('in_invoice', 'in_refund')"
+                />
+                <button name="send_qbo_link" string="Send QBO Payment Link" type="object"
+                        groups="account.group_account_invoice"
+                        invisible="state != 'posted' or qbo_warning_txt or not qbo_invoice_ids or move_type != 'out_invoice'"
+                />
+            </xpath>
+
+            <xpath expr="//group[@id='header_left_group']/.." position="before">
+                <div class="alert alert-warning" role="alert" invisible="not qbo_invoice_ids or not qbo_warning_txt">
+                    <h5 class="alert-heading" role="alert">Warning!</h5>
+                    <p>
+                        <field name="qbo_warning_txt"/>
+                    </p>
+                </div>
+            </xpath>
+
+            <xpath expr="//page[last()]" position="after">
+                <page name="quickbooks_online" string="QuickBooks Online">
+                    <group>
+                        <field name="qbo_state" readonly="0"/>
+                        <field name="job_transaction_count" readonly="0"/>
+                        <field name="qbo_transaction_date" widget="datetime" readonly="1"/>
+                        <field name="qbo_transaction_info" readonly="1"/>
+                        <field name="qbo_invoice_link" widget="url"/>
+                        <field name="qbo_invoice_ids">
+                            <list>
+                                <field name="qbo_id"/>
+                                <field name="qbo_name"/>
+                                <field name="qbo_lib_type"/>
+                                <field name="total_tax"/>
+                                <field name="total_amt"/>
+                                <field name="is_imported"/>
+                                <field name="is_exported"/>
+                                <field name="company_id"/>
+                            </list>
+                        </field>
+                    </group>
+                    <group groups="base.group_no_one">
+                        <div colspan="2">
+                            <button type="object"
+                                    name="to_qbo_json"
+                                    class="btn btn-outline-primary"
+                                    string="DISPLAY EXPORT JSON: debug"
+                            />
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_move_qbo_info_form" model="ir.ui.view">
+        <field name="name">account.move.qbo.info.form</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <form string="Account Move QBO info" create="0" edit="0" delete="0">
+                <header>
+                    <button type='object' name='open_current_object' string="Open Full Form"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="partner_id" readonly="1"/>
+                        <field name="company_id" readonly="1"/>
+                        <field name="invoice_line_ids" readonly="1">
+                            <list>
+                                <field name="product_id"/>
+                                <field name="name"/>
+                                <field name="quantity"/>
+                                <field name="price_unit"/>
+                            </list>
+                        </field>
+                    </group>
+                    <hr/>
+                    <group>
+                        <field name="qbo_state" readonly="1"/>
+                        <field name="qbo_transaction_date" widget="datetime" readonly="1"/>
+                        <field name="qbo_transaction_info" readonly="1"/>
+                        <field name="qbo_invoice_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_qbo_todo_account_move_list" model="ir.ui.view">
+        <field name="name">account.move.qbo.todo.list</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <list string="Invoices ToDo List" create="0" edit="0" delete="0" decoration-info="qbo_state == 'pending'" decoration-warning="qbo_state == 'rejected'" decoration-danger="qbo_state == 'failed'">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="state"/>
+                <field name="qbo_state"/>
+                <field name="qbo_transaction_date" widget="datetime"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_qbo_todo_account_move_search" model="ir.ui.view">
+        <field name="name">account.move.qbo.todo.search</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <search string="Invoices">
+                <field name="name"/>
+                <!--in Odoo-14 "search" requires at least one "field" element-->
+                <filter name="todo" string="ToDo" domain="[('qbo_state', '=', 'todo')]" />
+                <filter name="pending" string="Pending" domain="[('qbo_state', '=', 'pending')]" />
+                <filter name="rejected" string="Rejected" domain="[('qbo_state', '=', 'rejected')]" />
+                <filter name="failed" string="Failed" domain="[('qbo_state', '=', 'failed')]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_invoice_export_to_qbo" model="ir.actions.server">
+        <field name="name">Export to QBO</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="code">
+            records.export_invoice_to_qbo()
+        </field>
+    </record>
+
+    <record id="action_qbo_todo_account_move" model="ir.actions.act_window">
+        <field name="name">Invoices ToDo List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.move</field>
+        <field name="view_id" ref="quickbooks_sync_online.view_qbo_todo_account_move_list"/>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_qbo_todo_account_move_search"/>
+        <field name="view_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_qbo_todo_account_move_list')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_account_move_qbo_info_form')})]"/>
+        <field name="domain">[('state', '=', 'posted'), ('qbo_state', '!=', 'proxy')]</field>
+        <field name="context">{'qbo_todo_list_action': True}</field>
+    </record>
+
+</odoo>

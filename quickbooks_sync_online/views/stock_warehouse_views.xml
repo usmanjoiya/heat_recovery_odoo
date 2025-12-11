@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_warehouse" model="ir.ui.view">
+        <field name="name">stock.warehouse.form.inherit</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="quickbooks_online" string="QuickBooks Online">
+                    <group>
+                        <field name="qbo_state" readonly="1"/>
+                        <field name="qbo_transaction_date" widget="datetime" readonly="1"/>
+                        <field name="qbo_transaction_info" readonly="1"/>
+                        <field name="qbo_department_ids">
+                            <list>
+                                <field name="qbo_id"/>
+                                <field name="qbo_name"/>
+                                <field name="is_imported"/>
+                                <field name="is_exported"/>
+                                <field name="company_id"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_stock_warehouse_export_to_qbo" model="ir.actions.server">
+        <field name="name">Export to QBO</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="stock.model_stock_warehouse"/>
+        <field name="binding_model_id" ref="stock.model_stock_warehouse"/>
+        <field name="code">
+            records.export_warehouse_to_qbo()
+        </field>
+    </record>
+
+    <record id="action_stock_warehouse_update_in_qbo" model="ir.actions.server">
+        <field name="name">Update in QBO</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="stock.model_stock_warehouse"/>
+        <field name="binding_model_id" ref="stock.model_stock_warehouse"/>
+        <field name="code">
+            records.update_warehouse_in_qbo()
+        </field>
+    </record>
+
+</odoo>

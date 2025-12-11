@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Default qbo_state for account.move -->
+        <record id="default_account_move_qbo_state" model="ir.default">
+            <field name="field_id" search="[('model', '=', 'account.move'), ('name', '=', 'qbo_state')]"/>
+            <field name="json_value">"todo"</field>
+        </record>
+
+        <!-- Default qbo_state for res.partner -->
+        <record id="default_res_partner_qbo_state" model="ir.default">
+            <field name="field_id" search="[('model', '=', 'res.partner'), ('name', '=', 'qbo_state')]"/>
+            <field name="json_value">"todo"</field>
+        </record>
+
+        <!-- Default qbo_state for product.product -->
+        <record id="default_product_product_qbo_state" model="ir.default">
+            <field name="field_id" search="[('model', '=', 'product.product'), ('name', '=', 'qbo_state')]"/>
+            <field name="json_value">"todo"</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+    <record id="view_qbo_map_partner_list" model="ir.ui.view">
+        <field name="model">qbo.map.partner</field>
+        <field name="name">Default list view for qbo.map.partner</field>
+        <field name="inherit_id" ref="quickbooks_sync_online.view_qbo_map_model_list"/>
+        <field name="mode">primary</field>
+        <field type="xml" name="arch">
+            <xpath expr="//field[@name='qbo_id']" position="before">
+                <field name="id" groups="base.group_no_one"/>
+            </xpath>
+            <xpath expr="//field[@name='qbo_name']" position="after">
+                <field name="partner_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_qbo_map_partner_form" model="ir.ui.view">
+        <field name="model">qbo.map.partner</field>
+        <field name="name">Default form view for qbo.map.partner</field>
+        <field name="inherit_id" ref="quickbooks_sync_online.view_qbo_map_model_form"/>
+        <field name="mode">primary</field>
+        <field type="xml" name="arch">
+            <xpath expr="//field[@name='qbo_name']" position="after">
+                <field name="qbo_lib_type"/>
+                <field name="partner_id"
+                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit': True}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_qbo_map_partner_search" model="ir.ui.view">
+        <field name="model">qbo.map.partner</field>
+        <field name="name">Search into qbo partner list</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="qbo_id"/>
+                <field name="qbo_name"/>
+                <field name="partner_id"/>
+                <filter
+                    name="customer"
+                    string="Customer"
+                    domain="[('qbo_lib_type', '=', 'customer')]"
+                />
+                <filter
+                    name="vendor"
+                    string="Vendor"
+                    domain="[('qbo_lib_type', '=', 'vendor')]"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_menu_data_qbo_map_partner" model="ir.actions.act_window">
+        <field name="name">Partners</field>
+        <field name="res_model">qbo.map.partner</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_qbo_map_partner_list"/>
+    </record>
+
+    <record id="action_qbo_map_partner_import_from_qbo" model="ir.actions.server">
+        <field name="name">Import Partners</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="quickbooks_sync_online.model_qbo_map_partner"/>
+        <field name="code">
+            model.get_data_from_qbo()
+        </field>
+    </record>
+
+    <record id="action_qbo_map_partner_try_map" model="ir.actions.server">
+        <field name="name">Map by Email/Name or Create</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="quickbooks_sync_online.model_qbo_map_partner"/>
+        <field name="binding_model_id" ref="quickbooks_sync_online.model_qbo_map_partner"/>
+        <field name="code">
+            action = records.try_to_map()
+        </field>
+    </record>
+
+    <record id="action_qbo_map_partner_refresh_from_qbo" model="ir.actions.server">
+        <field name="name">Refresh from QBO</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="quickbooks_sync_online.model_qbo_map_partner"/>
+        <field name="binding_model_id" ref="quickbooks_sync_online.model_qbo_map_partner"/>
+        <field name="binding_view_types">form</field>
+<!--        <field name="groups_id" eval="[(6, 0, (ref('base.group_no_one'),))]"/>-->
+        <field name="group_ids" eval="[(6, 0, (ref('base.group_no_one'),))]"/>
+        <field name="code">
+            record._refresh_qbo_mapping_body()
+        </field>
+    </record>
+
+    <record id="action_force_update_partners_to_qbo" model="ir.actions.server">
+        <field name="name">Force Update to QBO</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="quickbooks_sync_online.model_qbo_map_partner"/>
+        <field name="binding_model_id" ref="quickbooks_sync_online.model_qbo_map_partner"/>
+        <field name="binding_view_types">list,form</field>
+<!--        <field name="groups_id" eval="[(6, 0, (ref('base.group_no_one'),))]"/>-->
+        <field name="group_ids" eval="[(6, 0, (ref('base.group_no_one'),))]"/>
+        <field name="code">
+            records._action_force_update_map_to_qbo()
+        </field>
+    </record>
+
+</odoo>

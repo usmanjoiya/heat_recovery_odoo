@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="qbo_help_wizard_form_view" model="ir.ui.view">
+        <field name="name">qbo.help.wizard.form</field>
+        <field name="model">qbo.help.wizard</field>
+        <field name="arch" type="xml">
+            <form string="QBO Partner Options">
+                <sheet>
+                    <group>
+                        <field name="qbo_partner_type" required="1" widget="radio"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Export" name="submit_params"
+                            type="object" default_focus="1" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="qbo_help_wizard_info_form_view" model="ir.ui.view">
+        <field name="name">qbo.help.wizard.info.form</field>
+        <field name="model">qbo.help.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Summary Info">
+                <sheet>
+                    <div colspan="2">
+                        <field name="information" nolabel="1" readonly="1"/>
+                    </div>
+                </sheet>
+                <footer>
+                    <button string="Close" class="btn-primary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

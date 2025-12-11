@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+    <record id="view_qbo_map_model_list" model="ir.ui.view">
+        <field name="model">qbo.map.mixin</field>
+        <field name="name">Default list view for qbo.map.mixin</field>
+        <field name="type">list</field>
+        <field type="xml" name="arch">
+            <list create="false" editable="bottom">
+                <field name="qbo_id"/>
+                <field name="qbo_name"/>
+                <field name="qbo_lib_type" optional="hide"/>
+                <field name="company_id" readonly="1"/>
+                <button type="object" name="get_formview_action" string="Full View"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_qbo_map_model_form" model="ir.ui.view">
+        <field name="model">qbo.map.mixin</field>
+        <field name="name">Default form view for qbo.map.mixin</field>
+        <field name="type">form</field>
+        <field type="xml" name="arch">
+            <form create="false">
+                <group>
+                    <field name="is_imported" invisible="not is_imported"/>
+                    <field name="is_exported" invisible="not is_exported"/>
+                    <field name="qbo_id"/>
+                    <field name="qbo_name"/>
+                    <field name="company_id" readonly="1"/>
+                    <field name="qbo_object" readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>

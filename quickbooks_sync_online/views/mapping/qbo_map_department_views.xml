@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+    <record id="view_qbo_map_department_list" model="ir.ui.view">
+        <field name="model">qbo.map.department</field>
+        <field name="name">Default list view for qbo.map.departments</field>
+        <field name="inherit_id" ref="quickbooks_sync_online.view_qbo_map_model_list"/>
+        <field name="mode">primary</field>
+        <field type="xml" name="arch">
+            <xpath expr="//field[@name='qbo_name']" position="after">
+                <field name="warehouse_id"/>
+                <field name="is_sub_department" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_qbo_map_department_form" model="ir.ui.view">
+        <field name="model">qbo.map.department</field>
+        <field name="name">Default form view for qbo.map.department</field>
+        <field name="inherit_id" ref="quickbooks_sync_online.view_qbo_map_model_form"/>
+        <field name="mode">primary</field>
+        <field type="xml" name="arch">
+            <xpath expr="//field[@name='qbo_name']" position="after">
+                <field name="warehouse_id"
+                       domain="[('company_id', '=', company_id)]"
+                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit': True}"/>
+                <field name="is_sub_department" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_menu_data_qbo_map_department" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">qbo.map.department</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_qbo_map_department_list"/>
+    </record>
+
+    <record id="action_qbo_map_department_import_from_qbo" model="ir.actions.server">
+        <field name="name">Import Departments</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="quickbooks_sync_online.model_qbo_map_department"/>
+        <field name="code">
+            model.get_all_data_from_qbo()
+        </field>
+    </record>
+
+</odoo>
