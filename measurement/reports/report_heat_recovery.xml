@@ -362,7 +362,7 @@
                                            t-value="doc.product_line_ids.filtered(lambda l: doc.basic_prod and l.product_id and l.product_id.id == doc.basic_prod.id)"/>
                                         <t t-if="doc.basic_prod">
                                             <t t-if="matched_line">
-                                                £ <t t-esc="(matched_line[0].sale_price or 0.0)"/>asd
+                                                £
                                                 <t t-esc="(matched_line[0].sale_price or 0.0) + (doc.line_price_of_kit or 0.0) + (doc.line_price_of_service_prod or 0.0)"
                                                    t-options="{'widget':'float', 'precision':2}"/>
                                             </t>
@@ -380,8 +380,7 @@
                                            t-value="doc.product_line_ids.filtered(lambda l: doc.upgraded_prod and l.product_id and l.product_id.id == doc.upgraded_prod.id)"/>
                                         <t t-if="doc.upgraded_prod">
                                             <t t-if="matched_line">
-                                                £<t t-esc="(matched_line[0].sale_price or 0.0)"/>asd
-                                                <t t-esc="(matched_line[0].sale_price or 0.0) + (doc.line_price_of_kit or 0.0) + (doc.line_price_of_service_prod or 0.0)"
+                                                £ <t t-esc="(matched_line[0].sale_price or 0.0) + (doc.line_price_of_kit or 0.0) + (doc.line_price_of_service_prod or 0.0)"
                                                    t-options="{'widget':'float', 'precision':2}"/>
                                             </t>
                                             <t t-else="">
@@ -398,7 +397,7 @@
                                            t-value="doc.product_line_ids.filtered(lambda l: doc.premium_prod and l.product_id and l.product_id.id == doc.premium_prod.id)"/>
                                         <t t-if="doc.premium_prod">
                                             <t t-if="matched_line">
-                                                £<t t-esc="(matched_line[0].sale_price or 0.0)"/>asd
+                                                £
                                                 <t t-esc="(matched_line[0].sale_price or 0.0) + (doc.line_price_of_kit or 0.0) + (doc.line_price_of_service_prod or 0.0)"
                                                    t-options="{'widget':'float', 'precision':2}"/>
                                             </t>
