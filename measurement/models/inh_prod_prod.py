@@ -39,6 +39,25 @@ class ProductProduct(models.Model):
         mrp_id = self.env['mrp.bom'].search(domain,limit=1)
         return mrp_id
 
+
+    def write(self, vals):
+        res = super().write(vals)
+        if 'standard_price' in vals:
+            for component in self:
+                bom_lines = self.env['mrp.bom.line'].sudo().search([
+                    ('product_id', '=', component.id)
+                ])
+                boms = bom_lines.mapped('bom_id')
+
+                for bom in boms:
+                    main_product = bom.product_id
+                    if main_product and hasattr(main_product, 'button_bom_cost'):
+                        try:
+                            main_product.sudo().button_bom_cost()
+                        except Exception:
+                            pass
+        return res
+
     # @api.depends('standard_price')
     # @api.onchange('standard_price')
     # def _compute_sale_price_variant(self):

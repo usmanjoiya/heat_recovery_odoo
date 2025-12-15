@@ -11,6 +11,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/alrightness_pricess_views.xml',
+        'views/room_name_view.xml',
         'views/inh_sale_order.xml',
         'views/res_state_country.xml',
         'views/res_partner.xml',
