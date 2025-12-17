@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+	<record id="action_quickbookonline_dashboard" model="ir.actions.client">
+		<field name="name">Quickbook Online Dashboard</field>
+		<field name="tag">quickbookonline_dashboard</field>
+	</record>
+
+	<!-- <template id="assets_backend" inherit_id="web.assets_backend">
+		 <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/quickbook_online_connector/static/src/scss/quickbook_kanban.scss"/>
+			<link rel="stylesheet" type="text/scss" href="/quickbook_online_connector/static/src/scss/quickbook_dashboard.scss"/>
+        </xpath>
+		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/quickbook_online_connector/static/src/js/quickbook_dashboard.js"/>
+		</xpath>
+	</template> -->
+</odoo>

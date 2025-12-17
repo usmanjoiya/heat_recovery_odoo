@@ -112,7 +112,8 @@
                 <page string="Supply">
                     <field name="room_measurement_ids">
                         <list editable="bottom">
-                            <field name="room_id"/>
+<!--                            <field name="room_id"/>-->
+                            <field name="room_name_id"/>
                             <field name="length" required="1"/>
                             <field name="width" required="1"/>
                             <field name="area" readonly="1"/>

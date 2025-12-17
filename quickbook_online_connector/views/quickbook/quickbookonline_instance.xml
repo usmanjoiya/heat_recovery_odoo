@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+
+<odoo>
+	<data>
+		<record id="quickbook_online_mapping_form" model="ir.ui.view">
+			<field name="name">Quickbook Online Connection Form</field>
+			<field name="model">quickbookonline.instance</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Quickbook Online Instance">
+					<header>
+							<button name="test_connection"
+								type='object' 
+								icon="fa-pencil-square-o" 
+								class="oe_highlight" 
+								string='Test Connection'/>
+							<button name="disconnect_connection"
+								type='object' 
+								class="text-danger"
+								invisible='not connection_status'>
+								<span class="fa fa-chain-broken"/>
+								Disconnect
+								</button>
+					</header>
+					<sheet>
+						<div name="button_box" class="oe_button_box">
+							<button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+								<field name="active" options="{'terminology': 'active'}" widget="boolean_button"/>
+							</button>
+						</div>
+						<field name="connection_status" invisible="1"/>
+						<widget name="web_ribbon" text="Connected"
+							invisible="connection_status != True"/>
+						<widget name="web_ribbon" text="Not Connected" bg_color="bg-danger"
+							invisible="connection_status != False"/>
+						
+						<div class="oe_title">
+							<label for="name" string="Instance name"/>
+							<h1><field name="name" placeholder="e.g. Quickbook Online Connector Name"/></h1>
+						</div>
+                        <group name="quickbookonelin_environment" col="2">
+							 <field name='environment'/>
+						</group>
+						
+						<notebook>
+							<page string="Api Details" name='api_details'>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Client id" for="client_id"/>
+											<div>
+												<field name="client_id"/>
+											</div>
+										</div>
+									</div>
+                                    <div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Client Key" for="client_key"/>
+											<div>
+												<field name="client_key"/>
+											</div>
+										</div>
+									</div>
+								</div>
+                                <div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Redirect url" for="redirect_url"/>
+											<div class="text-muted">
+												Redirect URI should be same at odoo and quickbook end.<br/> Please add "/quickbook_online_connector" after your Odoo URL.
+											</div>
+											<div>
+												<field name="redirect_url" style="width:320px;"/>
+											</div>
+										</div>
+									</div>
+                                    <div class="col-xs-12 col-md-6 o_setting_box" invisible="connection_status == False">
+										<div class="o_setting_right_pane">
+											<label string="Company(Realm Id)" for="realmId"/>
+											<div>
+												<field name="realmId" readonly="1" groups="base.group_no_one"/>
+											</div>
+											<div invisible="not qbo_company_name">
+												<strong class="text-primary">
+													<field name="qbo_company_name" readonly="1"/>
+												</strong>
+											</div>
+										</div>
+									</div>
+								</div>
+                                <div class="row mt16 o_settings_container" groups='base.group_no_one' invisible="connection_status == False">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Refresh Token" for="refresh_token"/>
+											<div>
+												<field name="refresh_token" readonly="connection_status"/>
+											</div>
+										</div>
+									</div>
+                                    <div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Access Token" for="access_token"/>
+											<div>
+												<field name="access_token" readonly="connection_status"/>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</page>
+							
+							<page string="Default Odoo Settings" name='quickbook_default_settings'>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Default Product Category" for="default_category_id"/>
+											<div>
+												<field name="default_category_id"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Discount Product For Order" for="discount_product_id"/>
+											<div>
+												<field name="discount_product_id"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Company" for="company_id"/>
+											<div>
+												<field name="company_id" options="{'no_create' : True}"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Default Stock Warehouse" for="default_warehouse_id"/>
+											<div>
+												<field name="default_warehouse_id"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Default Stock Location" for="location_id"/>
+											<div>
+												<field name="location_id"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Default Pricelist " for="default_pricelist_id"/>
+											<div>
+												<field name="default_pricelist_id"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Default Sales Team " for="default_sales_team"/>
+											<div>
+												<field name="default_sales_team"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Default Sales Person" for="default_sales_user"/>
+											<div>
+												<field name="default_sales_user"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Avoid Duplicity" for="avoid_duplicity"/>
+											<div>
+												<field name="avoid_duplicity" readonly="connection_status" help="Stop duplicating product with the same SKU"/>
+											</div>
+											<div class='text-muted'>
+												Stop creating duplicate products in Odoo with same SKU(Internal Reference) after import from Quickbook
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Auto Sync Stock" for="auto_sync_stock"/>
+											<div>
+												<field name="auto_sync_stock" readonly="connection_status" help="Real time Product Stock will be synced from Odoo to Quickbook"/>
+											</div>
+											<div class='text-muted'>
+												Sync Real time stock(on-hand) from Odoo to Quickbook.
+											</div>
+										</div>
+									</div>
+								</div>
+							</page>
+
+							<page string="Quickbook Default Import Data" name='quickbook_import_data' invisible="connection_status == False">
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<button name="get_sale_tax"
+												type='object' 
+												string = "Import Quickbook Sale Taxes" 
+												class="oe_highlight"
+												/>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<button name="get_tax_data"
+												type='object' 
+												string = "Import Quickbook Tax Codes" 
+												class="oe_highlight"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<button name="get_payment_terms"
+												type='object' 
+												string = "Import Quickbook Payment Terms" 
+												class="oe_highlight"
+												/>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<button name="get_payment_methods"
+												type='object' 
+												string = "Import Quickbook Payment Methods" 
+												class="oe_highlight"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Sale Taxes Limit" for="importSaleTaxLimit"/>
+											<div>
+												<field name="importSaleTaxLimit"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Tax Codes Limit" for="importTaxCodeLimit"/>
+											<div>
+												<field name="importTaxCodeLimit"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Payment Terms Limit" for="importPaymentTermLimit"/>
+											<div>
+												<field name="importPaymentTermLimit"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Payment Methods Limit" for="importPaymentMethodLimit"/>
+											<div>
+												<field name="importPaymentMethodLimit"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</page>
+							<page string="Quickbook Settings" name='quickbook_account_data' invisible="connection_status == False">
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="QuickBook Income Account" for="quickbook_income_account"/>
+											<div class="text-muted" groups="base.group_no_one">
+												required for Invoice/Sale/Purchase and Product Sync.
+											</div>
+											<div>
+												<field name="quickbook_income_account" domain="[('is_quickbook','=',True)]"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+												<label string="QuickBook Asset Account" for="quickbook_asset_account"/>
+												<div class="text-muted" groups="base.group_no_one">
+													Account Type must be 'other current Assets' and Detail Type must be Inventory<br/>at QuickBook End in Chart of accounts.(*required for "Storable Product")
+												</div>
+												<div>
+													<field name="quickbook_asset_account" domain="[('is_quickbook','=',True)]"/>
+												</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="QuickBook Expense Account" for="quickbook_expense_account"/>
+											<div class="text-muted" groups="base.group_no_one">
+												required for Invoice/Sale/Purchase and Product Sync.
+											</div>
+											<div>
+												<field name="quickbook_expense_account" domain="[('is_quickbook','=',True)]"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+												<label string="QuickBook Default Tax Code" for="quickbook_account_tax_code"/>
+												<div class="text-muted" groups="base.group_no_one">
+													It is used to which type of "Tax" you want to apply on Invoice/Sale line at QuickBook End.<br/>**In Invoice/Sale lines and Default Tax Code Taxes must be same otherwise not set or may be different at QuickBook End.
+												</div>
+												<div>
+													<field name="quickbook_account_tax_code"/>
+												</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+												<label string="QuickBook Default Code" for="quickbook_account_code"/>
+												<div class="text-muted" groups="base.group_no_one">
+													To track the taxable and non-taxable status of Invoice/Sale/Purchase lines<br/>This will be applicable only if lines contain Taxes otherwise not.
+												</div>
+												<div>
+													<field name="quickbook_account_code"/>
+												</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+												<label string="QuickBook Default Tax For Purchase" for="quickbook_account_purchase_tax_code"/>
+												<div class="text-muted" groups="base.group_no_one">
+													It is used to which type of "Tax" you want to apply on Purchase Order line at QuickBook End.
+												</div>
+												<div>
+													<field name="quickbook_account_purchase_tax_code"/>
+												</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+												<label string="QuickBook Purchase Order Payable Account" for="quickbook_account_payble_account"/>
+												<div class="text-muted" groups="base.group_no_one">
+													It is used in "Purchase Order" Export operation (**	required). 
+												</div>
+												<div>
+													<field name="quickbook_account_payble_account" domain="[('is_quickbook','=',True)]"/>
+												</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+												<label string="QuickBook Tax On OrderLine with No Tax" for="quickbook_default_order_line_tax"/>
+												<div class="text-muted" groups="base.group_no_one">
+													This will be applicable only when you does not set the 'Taxes' on Invoice/Sale lines. otherwise QuickBook Default Code will be applicable.
+												</div>
+												<div>
+													<field name="quickbook_default_order_line_tax"/>
+												</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+												<label class="pe-4" string="Apply Tax After Discount" for="apply_tax_after_discount"/>
+												<field name="apply_tax_after_discount"/>
+												<div class="text-muted" groups="base.group_no_one">
+													It should be same at odoo and quickbook end in Invoice/Sale discount.
+												</div>
+										</div>
+									</div>
+								</div>
+							</page>
+							<page string="Quickbook Import Time" name='quickbook_import_time' invisible="connection_status == False">
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Category Time" for="importCategoryTime"/>
+											<div>
+												<field name="importCategoryTime"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Customer Time" for="importCustomerTime"/>
+											<div>
+												<field name="importCustomerTime"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Product Time" for="importProductTime"/>
+											<div>
+												<field name="importProductTime"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Order Time" for="importOrderTime"/>
+											<div>
+												<field name="importOrderTime"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Invoice Time" for="importInvoiceTime"/>
+											<div>
+												<field name="importInvoiceTime"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Payment Time" for="importPaymentTime"/>
+											<div>
+												<field name="importPaymentTime"/>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Vendor Time" for="importVendorTime"/>
+											<div>
+												<field name="importVendorTime"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Purchase Order Time" for="importPurchaseOrderTime"/>
+											<div>
+												<field name="importPurchaseOrderTime"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Last Import Bill Time" for="importBillTime"/>
+											<div>
+												<field name="importBillTime"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</page>
+
+							<page string="Quickbook Import Limit" name='quickbook_import_limit' invisible="connection_status == False">
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+											<div class="o_setting_right_pane">
+												<p class="oe_grey">
+													<strong>Message</strong>: These Limits Are For Import Of Data From 
+														Quickbook Online To Odoo By Cron
+												</p>
+											</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Customer Limit" for="importCustomerLimit"/>
+											<div>
+												<field name="importCustomerLimit"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Product Limit" for="importProductLimit"/>
+											<div>
+												<field name="importProductLimit"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Order Limit" for="importOrderLimit"/>
+											<div>
+												<field name="importOrderLimit"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Invoice Limit" for="importInvoiceLimit"/>
+											<div>
+												<field name="importInvoiceLimit"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Payment Limit" for="importPaymentLimit"/>
+											<div>
+												<field name="importPaymentLimit"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Vendor Limit" for="importVendorLimit"/>
+											<div>
+												<field name="importVendorLimit"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Purchase Order Limit" for="importPurchaseOrderLimit"/>
+											<div>
+												<field name="importPurchaseOrderLimit"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Category Limit" for="importCategoryLimit"/>
+											<div>
+												<field name="importCategoryLimit"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt16 o_settings_container">
+									<div class="col-xs-12 col-md-6 o_setting_box">
+										<div class="o_setting_right_pane">
+											<label string="Import Bill Limit" for="importBillLimit"/>
+											<div>
+												<field name="importBillLimit"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</page>
+
+							<page string="Crons" name='quickbook_crons' invisible="connection_status == False">
+
+								<group>
+									<group string="Import Crons" name="cron_group_import" col="4">
+										<field name="category_import_cron"/>
+										<field name="product_import_cron"/>
+										<field name="partner_import_cron"/>
+										<field name="order_import_cron"/>
+										<field name="invoice_import_cron"/>
+										<field name="bill_import_cron"/>
+										<field name="payment_import_cron"/>
+										<field name="vendor_import_cron"/>
+										<field name="purchase_order_import_cron"/>
+									</group>
+									<group string="Export Crons" name="cron_group_export" col="4">
+										<field name="category_export_cron"/>
+										<field name="product_export_cron"/>
+										<field name="partner_export_cron"/>
+										<field name="order_export_cron"/>
+										<field name="invoice_export_cron"/>
+										<field name="bill_export_cron"/>
+										<field name="payment_export_cron"/>
+										<field name="vendor_export_cron"/>
+										<field name="purchase_order_export_cron"/>
+									</group>
+								</group>
+								<separator/>
+								<button name="open_cron_view"
+									type='object' 
+									string='Configure Scheduled Actions'/>
+							</page>
+						</notebook>
+					</sheet>
+					<footer>
+					</footer>
+					<chatter/>
+				</form>
+			</field>
+		</record>
+
+		<record id="quickbook_online_mapping_list" model="ir.ui.view">
+			<field name="name">Quickbook Online Connection list</field>
+			<field name="model">quickbookonline.instance</field>
+			
+			<field name="arch" type="xml">
+				<list string="Quickbook Connection Mapping">
+					<field name="name"/>
+					<field name="create_date" readonly="1"/>
+					<field name="write_date" readonly="1"/>
+				</list>
+			</field>
+		</record>
+
+
+
+		<record id="quickbook_online_connection_mapping" model="ir.actions.act_window">
+			<field name="name">Quickbook Online Connections</field>
+			<field name="res_model">quickbookonline.instance</field>
+			<field name="view_mode">list,form</field>
+			<field name="view_id" ref="quickbook_online_mapping_list"/>
+		</record>
+	</data>
+</odoo>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+
+<odoo>
+<data noupdate="0">
+	<record model="ir.module.category" id="module_quickbook_online_connector">
+		<field name="name">Quickbook Online Odoo Connector</field>
+		<field name="description">QuickBook Online Oodo Applilcation</field>
+		<field name="sequence">20</field>
+	</record>
+
+	<record model="res.groups.privilege" id="ir_category_security">
+		<field name="name">Quickbooks Online Connector</field>
+		<field name="category_id" ref="module_quickbook_online_connector"/>
+	</record>
+
+	<record id="group_quickbook_online_user" model="res.groups">
+		<field name="name">User</field>
+		<field name="comment">User will have read access to the Quickbook Online Odoo Connector.</field>
+		<field name="privilege_id" ref="ir_category_security"/>
+	</record>
+
+	<record id="group_quickbook_online_manager" model="res.groups">
+		<field name="name">Manager</field>
+		<field name="comment">Full Access on Quickbook Online Odoo Connector</field>
+		<field name="privilege_id" ref="ir_category_security"/>
+		<field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+		 <field name="implied_ids" eval="[(4, ref('group_quickbook_online_user'))]"/>
+	</record>
+</data>
+</odoo>

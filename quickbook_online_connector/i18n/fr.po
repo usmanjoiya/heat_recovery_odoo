@@ -1,0 +1,2471 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* quickbook_online_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-07 04:14+0000\n"
+"PO-Revision-Date: 2024-05-07 04:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importBillLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCategoryLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCustomerLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importInvoiceLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importOrderLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentMethodLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentTermLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importProductLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPurchaseOrderLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importSaleTaxLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importTaxCodeLimit__10
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importVendorLimit__10
+msgid "10"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importBillLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCategoryLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCustomerLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importInvoiceLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importOrderLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentMethodLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentTermLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importProductLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPurchaseOrderLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importSaleTaxLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importTaxCodeLimit__100
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importVendorLimit__100
+msgid "100"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importBillLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCategoryLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCustomerLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importInvoiceLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importOrderLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentMethodLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentTermLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importProductLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPurchaseOrderLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importSaleTaxLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importTaxCodeLimit__1000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importVendorLimit__1000
+msgid "1000"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importBillLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCategoryLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCustomerLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importInvoiceLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importOrderLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentMethodLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentTermLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importProductLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPurchaseOrderLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importSaleTaxLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importTaxCodeLimit__200
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importVendorLimit__200
+msgid "200"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importBillLimit__2000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCategoryLimit__2000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCustomerLimit__2000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importInvoiceLimit__2000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importOrderLimit__2000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentLimit__2000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importProductLimit__2000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPurchaseOrderLimit__2000
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importVendorLimit__2000
+msgid "2000"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importBillLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCategoryLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCustomerLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importInvoiceLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importOrderLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentMethodLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentTermLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importProductLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPurchaseOrderLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importSaleTaxLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importTaxCodeLimit__300
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importVendorLimit__300
+msgid "300"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importBillLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCategoryLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCustomerLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importInvoiceLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importOrderLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentMethodLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentTermLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importProductLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPurchaseOrderLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importSaleTaxLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importTaxCodeLimit__50
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importVendorLimit__50
+msgid "50"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importBillLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCategoryLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importCustomerLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importInvoiceLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importOrderLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentMethodLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentTermLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importProductLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPurchaseOrderLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importSaleTaxLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importTaxCodeLimit__500
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importVendorLimit__500
+msgid "500"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"<span class=\"fa fa-chain-broken\"/>\n"
+"\t\t\t\t\t\t\t\tDisconnect"
+msgstr ""
+"<span class=\"fa fa-chain-broken\"/>\n"
+"\t\t\t\t\t\t\t\tDéconnecter"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"<strong>Message</strong>: These Limits Are For Import Of Data From \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\tQuickbook Online To Odoo By Cron"
+msgstr ""
+"<strong>Message</strong>: Ces limites concernent l'importation de données depuis \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\tQuickbooks en ligne vers Odoo par Cron"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__access_token
+msgid "Access Toekn"
+msgstr "Jeton d'accès"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Access Token"
+msgstr "Jeton d'accès"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_account_account
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_account
+msgid "Account"
+msgstr "Compte"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_account_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_account_search
+msgid "Account Mapping"
+msgstr "Cartographie des comptes"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"Account Type must be 'other current Assets' and Detail Type must be "
+"Inventory<br/>at QuickBook End in Chart of accounts.(*required for "
+"\"Storable Product\")"
+msgstr ""
+"Le type de compte doit être « autres actifs courants » et le type de détail doit être "
+"Inventaire<br/>à QuickBook End dans le plan comptable. (*obligatoire pour "
+"\"Produit Stockable\")"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Accounting"
+msgstr "Comptabilité"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__action
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__action_2
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__action_3
+msgid "Action"
+msgstr "Action"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_needaction
+msgid "Action Needed"
+msgstr "Action nécessaire"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_bulk_synchronisation_form
+msgid "Action Now"
+msgstr "Action À présent"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__active
+msgid "Active"
+msgstr "Active"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Activity"
+msgstr "Activité"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Add New"
+msgstr "Ajouter Nouveau"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentMethodLimit__all
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importPaymentTermLimit__all
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importSaleTaxLimit__all
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__importTaxCodeLimit__all
+msgid "All"
+msgstr "Toute"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Analytics"
+msgstr "Analytique"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Api Details"
+msgstr "Détails de l'API"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__apply_tax_after_discount
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Apply Tax After Discount"
+msgstr "Appliquer la taxe après remise"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "April"
+msgstr "Avril"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_synchronization_form
+msgid "Are you sure you want to Reset All Mappings?"
+msgstr "Etes-vous sûr de vouloir réinitialiser tous les mappages ?"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__tax_ids
+msgid "Associate Tax Ids"
+msgstr "Impôt associé IDs"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_attachment_count
+msgid "Attachment Count"
+msgstr "Compte de pièces jointes"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "August"
+msgstr "Août"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__auto_sync_stock
+msgid "Auto Stock Sync"
+msgstr "Synchronisation automatique des stocks"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Auto Sync Stock"
+msgstr "Stock de synchronisation automatique"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__automate_confirm_purchase_order
+msgid "Automatic Confirm Purchase Order"
+msgstr "Confirmation automatique du bon de commande"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__automate_confirm_sale_order
+msgid "Automatic Confirm Sale Order"
+msgstr "Confirmation automatique de la commande de vente"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__avoid_duplicity
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Avoid Duplicity"
+msgstr "Évitez la duplicité"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_bill
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_bill_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_bill_search
+msgid "Bill Mapping"
+msgstr "Cartographie des factures"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_bulk_synchronisation_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_manual_synchronisation_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_category_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_category_search
+msgid "Category Mapping"
+msgstr "Cartographie des catégories"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_call_quickbook_api
+msgid "Class Use To Call Quickbook Api"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Client Key"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__client_id
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Client id"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__client_key
+msgid "Client key"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_message_wizard
+msgid "Close"
+msgstr "Fermer"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__qbo_company_name
+msgid "Company Name"
+msgstr "Nom de l'entreprise"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Company(Realm Id)"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Configure Scheduled Actions"
+msgstr "Configurer les actions planifiées"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__connection_status
+msgid "Connection Status"
+msgstr "Statut de connexion"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Connector"
+msgstr "Connecteur"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__created_by
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__created_by
+msgid "Created By"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_call_quickbook_api__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_message_wizard__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_synchronization__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__create_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_call_quickbook_api__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_message_wizard__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_synchronization__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__create_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Crons"
+msgstr "Crons"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_partner__partner_type__customer
+#, python-format
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Customer Invoice"
+msgstr "Facture client"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Customer Payment"
+msgstr "Paiement client"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "December"
+msgstr "Décembre"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Default Odoo Settings"
+msgstr "Paramètres Odoo par défaut"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Default Pricelist"
+msgstr "Liste de prix par défaut"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__default_pricelist_id
+msgid "Default Pricelist Id"
+msgstr "Identifiant de la liste de prix par défaut"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__default_category_id
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Default Product Category"
+msgstr "Catégorie de produit par défaut"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Default Sales Person"
+msgstr "Vendeur par défaut"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__default_sales_user
+msgid "Default Sales Person Used In Sale Order."
+msgstr "Vendeur par défaut utilisé dans la commande client."
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__default_sales_team
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Default Sales Team"
+msgstr "Équipe de ventes par défaut"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__default_sales_team
+msgid "Default Sales Team Used In Sale Order."
+msgstr "Équipe commerciale par défaut utilisée dans la commande client."
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__default_sales_user
+msgid "Default Sales User"
+msgstr "Utilisateur des ventes par défaut"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Default Stock Location"
+msgstr "Emplacement du stock par défaut"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__default_warehouse_id
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Default Stock Warehouse"
+msgstr "Entrepôt de stock par défaut"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__discount_product_id
+msgid "Discount Product"
+msgstr "Produit à prix réduit"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Discount Product For Order"
+msgstr "Produit à prix réduit pour la commande"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_call_quickbook_api__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_message_wizard__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_synchronization__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__display_name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__environment
+msgid "Environment"
+msgstr "Environnement"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_bulk_synchronisation__action_2__sync
+#, python-format
+msgid "Export"
+msgstr "Exporter"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_synchronization_form
+msgid "Export / Update Data From Odoo To Quickbook"
+msgstr "Exporter/mettre à jour les données d'Odoo vers Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__bill_export_cron
+msgid "Export Bill"
+msgstr "Exporter la facture"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__category_export_cron
+msgid "Export Category"
+msgstr "Catégorie d'exportation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Export Crons"
+msgstr "Exporter des Crons"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_bulk_synchronisation__action__export
+msgid "Export Data"
+msgstr "Exporter des données"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__invoice_export_cron
+msgid "Export Invoice"
+msgstr "Facture d'exportation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_manual_synchronisation_form
+msgid "Export Now"
+msgstr "Exporter maintenant"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__order_export_cron
+msgid "Export Order"
+msgstr "Commande d'exportation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__partner_export_cron
+msgid "Export Partner"
+msgstr "Partenaire d'exportation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__payment_export_cron
+msgid "Export Payment"
+msgstr "Paiement à l'exportation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__product_export_cron
+msgid "Export Product"
+msgstr "Produit d'exportation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__purchase_order_export_cron
+msgid "Export Purchase Order"
+msgstr "Bon de commande d'exportation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__vendor_export_cron
+msgid "Export Vendor"
+msgstr "Fournisseur d'exportation"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.action_set_export_invoice
+#: model:ir.actions.server,name:quickbook_online_connector.action_set_export_order
+#: model:ir.actions.server,name:quickbook_online_connector.action_set_export_partner
+#: model:ir.actions.server,name:quickbook_online_connector.action_set_export_payment
+#: model:ir.actions.server,name:quickbook_online_connector.action_set_export_product
+#: model:ir.actions.server,name:quickbook_online_connector.action_set_export_product_category
+#: model:ir.actions.server,name:quickbook_online_connector.action_set_export_purchase_order
+msgid "Export to Quickbook"
+msgstr "Exporter vers Quickbooks"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_synchronization_form
+msgid "Export/Update Synchronization"
+msgstr "Synchronisation d'exportation/mise à jour"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__action_2
+msgid "Export:Export Data. Update:Update Data"
+msgstr "Exporter : exporter des données. Mise à jour : mettre à jour les données"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "February"
+msgstr "Février"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_follower_ids
+msgid "Followers"
+msgstr "Suiveuses"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Suiveurs (Partenaires)"
+
+#. module: quickbook_online_connector
+#: model:res.groups,comment:quickbook_online_connector.group_quickbook_online_manager
+msgid "Full Access on Quickbook Online Odoo Connector"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_account_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_bill_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_category_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_invoice_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_order_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_partner_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_map_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_map_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_product_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_purchase_order_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_code_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_search
+msgid "Group By"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_call_quickbook_api__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_message_wizard__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_synchronization__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__id
+msgid "ID"
+msgstr "ID"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si coché, les nouveaux messages nécessitent votre attention."
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__message_has_error
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si coché, certains messages ont une erreur de livraison."
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_bulk_synchronisation__action_3__import
+#, python-format
+msgid "Import"
+msgstr "Importer"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__bill_import_cron
+msgid "Import Bill"
+msgstr "Importer une facture"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Bill Limit"
+msgstr "Limite de facture d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importBillTime
+msgid "Import Bill Time"
+msgstr "Importer le temps de facturation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__category_import_cron
+msgid "Import Category"
+msgstr "Importation Catégorie"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Category Limit"
+msgstr "Limite de catégorie d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importCategoryTime
+msgid "Import Category Time"
+msgstr "Heure de la catégorie d'importation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Crons"
+msgstr "Importer des Crons"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Customer Limit"
+msgstr "Limite client d’importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importCustomerTime
+msgid "Import Customer Time"
+msgstr "Importer le temps du client"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_bulk_synchronisation__action__import
+msgid "Import Data"
+msgstr "Importer des données"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__action
+msgid ""
+"Import Data: Import Data From Quickbook Online. Export Data:Export Data To "
+"Quickbook"
+msgstr ""
+"Importer des données : importez des données depuis Quickbooks en ligne. Exporter des données : exporter des données vers "
+"QuickBooks"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__invoice_import_cron
+msgid "Import Invoice"
+msgstr "Importer une facture"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Invoice Limit"
+msgstr "Limite de facture d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importInvoiceTime
+msgid "Import Invoice Time"
+msgstr "Heure de la facture d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__order_import_cron
+msgid "Import Order"
+msgstr "Commande d'importation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Order Limit"
+msgstr "Limite de commande d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importOrderTime
+msgid "Import Order Time"
+msgstr "Heure de la commande d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__partner_import_cron
+msgid "Import Partner"
+msgstr "Partenaire d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__payment_import_cron
+msgid "Import Payment"
+msgstr "Paiement à l'importation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Payment Limit"
+msgstr "Limite de paiement à l'importation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Payment Methods Limit"
+msgstr "Limite des modes de paiement à l'importation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Payment Terms Limit"
+msgstr "Limite des conditions de paiement à l'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importPaymentTime
+msgid "Import Payment Time"
+msgstr "Délai de paiement à l'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__product_import_cron
+msgid "Import Product"
+msgstr "Produit d'importation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Product Limit"
+msgstr "Limite de produit d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importProductTime
+msgid "Import Product Time"
+msgstr "Heure d'importation du produit"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__purchase_order_import_cron
+msgid "Import Purchase Order"
+msgstr "Importer un bon de commande"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Purchase Order Limit"
+msgstr "Limite du bon de commande d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importPurchaseOrderTime
+msgid "Import Purchase Order Time"
+msgstr "Temps d’importation du bon de commande"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Quickbook Payment Methods"
+msgstr "Importer les méthodes de paiement Quickbook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Quickbook Payment Terms"
+msgstr "Importer les conditions de paiement Quickbook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Quickbook Sale Taxes"
+msgstr "Importer les taxes de vente Quickbooks"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Quickbook Tax Codes"
+msgstr "Importer les codes fiscaux Quickbook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Sale Taxes Limit"
+msgstr "Limite des taxes de vente à l'importation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_synchronization_form
+msgid "Import Synchronisation"
+msgstr "Synchronisation des importations"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Tax Codes Limit"
+msgstr "Limite des codes de taxe d'importation"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__vendor_import_cron
+msgid "Import Vendor"
+msgstr "Importer Vendor"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Import Vendor Limit"
+msgstr "Importer Vendor Limite"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importVendorTime
+msgid "Import Vendor Time"
+msgstr "Importer Vendor Temps"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__action_3
+msgid "Import: Import Data. Update:Update Data"
+msgstr "Importer : importer des données. Mise à jour : mettre à jour les données"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importBillLimit
+msgid "Importbilllimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importCategoryLimit
+msgid "Importcategorylimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importCustomerLimit
+msgid "Importcustomerlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importInvoiceLimit
+msgid "Importinvoicelimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importOrderLimit
+msgid "Importorderlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importPaymentLimit
+msgid "Importpaymentlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importPaymentMethodLimit
+msgid "Importpaymentmethodlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importPaymentTermLimit
+msgid "Importpaymenttermlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importProductLimit
+msgid "Importproductlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importPurchaseOrderLimit
+msgid "Importpurchaseorderlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importSaleTaxLimit
+msgid "Importsaletaxlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importTaxCodeLimit
+msgid "Importtaxcodelimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__importVendorLimit
+msgid "Importvendorlimit"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_account_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_bill_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_category_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_invoice_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_order_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_partner_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_map_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_map_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_product_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_purchase_order_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_code_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_search
+msgid "Instance"
+msgstr "Instance"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__instance_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__instance_id
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_bulk_synchronisation_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_manual_synchronisation_form
+msgid "Instance Id"
+msgstr "ID d'instance"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__name
+msgid "Instance Name"
+msgstr "Nom de l'instance"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Instance name"
+msgstr "Nom de l'instance"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Invoice"
+msgstr "Facture d'achat"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_invoice
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_invoice_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_invoice_search
+msgid "Invoice Mapping"
+msgstr "Cartographie des factures"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_is_follower
+msgid "Is Follower"
+msgstr "Est un suiveur"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_account_account__is_quickbook
+msgid "Is Quickbook"
+msgstr "Quickbooks est-il"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__is_taxable
+msgid "Is Taxable"
+msgstr "Est imposable"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "It is used in \"Purchase Order\" Export operation (**\trequired)."
+msgstr "Il est utilisé dans l'opération d'export \"Bon de commande\" (**\trequis)."
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"It is used to which type of \"Tax\" you want to apply on Invoice/Sale line "
+"at QuickBook End.<br/>**In Invoice/Sale lines and Default Tax Code Taxes "
+"must be same otherwise not set or may be different at QuickBook End."
+msgstr ""
+"Il est utilisé pour quel type de « Taxe » vous souhaitez appliquer sur la ligne Facture/Vente "
+"chez QuickBooks extrémité.<br/>**Dans les lignes de facture/vente et les taxes du code fiscal par défaut "
+"doit être le même, sinon il n'est pas défini ou peut être différent à la fin de QuickBook."
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"It is used to which type of \"Tax\" you want to apply on Purchase Order line"
+" at QuickBook End."
+msgstr ""
+"Il est utilisé pour savoir quel type de « Taxe » vous souhaitez appliquer sur la ligne de bon de commande."
+" chez QuickBooks extrémité"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "It should be same at odoo and quickbook end in Invoice/Sale discount."
+msgstr "Il devrait en être de même chez Odoo et Quickbooks extrémité dans la remise facture/vente."
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_synchronization_form
+msgid "It'll Import/Update Data From Quickbook To Odoo."
+msgstr "Il importera/mettra à jour les données de Quickbooks vers Odoo."
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "January"
+msgstr "Janvier"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_account_move
+msgid "Journal Entry"
+msgstr "Entrée de journal"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "July"
+msgstr "Juillet"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "June"
+msgstr "Juin"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Bill Time"
+msgstr "Dernière d'importation Facture Heure"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Category Time"
+msgstr "Dernière d'importation Catégorie Heure"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Customer Time"
+msgstr "Dernière d'importation Temps client"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Invoice Time"
+msgstr "Dernière d'importation Heure de la facture"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Order Time"
+msgstr "Dernière d'importation Temps de commande"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Payment Time"
+msgstr "Dernière d'importation Temps de paiement"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Product Time"
+msgstr "Dernière d'importation Temps de produit"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Purchase Order Time"
+msgstr "Dernière d'importation Heure du bon de commande"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Last Import Vendor Time"
+msgstr "Dernière d'importation Heure du fournisseur"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_call_quickbook_api__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_message_wizard__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_synchronization__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__write_uid
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_call_quickbook_api__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_message_wizard__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_synchronization__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__write_date
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__limit
+msgid "Limit"
+msgstr "Limite"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__location_id
+msgid "Location ID"
+msgstr "Identifiant du lieu"
+
+#. module: quickbook_online_connector
+#: model:res.groups,name:quickbook_online_connector.group_quickbook_online_manager
+msgid "Manager"
+msgstr "gérant"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbookonline_manual_mapping
+msgid "Manual Mapping"
+msgstr "Mappage Manuel"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbookonline_mapping
+msgid "Mapping"
+msgstr "Mappage"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "March"
+msgstr "Mars"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "May"
+msgstr "Mai"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_message_wizard__text
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_message_wizard
+msgid "Message"
+msgstr "Message"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_has_error
+msgid "Message Delivery error"
+msgstr "Erreur de livraison du message"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_message_wizard
+msgid "Message Wizard For Quickbook Online View"
+msgstr "Assistant de message pour l'affichage en ligne de Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_instance
+msgid "Model For QuickBook Online Odoo Connection"
+msgstr "Modèle pour le connecteur Odoo en ligne QuickBooks"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__name
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_account__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_bill__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_category__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_common__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_invoice__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_order__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_partner__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_payment__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_payment_method_map__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_payment_term_map__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_product__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_purchase_order__is_sync__no
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_tax__is_sync__no
+msgid "No"
+msgstr "Non"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "November"
+msgstr "Novembre"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Nombre de messages nécessitant une action"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de livraison"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "October"
+msgstr "Octobre"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Odoo"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__odoo_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__odoo_id
+msgid "Odoo Id"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__name
+msgid "Odoo Journal"
+msgstr "Journal Odoo"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Odoo QuickBook Connector"
+msgstr "Connecteur Odoo QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bulk_synchronisation__object_type
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__object_type
+msgid "Operation"
+msgstr "Opération"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_order_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_order_search
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_purchase_order_search
+msgid "Order Mapping"
+msgstr "Cartographie des commandes"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Orders Stats"
+msgstr "stats des commandes"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_partner
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_partner_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_partner_search
+msgid "Partner Mapping"
+msgstr "Cartographie des partenaires"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__partner_type
+msgid "Partner Type"
+msgstr "Type de partenaire"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__client_id
+msgid "Paste Client ID from quickbook apps Keys & credentials section"
+msgstr "Coller l'ID client à partir de la section Clés et informations d'identification des applications Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__client_key
+msgid "Paste Client Secret from quickbook apps Keys & credentials section"
+msgstr "Coller le secret client à partir de la section Clés et informations d'identification des applications Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_payment
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_search
+msgid "Payment Mapping"
+msgstr "Cartographie des paiements"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_payment_method
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_payment_method_map
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_search
+msgid "Payment Method"
+msgstr "Mode de paiement"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_map_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_map_search
+msgid "Payment Method Map Mapping"
+msgstr "Mappage de la carte des méthodes de paiement"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_payment_term
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_payment_term_map
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_search
+msgid "Payment Term"
+msgstr "Conditions de paiement"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_map_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_map_search
+msgid "Payment Term Map Mapping"
+msgstr "Mappage de la carte des conditions de paiement"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_account_payment
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_product
+#, python-format
+msgid "Product"
+msgstr "Produit"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_product_category
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_category
+msgid "Product Category"
+msgstr "Catégorie de produits"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_product_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_product_search
+msgid "Product Mapping"
+msgstr "Cartographie des produits"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_product_product
+msgid "Product Variant"
+msgstr "Variante de produit"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__environment__production
+msgid "Production"
+msgstr "Production"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Purchase"
+msgstr "Achat"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: model:ir.model,name:quickbook_online_connector.model_purchase_order
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_purchase_order
+#, python-format
+msgid "Purchase Order"
+msgstr "Bon de commande"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_purchase_order_form
+msgid "Purchase Order Mapping"
+msgstr "Cartographie des bons de commande"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_account
+msgid "QBO Account Mapping"
+msgstr "Mappage de compte QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_category
+msgid "QBO Category Mapping"
+msgstr "Mappage de catégorie QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_invoice
+msgid "QBO Invoice Mapping"
+msgstr "Mappage de facture QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_order
+msgid "QBO Order Mapping"
+msgstr "Mappage des commandes QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_partner
+msgid "QBO Partner Mapping"
+msgstr "Mappage des partenaires QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_payment
+msgid "QBO Payment Mapping"
+msgstr "Mappage des paiements QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_payment_method
+msgid "QBO Payment Method Mapping"
+msgstr "Mappage des méthodes de paiement QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_payment_method_map
+msgid "QBO Payment Method Mapping Manual"
+msgstr "Manuel de cartographie des méthodes de paiement QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_payment_term
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_purchase_order
+msgid "QBO Payment Term Mapping"
+msgstr "Mappage des conditions de paiement QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_payment_term_map
+msgid "QBO Payment Term Mapping Manual"
+msgstr "Manuel de cartographie des conditions de paiement QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_product
+msgid "QBO Product Mapping"
+msgstr "Mappage des produits QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_tax_code
+msgid "QBO Tax Code Mapping"
+msgstr "Mapping du code fiscal QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_tax
+msgid "QBO Tax Mapping"
+msgstr "Mappage fiscal QBO"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_bill_export_ir_actions_server
+msgid "QBO: Export Bill From Quickbook"
+msgstr "QBO : exporter la facture depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_category_export_ir_actions_server
+msgid "QBO: Export Categories From Quickbook"
+msgstr "QBO : exporter des catégories depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_customer_export_ir_actions_server
+msgid "QBO: Export Customers From Quickbook"
+msgstr "QBO : exporter des clients depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_invoice_export_ir_actions_server
+msgid "QBO: Export Invoices From Quickbook"
+msgstr "QBO : exporter des factures depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_order_export_ir_actions_server
+msgid "QBO: Export Orders From Quickbook"
+msgstr "QBO : exporter les commandes depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_payment_export_ir_actions_server
+msgid "QBO: Export Payments From Quickbook"
+msgstr "QBO : exporter des paiements depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_product_export_ir_actions_server
+msgid "QBO: Export Products From Quickbook"
+msgstr "QBO : exporter des produits depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_purchase_order_export_ir_actions_server
+msgid "QBO: Export Purchase Orders From Quickbook"
+msgstr "QBO : exporter les bons de commande à partir de Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_vendor_export_ir_actions_server
+msgid "QBO: Export Vendors From Quickbook"
+msgstr "QBO : exporter des fournisseurs depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_bill_ir_actions_server
+msgid "QBO: Import Bill From Quickbook"
+msgstr "QBO : importer des factures à partir de Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_category_ir_actions_server
+msgid "QBO: Import Categories From Quickbook"
+msgstr "QBO : importer des catégories à partir de Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_customer_ir_actions_server
+msgid "QBO: Import Customers From Quickbook"
+msgstr "QBO : importer des clients depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_invoice_ir_actions_server
+msgid "QBO: Import Invoices From Quickbook"
+msgstr "QBO : importer des factures depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_order_ir_actions_server
+msgid "QBO: Import Orders From Quickbook"
+msgstr "QBO : importer des commandes à partir de Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_payment_ir_actions_server
+msgid "QBO: Import Payments From Quickbook"
+msgstr "QBO : importer des paiements depuis Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_product_ir_actions_server
+msgid "QBO: Import Products From Quickbook"
+msgstr "QBO : importer des produits à partir de Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_purchase_order_ir_actions_server
+msgid "QBO: Import Purchase Orders From Quickbook"
+msgstr "QBO : importer des bons de commande à partir de Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.server,name:quickbook_online_connector.ir_cron_quickbook_online_vendor_ir_actions_server
+msgid "QBO: Import Vendors From Quickbook"
+msgstr "QBO : importer des fournisseurs à partir de Quickbooks"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_account_bank_statement_line__doc_number
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_account_move__doc_number
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_account_payment__doc_number
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_purchase_order__doc_number
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_sale_order__doc_number
+msgid "Qbo Doc Number"
+msgstr "Numéro de Doc Qbo"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "QuickBook"
+msgstr "QuickBooks"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "QuickBook Asset Account"
+msgstr "Compte d'actifs QuickBooks"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "QuickBook Connector"
+msgstr "Connecteur QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "QuickBook Default Code"
+msgstr "Code par défaut de QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "QuickBook Default Tax Code"
+msgstr "Code fiscal par défaut de QuickBooks"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "QuickBook Default Tax For Purchase"
+msgstr "Taxe par défaut de QuickBooks pour l'achat"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "QuickBook Expense Account"
+msgstr "Compte de dépenses QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "QuickBook Income Account"
+msgstr "Compte de revenu QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.quickbook_online_parent_menu
+msgid "QuickBook Online Connector"
+msgstr "Connecteur QuickBook en ligne"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbookonline_dashboard
+msgid "QuickBook Online Dashboard"
+msgstr "Tableau de bord en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.module.category,description:quickbook_online_connector.module_quickbook_online_connector
+msgid "QuickBook Online Oodo Applilcation"
+msgstr "Application Oodo en ligne QuickBooks"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "QuickBook Purchase Order Payable Account"
+msgstr "Compte à payer pour les bons de commande QuickBooks"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "QuickBook Tax On OrderLine with No Tax"
+msgstr "Taxe QuickBooks sur la ligne de commande sans taxe"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbookonline_instance
+msgid "Quickbook"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_account_code
+msgid "Quickbook Account Code"
+msgstr "Code de compte QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_account_tree
+msgid "Quickbook Account Mapping"
+msgstr "Mappage de compte QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_account_purchase_tax_code
+msgid "Quickbook Account Purchase Tax Code"
+msgstr "Code des impôts d'achat du compte QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_account_tax
+msgid "Quickbook Account Tax"
+msgstr "Taxe de compte QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_account_tax_code
+msgid "Quickbook Account Tax Code"
+msgstr "Code des impôts du compte QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_asset_account
+msgid "Quickbook Asset Account"
+msgstr "Compte d'actif QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_bill_tree
+msgid "Quickbook Bill Mapping"
+msgstr "Mappage de bill QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_category_tree
+msgid "Quickbook Category Mapping"
+msgstr "Cartographie de la catégorie QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbookonline_connection
+msgid "Quickbook Connection"
+msgstr "Connexion QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_tree
+msgid "Quickbook Connection Mapping"
+msgstr "Mappage de connexion QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbookonline_data
+msgid "Quickbook Data"
+msgstr "Données QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Quickbook Default Import Data"
+msgstr "Données d'importation par défaut de QuickBooks"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_expense_account
+msgid "Quickbook Expense Account"
+msgstr "Compte de dépenses QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__quickbook_id
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__quickbook_id
+msgid "Quickbook Id"
+msgstr ""
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Quickbook Import Limit"
+msgstr "Limite d'importation QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Quickbook Import Time"
+msgstr "Heure d'importation QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_income_account
+msgid "Quickbook Income Account"
+msgstr "Compte de revenu QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_invoice_tree
+msgid "Quickbook Invoice Mapping"
+msgstr "Mappage de facture QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_account_tree_action
+msgid "Quickbook Online Account Mapping"
+msgstr "Mappage de compte en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_bill_tree_action
+msgid "Quickbook Online Bill Mapping"
+msgstr "Mappage de factures QuickBook en ligne"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_bulk_synchronisation
+msgid "Quickbook Online Bulk Synchronization"
+msgstr "Synchronisation en vrac en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_category_tree_action
+msgid "Quickbook Online Category Mapping"
+msgstr "Mappage de catégorie QuickBook en ligne"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_connection_mapping
+msgid "Quickbook Online Connections"
+msgstr "Connexions en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.client,name:quickbook_online_connector.action_quickbookonline_dashboard
+msgid "Quickbook Online Dashboard"
+msgstr "Tableau de bord en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Quickbook Online Instance"
+msgstr "Instance en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_invoice_tree_action
+msgid "Quickbook Online Invoice Mapping"
+msgstr "Mappage de factures QuickBook en ligne"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_manual_synchronisation
+msgid "Quickbook Online Manual Synchronization"
+msgstr "Synchronisation manuelle de QuickBook en ligne"
+
+#. module: quickbook_online_connector
+#: model:ir.module.category,name:quickbook_online_connector.module_quickbook_online_connector
+msgid "Quickbook Online Odoo Connector"
+msgstr "Connecteur Odoo en ligne QuickBook en ligne"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_order_tree_action
+msgid "Quickbook Online Order Mapping"
+msgstr "Mappage de commandes en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_partner_tree_action
+msgid "Quickbook Online Partner Mapping"
+msgstr "Mappage de partenaires en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_payment_tree_action
+msgid "Quickbook Online Payment Mapping"
+msgstr "Mappage de paiement en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbookonline_payment_method_action
+msgid "Quickbook Online Payment Method"
+msgstr "Méthode de paiement en ligne QuickBooksickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_payment_method_map_tree_action
+msgid "Quickbook Online Payment Method Map Mapping"
+msgstr "Mappage de la carte du mode de paiement en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbookonline_payment_term_action
+msgid "Quickbook Online Payment Term"
+msgstr "Paiement en ligne QuickBook Term"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_payment_term_map_tree_action
+msgid "Quickbook Online Payment Term Map Mapping"
+msgstr "Mappage de la carte du terme de paiement en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_product_tree_action
+msgid "Quickbook Online Product Mapping"
+msgstr "Mappage de produits en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_purchase_order_tree_action
+msgid "Quickbook Online Purchase Order Mapping"
+msgstr "Mappage de commande d'achat QuickBook en ligne"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbookonline_synchronization_action
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_synchronization_form
+msgid "Quickbook Online Synchronization"
+msgstr "Synchronisation en ligne de QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbookonline_tax_code_action
+msgid "Quickbook Online Tax Code"
+msgstr "Code des impôts en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.actions.act_window,name:quickbook_online_connector.quickbook_online_tax_tree_action
+msgid "Quickbook Online Tax Mapping"
+msgstr "Mappage des impôts en ligne QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_order_tree
+msgid "Quickbook Order Mapping"
+msgstr "Mappage des commandes QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_tree
+msgid "Quickbook Payment Mapping"
+msgstr "Mappage de paiement QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__quickbook_payment_method
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method
+msgid "Quickbook Payment Method"
+msgstr "Méthode de paiement QuickBooks"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_method_map_tree
+msgid "Quickbook Payment Method Map Mapping"
+msgstr "Mappage de la de la méthode de paiement QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__quickbook_payment_term
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term
+msgid "Quickbook Payment Term"
+msgstr "Terme de paiement QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_payment_term_map_tree
+msgid "Quickbook Payment Term Map Mapping"
+msgstr "Mappage de la carte du terme de paiement QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_product_tree
+msgid "Quickbook Product Mapping"
+msgstr "Mappage de produits QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_account_payble_account
+msgid "Quickbook Purchase Account Payble"
+msgstr "Les comptes d'achat de QuickBook à payer"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_purchase_order_tree
+msgid "Quickbook Purchase Order Mapping"
+msgstr "Mappage de bon de commande de QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Quickbook Settings"
+msgstr "Paramètres QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_code
+msgid "Quickbook Tax Code"
+msgstr "Code fiscal QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_tree
+msgid "Quickbook Tax Mapping"
+msgstr "Mappage fiscal QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_partner_tree
+msgid "Quickbook partner Mapping"
+msgstr "Mappage des partenaires QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Real time Product Stock will be synced from Odoo to Quickbook"
+msgstr "Le stock de produits en temps réel sera synchronisé d'Odoo à QuickBook"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__realmId
+msgid "Realm Id"
+msgstr "ID de royaume"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"Redirect URI should be same at odoo and quickbook end.<br/> Please add "
+"\"/quickbook_online_connector\" after your Odoo URL."
+msgstr ""
+"Rediriger uri devrait être le même à la fin d'Odoo et de QuickBook. <br/> Veuillez ajouter "
+"\"/QuickBook_online_Connector\" Après votre URL Odoo."
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__redirect_url
+msgid "Redirect Url"
+msgstr "URL de redirection"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Redirect url"
+msgstr "URL de redirection"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__refresh_token
+msgid "Refresh Toekn"
+msgstr "Jeton de rafraîchissement"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Refresh Token"
+msgstr "Jeton de rafraîchissement"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_synchronization_form
+msgid "Reset All Mapping"
+msgstr "Réinitialisez toute la cartographie"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erreur de livraison SMS"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_order
+#, python-format
+msgid "Sale Order"
+msgstr "Commande de vente"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Sales"
+msgstr "Ventes"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#: model:ir.model,name:quickbook_online_connector.model_sale_order
+#, python-format
+msgid "Sales Order"
+msgstr "Commande client"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_instance__environment__sandbox
+msgid "SandBox"
+msgstr "Bac à sable"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Select Month"
+msgstr "Sélectionnez un mois"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "September"
+msgstr "Septembre"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Settings"
+msgstr "Paramètres"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_stock_move
+msgid "Stock Move"
+msgstr "Mouvement de stock"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"Stop creating duplicate products in Odoo with same SKU(Internal Reference) "
+"after import from Quickbook"
+msgstr ""
+"Arrêtez de créer des produits en double à Odoo avec le même SKU (référence interne) "
+"Après l'importation de QuickBook"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Stop duplicating product with the same SKU"
+msgstr "Arrêtez de dupliquer le produit avec la même SKU"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Support"
+msgstr "Soutien"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_bulk_synchronisation_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_manual_synchronisation_form
+msgid "Sync"
+msgstr "Synchronisation"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Sync Real time stock(on-hand) from Odoo to Quickbook."
+msgstr "Synchronisation"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_account_tax
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_tax
+msgid "Tax"
+msgstr "Impôt"
+
+#. module: quickbook_online_connector
+#: model:ir.ui.menu,name:quickbook_online_connector.menu_quickbook_online_tax_code
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_code_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_code_search
+msgid "Tax Code"
+msgstr "Code fiscal"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax_code__tax_group
+msgid "Tax Group"
+msgstr "Groupe fiscal"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_tax_search
+msgid "Tax Mapping"
+msgstr "Mappage des impôts"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__quickbook_default_order_line_tax
+msgid "Tax On No Tax OrderLine"
+msgstr "Taxe sur aucune ligne de commande fiscale"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "Test Connection"
+msgstr "Test de connexion"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_common
+msgid "This model is for storing mapping of data"
+msgstr "Ce modèle est pour stocker la cartographie des données"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"This will be applicable only when you does not set the 'Taxes' on "
+"Invoice/Sale lines. otherwise QuickBook Default Code will be applicable."
+msgstr ""
+"Cela ne sera applicable que lorsque vous ne définissez pas les «taxes» sur "
+"Lignes de facture / vente.Sinon, le code par défaut QuickBook sera applicable."
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_manual_synchronisation__to_export_ids
+msgid "To Export"
+msgstr "Exporter"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid ""
+"To track the taxable and non-taxable status of Invoice/Sale/Purchase "
+"lines<br/>This will be applicable only if lines contain Taxes otherwise not."
+msgstr ""
+"Pour suivre l'état imposable et non taxable de la facture / vente / achat "
+"Lignes <br/> Cela ne sera applicable que si les lignes contiennent des taxes autrement pas."
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Total Purchase Orders"
+msgstr "Commandes d'achat total"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "Total Sales"
+msgstr "Ventes totales"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_synchronization
+msgid "Transient Model For QuickBookonline Synchronization"
+msgstr "Modèle transitoire pour la synchronisation QuickBookOnline"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method__payment_type
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term__payment_type
+msgid "Type"
+msgstr "Taper"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_bulk_synchronisation__action_2__update
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_bulk_synchronisation__action_3__update
+msgid "Update"
+msgstr "Mise à jour"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_account__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_bill__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_category__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_common__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_invoice__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_order__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_partner__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_method_map__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_payment_term_map__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_product__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_purchase_order__is_sync
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_tax__is_sync
+msgid "Update Required"
+msgstr "Mise à jour requise"
+
+#. module: quickbook_online_connector
+#: model:res.groups,name:quickbook_online_connector.group_quickbook_online_user
+msgid "User"
+msgstr "Utilisatrice"
+
+#. module: quickbook_online_connector
+#. odoo-javascript
+#: code:addons/quickbook_online_connector/static/src/xml/quickbookonline_dashboard.xml:0
+#, python-format
+msgid "User Guide"
+msgstr "Mode d'emploi"
+
+#. module: quickbook_online_connector
+#: model:res.groups,comment:quickbook_online_connector.group_quickbook_online_user
+msgid "User will have read access to the Quickbook Online Odoo Connector."
+msgstr "L'utilisateur aura lu l'accès au connecteur ODOOD ODO en ligne QuickBooks."
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_partner__partner_type__vendor
+msgid "Vendor"
+msgstr "Fournisseuse"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbookonline_synchronization_form
+msgid "Warning It will reset(delete) All Base Mappind Data From Odoo"
+msgstr "AVERTISSEMENT il réinitialise (supprimer) toutes les données de base de base de la base d'Odoo"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,field_description:quickbook_online_connector.field_quickbookonline_instance__website_message_ids
+msgid "Website Messages"
+msgstr "Messages du site Web"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__website_message_ids
+msgid "Website communication history"
+msgstr "Historique de communication du site Web"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_account__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_bill__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_category__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_common__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_invoice__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_order__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_partner__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_payment__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_payment_method_map__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_payment_term_map__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_product__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_purchase_order__is_sync__yes
+#: model:ir.model.fields.selection,name:quickbook_online_connector.selection__quickbookonline_tax__is_sync__yes
+msgid "Yes"
+msgstr "Oui"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "e.g. Quickbook Online Connector Name"
+msgstr "par exemple.Nom du connecteur en ligne QuickBooks"
+
+#. module: quickbook_online_connector
+#: model:ir.model.fields,help:quickbook_online_connector.field_quickbookonline_instance__redirect_url
+msgid "eg: https://your-odoo-url/quickbook_online_connector"
+msgstr "par exemple: https: // your-odoo-url / QuickBook_online_Connector"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_bulk_synchronisation_form
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.id_quickbookonline_manual_synchronisation_form
+msgid "or"
+msgstr "ou"
+
+#. module: quickbook_online_connector
+#: model:ir.model,name:quickbook_online_connector.model_quickbookonline_bill
+msgid "quickbookonline.bill"
+msgstr "QuickBooks en ligne.bill"
+
+#. module: quickbook_online_connector
+#: model_terms:ir.ui.view,arch_db:quickbook_online_connector.quickbook_online_mapping_form
+msgid "required for Invoice/Sale/Purchase and Product Sync."
+msgstr "requis pour la facture / vente / achat et la synchronisation des produits."

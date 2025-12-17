@@ -1,0 +1,190 @@
+<odoo>
+	<data>
+       
+        <!-- Import Crons -->
+        <record id="ir_cron_quickbook_online_category" model="ir.cron">
+            <field name="name">QBO: Import Categories From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('category','importCategoryLimit','import')</field>
+			<field name="interval_number">5</field>
+            <field name="interval_type">hours</field>
+			<field name="active" eval="False"/>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+
+		<record id="ir_cron_quickbook_online_product" model="ir.cron">
+            <field name="name">QBO: Import Products From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('product','importProductLimit','import')</field>
+			<field name="interval_number">5</field>
+            <field name="interval_type">hours</field>
+			<field name="active" eval="False"/>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_customer" model="ir.cron">
+            <field name="name">QBO: Import Customers From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('partner','importCustomerLimit','import')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_order" model="ir.cron">
+            <field name="name">QBO: Import Orders From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('order','importOrderLimit','import')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_invoice" model="ir.cron">
+            <field name="name">QBO: Import Invoices From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('invoice','importInvoiceLimit','import')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_payment" model="ir.cron">
+            <field name="name">QBO: Import Payments From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('payment','importPaymentLimit','import')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_vendor" model="ir.cron">
+            <field name="name">QBO: Import Vendors From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('vendor','importVendorLimit','import')</field>
+			<field name="interval_number">5</field>
+            <field name="interval_type">hours</field>
+			<field name="active" eval="False"/>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_purchase_order" model="ir.cron">
+            <field name="name">QBO: Import Purchase Orders From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('purchase_order','importPurchaseOrderLimit','import')</field>
+			<field name="interval_number">5</field>
+            <field name="interval_type">hours</field>
+			<field name="active" eval="False"/>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_bill" model="ir.cron">
+            <field name="name">QBO: Import Bill From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('bill','importBillLimit','import')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+
+        <!-- Export Crons -->
+        <record id="ir_cron_quickbook_online_category_export" model="ir.cron">
+            <field name="name">QBO: Export Categories From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('category','importCategoryLimit')</field>
+			<field name="interval_number">5</field>
+            <field name="interval_type">hours</field>
+			<field name="active" eval="False"/>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+
+		<record id="ir_cron_quickbook_online_product_export" model="ir.cron">
+            <field name="name">QBO: Export Products From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('product','importProductLimit')</field>
+			<field name="interval_number">5</field>
+            <field name="interval_type">hours</field>
+			<field name="active" eval="False"/>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_customer_export" model="ir.cron">
+            <field name="name">QBO: Export Customers From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('partner','importCustomerLimit')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_order_export" model="ir.cron">
+            <field name="name">QBO: Export Orders From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('order','importOrderLimit')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_invoice_export" model="ir.cron">
+            <field name="name">QBO: Export Invoices From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('invoice','importInvoiceLimit')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_payment_export" model="ir.cron">
+            <field name="name">QBO: Export Payments From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('payment','importPaymentLimit')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_vendor_export" model="ir.cron">
+            <field name="name">QBO: Export Vendors From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('vendor','importVendorLimit')</field>
+			<field name="interval_number">5</field>
+            <field name="interval_type">hours</field>
+			<field name="active" eval="False"/>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_purchase_order_export" model="ir.cron">
+            <field name="name">QBO: Export Purchase Orders From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('purchase_order','importPurchaseOrderLimit')</field>
+			<field name="interval_number">5</field>
+            <field name="interval_type">hours</field>
+			<field name="active" eval="False"/>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+        <record id="ir_cron_quickbook_online_bill_export" model="ir.cron">
+            <field name="name">QBO: Export Bill From Quickbook</field>
+            <field name="model_id" ref="quickbook_online_connector.model_quickbookonline_synchronization"/>
+            <field name="state">code</field>
+            <field name="code">model.sync_data_of_quickbook('bill','importInvoiceLimit')</field>
+			<field name="interval_number">5</field>
+			<field name="active" eval="False"/>
+            <field name="interval_type">hours</field>
+            <!-- <field name="numbercall">-1</field> -->
+        </record>
+	</data>
+</odoo>
