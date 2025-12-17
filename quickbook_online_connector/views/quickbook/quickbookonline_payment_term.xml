@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+
+<odoo>
+    <data>
+
+        <!--========== Quickbook Online Payment Term===============-->
+
+        <record id="quickbookonline_payment_term_form" model="ir.ui.view">
+            <field name="name">quickbookonline.payment.term.form</field>
+            <field name="model">quickbookonline.payment.term</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Payment Term" create='false' edit='false'>
+                    <group>
+                        <field name="name"/>
+                        <field name="quickbook_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="quickbookonline_payment_term" model="ir.ui.view">
+            <field name="name">quickbookonline.payment.term.list</field>
+            <field name="model">quickbookonline.payment.term</field>
+          
+            <field name="arch" type="xml">
+                <list string="Quickbook Payment Term" create="false">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="quickbook_id"/>
+                    <field name="instance_id" readonly="1"/>
+                    <field name="create_date" readonly="1"/>
+                    <field name="write_date" readonly="1"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Search View for Qucikbook tax Terms  -->
+        <record id="quickbookonline_payment_term_search" model="ir.ui.view">
+            <field name="name">quickbookonline.payment.term.search</field>
+            <field name="model">quickbookonline.payment.term</field>
+            <field name="arch" type="xml">
+                <search string="Payment Term">
+                    <field name="name" filter_domain="[('name','ilike',self)]"/>
+                    <field name="quickbook_id"/>
+                    <group>
+                        <filter string="Instance" name="group_by_instance" context="{'group_by':'instance_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="quickbookonline_payment_term_action" model="ir.actions.act_window">
+            <field name="name">Quickbook Online Payment Term</field>
+            <field name="res_model">quickbookonline.payment.term</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{"search_default_group_by_storage_type":1,"search_default_group_by_instance":1}</field>
+            <field name="view_id" ref="quickbookonline_payment_term"/>
+            <field name="search_view_id" ref = "quickbookonline_payment_term_search"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,95 @@
+
+#quickbook_storage_dashboard {
+    height: 100vh;
+	overflow-y: auto;
+    .header {
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+        .quickbook_heading{
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            color: #2E2C45;
+        }
+        .search {
+            width: 25%;
+        }
+        .click_function {
+            background: #201CD9;
+            border-radius: 30px;
+        }
+    }
+    .body {
+        .conn_custom_bg {
+            background: #FFFFFF;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+        .box_shadow{
+            background: #FFFFFF;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+        }
+        .count_sales{
+            padding: 25px;
+        }
+        .nav-tabs {
+            display: flex;
+            flex-flow: column;
+        }
+        .connector {
+            .elements {
+                max-height: 110px;
+                min-height: 108px;
+               .img {
+                    flex: 0 0 20%;
+                    max-width: 20%;
+                }
+                .details {
+                    flex: 0 0 40%;
+                    max-width: 40%;
+                    .user_support{
+                        font-family: Poppins;
+                        font-style: normal;
+                        font-weight: normal;
+                        text-decoration-line: underline;
+                        color: #000000;
+                        font-size: 13px;
+                    }
+                }
+                .wizard_operation{
+                    background: #201CD9;
+                    border-radius: 4px;
+                }
+                .buttons {
+                    flex: 0 0 40%;
+                    max-width: 40%;
+                }
+            }
+        }
+    }
+    .doughnut_name{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 77.8%;
+        color: #484848;
+    }
+    .instance_css{
+        background: #FFFFFF;
+        border: 1px solid #201CD9;
+        box-sizing: border-box;
+        border-radius: 22px;
+    }
+    .span_connection{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        color: #FFFFFF;
+    }
+    .elements {
+        max-height: 110px;
+        min-height: 108px;
+    }
+}

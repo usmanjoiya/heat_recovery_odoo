@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+
+<odoo>
+    <data>
+
+        <!--     Quickbook Menu      -->
+        <menuitem   id="quickbook_online_parent_menu" 
+                    name="QuickBook Online Connector" groups="quickbook_online_connector.group_quickbook_online_manager"
+					web_icon="quickbook_online_connector,static/description/icon.png"/>
+                <menuitem
+			name="QuickBook Online Dashboard"
+			id="menu_quickbookonline_dashboard"
+			parent="quickbook_online_parent_menu"
+			action="action_quickbookonline_dashboard"
+			sequence="1"/>
+					
+                <menuitem id="menu_quickbookonline_connection" 
+                        name="Quickbook Connection" parent="quickbook_online_connector.quickbook_online_parent_menu" sequence="10"/>
+                        <menuitem id="menu_quickbookonline_instance" 
+                                name="Quickbook" parent="quickbook_online_connector.menu_quickbookonline_connection"
+                                action="quickbook_online_connector.quickbook_online_connection_mapping" sequence="10"/>
+                <!-- <menuitem id="menu_quickbook_online_synchronization" 
+                        name="Synchronization" parent="quickbook_online_connector.quickbook_online_parent_menu" 
+                        sequence="20" action="quickbook_online_connector.quickbookonline_synchronization_action"/> -->
+                <menuitem id="menu_quickbookonline_mapping" 
+                            name="Mapping" parent="quickbook_online_connector.quickbook_online_parent_menu" sequence="30"/>
+                        <menuitem id="menu_quickbook_online_account" 
+                                        name="Account" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_account_list_action" sequence="10"/>
+                        <menuitem id="menu_quickbook_online_tax" 
+                                        name="Tax" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_tax_list_action" sequence="20"/>
+                        <menuitem id="menu_quickbook_online_partner" 
+                                        name="Partner" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_partner_list_action" sequence="30"/>
+                        <menuitem id="menu_quickbook_online_category" 
+                                        name="Product Category" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_category_list_action" sequence="40"/>
+                        <menuitem id="menu_quickbook_online_product" 
+                                        name="Product" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_product_list_action" sequence="50"/>
+                        <menuitem id="menu_quickbook_online_order" 
+                                        name="Sale Order" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_order_list_action" sequence="60"/>
+                        <menuitem id="menu_quickbook_online_invoice" 
+                                        name="Invoice Mapping" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_invoice_list_action" sequence="70"/>
+                        <menuitem id="menu_quickbook_online_bill" 
+                                        name="Bill Mapping" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_bill_list_action" sequence="75"/>
+                        <menuitem id="menu_quickbook_online_payment" 
+                                        name="Payment Mapping" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_payment_list_action" sequence="80"/>
+                        <menuitem id="menu_quickbook_online_purchase_order" 
+                                        name="Purchase Order" parent="quickbook_online_connector.menu_quickbookonline_mapping"
+                                        action="quickbook_online_connector.quickbook_online_purchase_order_list_action" sequence="90"/>
+                <menuitem id="menu_quickbookonline_manual_mapping" 
+                            name="Manual Mapping" parent="quickbook_online_connector.quickbook_online_parent_menu" sequence="40"/>
+                        <menuitem id="menu_quickbook_online_payment_term_map" 
+                                name="Payment Term" parent="quickbook_online_connector.menu_quickbookonline_manual_mapping"
+                                action="quickbook_online_connector.quickbook_online_payment_term_map_list_action" sequence="10"/>
+                        <menuitem id="menu_quickbook_online_payment_method_map" 
+                                name="Payment Method" parent="quickbook_online_connector.menu_quickbookonline_manual_mapping"
+                                action="quickbook_online_connector.quickbook_online_payment_method_map_list_action" sequence="20"/>
+                <menuitem id="menu_quickbookonline_data" 
+                            name="Quickbook Data" parent="quickbook_online_connector.quickbook_online_parent_menu" sequence="50"/>
+                            <menuitem id="menu_quickbook_online_tax_code" 
+                                        name="Tax Code" parent="quickbook_online_connector.menu_quickbookonline_data"
+                                        action="quickbook_online_connector.quickbookonline_tax_code_action" sequence="10"/>
+                           <menuitem id="menu_quickbook_online_payment_method" 
+                                        name="Payment Method" parent="quickbook_online_connector.menu_quickbookonline_data"
+                                        action="quickbook_online_connector.quickbookonline_payment_method_action" sequence="20"/>
+                           <menuitem id="menu_quickbook_online_payment_term" 
+                                        name="Payment Term" parent="quickbook_online_connector.menu_quickbookonline_data"
+                                        action="quickbook_online_connector.quickbookonline_payment_term_action" sequence="30"/>
+                      
+    </data>
+</odoo>
+

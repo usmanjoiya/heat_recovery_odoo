@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+
+<odoo>
+    <data>
+
+        <!--========== Quickbook Online Manual Export ===============-->
+
+        <!--========== Quickbook Online Invoice Manual Export ===============-->
+        <record id="action_set_export_invoice" model="ir.actions.server">
+        	<field name="name">Export to Quickbook</field>
+        	<field name="model_id" ref="account.model_account_move"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_view_types">list,form</field>
+        	<field name="state">code</field>
+            <field name="code">action = records.qbo_export_data()</field>
+    	</record>
+
+        <!--========== Quickbook Online Order Manual Export ===============-->
+        <record id="action_set_export_order" model="ir.actions.server">
+        	<field name="name">Export to Quickbook</field>
+        	<field name="model_id" ref="sale.model_sale_order"/>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_view_types">list,form</field>
+        	<field name="state">code</field>
+            <field name="code">action = records.qbo_export_data()</field>
+    	</record>
+
+        <!--========== Quickbook Online Product Manual Export ===============-->
+        <record id="action_set_export_product" model="ir.actions.server">
+        	<field name="name">Export to Quickbook</field>
+        	<field name="model_id" ref="sale.model_product_product"/>
+            <field name="binding_model_id" ref="sale.model_product_product"/>
+            <field name="binding_view_types">list,form</field>
+        	<field name="state">code</field>
+            <field name="code">action = records.qbo_export_data()</field>
+    	</record>
+
+        <!--========== Quickbook Online Partner/Vender Manual Export ===============-->
+        <record id="action_set_export_partner" model="ir.actions.server">
+        	<field name="name">Export to Quickbook</field>
+        	<field name="model_id" ref="sale.model_res_partner"/>
+            <field name="binding_model_id" ref="sale.model_res_partner"/>
+            <field name="binding_view_types">list,form</field>
+        	<field name="state">code</field>
+            <field name="code">action = records.qbo_export_data()</field>
+    	</record>
+
+        <!--========== Quickbook Online Payment Manual Export ===============-->
+        <record id="action_set_export_payment" model="ir.actions.server">
+        	<field name="name">Export to Quickbook</field>
+        	<field name="model_id" ref="account.model_account_payment"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_view_types">list,form</field>
+        	<field name="state">code</field>
+            <field name="code">action = records.qbo_export_data()</field>
+    	</record>
+
+        <!--========== Quickbook Online Purchase Order Manual Export ===============-->
+        <record id="action_set_export_purchase_order" model="ir.actions.server">
+        	<field name="name">Export to Quickbook</field>
+        	<field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_view_types">list,form</field>
+        	<field name="state">code</field>
+            <field name="code">action = records.qbo_export_data()</field>
+    	</record>
+
+        <!--========== Quickbook Online Product Category Manual Export ===============-->
+        <record id="action_set_export_product_category" model="ir.actions.server">
+        	<field name="name">Export to Quickbook</field>
+        	<field name="model_id" ref="product.model_product_category"/>
+            <field name="binding_model_id" ref="product.model_product_category"/>
+            <field name="binding_view_types">list,form</field>
+        	<field name="state">code</field>
+            <field name="code">action = records.qbo_export_data()</field>
+    	</record>
+
+    </data>
+</odoo>

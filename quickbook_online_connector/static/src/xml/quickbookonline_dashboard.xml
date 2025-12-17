@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+	<t t-name="quickbook_online_dashboard">
+		<div class="o_cloud_kanban_banner" id="quickbook_storage_dashboard">
+            <div class="o_skeleton_py-3 py-md-0 container-fluid">
+                <div class="row py-3 header">
+                    <div class="col-2 col-md-2 col-lg-2">
+                        <!-- <img class='image_space' src="/quickbook_online_connector/static/src/img/company_logo.png"/>    -->
+                        <img class='image_space' t-att-src="extra_data['image']" width="200" height="40"/>   
+                        
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="row mx-0 justify-content-between">
+                            <div class="col-7">
+                                <img class='image_space' src="/quickbook_online_connector/static/src/img/icon_quickbook.png"/> 
+                                <span class="quickbook_heading"
+                                style="font-family: Poppins;
+                                font-style: normal;
+                                font-weight: bold;
+                                font-size: 25px;color: #2E2C45;">Odoo QuickBook Connector</span>
+                            </div>
+                            <div class="col-5 d-flex mt-2">
+                                <div class="instance px-2">
+                                    <select name="instance_id" class="form-control instance_css" id="change_instance" t-on-change="change_current_instance">
+                                        <t t-foreach="selection_instance" t-key="ind" t-as="instance">
+                                            <option t-att-value="instance" 
+                                                t-att-selected="instance == instance_id ? 'selected' : undefined">
+                                                <t t-esc='selection_instance[instance]'/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="add_new px-4 ml-4">
+                                    <button class='click_function class_cursor open_instance_form' id='folder' t-on-click="open_instance_form">
+                                        <i class="fa fa-plus pl-3" style="color:#FFFFFF;"></i>
+                                        <span class="span_connection pr-3 pl-1">Add New</span>
+                                    </button>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row py-3 body">
+                    <div class="col-lg-2 box_shadow">
+                        <div class="conn_custom_bg px-3 py-3 row">
+                            <div class="justify-content-between ">
+                                <img class='pl-3' src="/quickbook_online_connector/static/description/drk-icon-dashboard.png"/> 
+                                <span class='pl-2'>
+                                    Dashboard
+                                </span>
+                            </div>
+                        </div>
+                        <div class="conn_custom_bg px-3 py-3 row open_mapping_view" style="cursor:pointer;"  id="quickbookonline.account" t-on-click="open_mapping_view">
+                            <div class="justify-content-between">
+                                <img class='pl-3' src="/quickbook_online_connector/static/description/drk-icon-accounting.png"/> 
+                                <span class='pl-2'>
+                                    Accounting
+                                </span>
+                            </div>
+                        </div>
+                        <div class="conn_custom_bg px-3 py-3 row open_mapping_view" style="cursor:pointer;"  id="quickbookonline.order" t-on-click="open_mapping_view">
+                            <div class="justify-content-between">
+                                <img class='pl-3' src="/quickbook_online_connector/static/description/drk-icon-sales-order.png"/> 
+                                <span class='pl-2'>
+                                    Sales Order
+                                </span>
+                            </div>
+                        </div>
+                        <div class="conn_custom_bg px-3 py-3 row open_mapping_view" style="cursor:pointer;" id="quickbookonline.purchase.order" t-on-click="open_mapping_view">
+                            <div class="justify-content-between">
+                                <img class='pl-3' src="/quickbook_online_connector/static/description/drk-icon-purchase-order.png"/> 
+                                <span class='pl-2'>
+                                    Purchase
+                                </span>
+                            </div>
+                        </div>
+                        <div class="conn_custom_bg px-3 py-3 row" id='click_setting' style="cursor:pointer;" t-on-click="open_instance_setting">
+                            <div class="justify-content-between">
+                                <img class='pl-3' src="/quickbook_online_connector/static/description/drk-icon-setting.png"/> 
+                                <span class='pl-2'>
+                                    Settings
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="row mx-0 mb-3">
+                            <div class="col-lg-6 connector">
+                                <h3 class="mb-3">Connector</h3>
+                                <div class="elements d-flex py-3 px-3 conn_custom_bg">
+                                    <div class="img">
+                                        <img class='icon_normal' src="/quickbook_online_connector/static/src/img/icon-normal.png"/>
+                                    </div>
+                                    <div class="details">
+                                        <div>
+                                            <h6>QuickBook Connector</h6>
+                                            <p><t t-esc='current_date'/></p>
+                                            <div class="d-flex">
+                                                <span class="pl-0 pr-3 d-flex">
+                                                    <i class="fa fa-file-text pt-2"></i>
+                                                    <a href='https://webkul.com/blog' 
+                                                    target='_blank'>
+                                                    <p class='ml-2 user_support'>User Guide</p></a>
+                                                </span>
+                                                <span class="px-3 d-flex">
+                                                    <i class="fa fa-support pt-2"></i>
+                                                    <a href='https://webkul.uvdesk.com/en/customer/create-ticket' 
+                                                    target='_blank'>
+                                                    <p class='ml-2 user_support'>Support</p></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="buttons d-flex justify-content-center align-items-center">
+                                        <button class="mr-3 wizard_import wizard_operation" t-on-click="open_wizard_import">
+                                        <i class="fa fa-arrow-down" style="color:#FFFFFF;"></i>
+                                           <span class='span_connection'> Import</span>
+                                        </button>
+                                        <button class="mr-3 wizard_export wizard_operation" t-on-click="open_wizard_export">
+                                            <i class="fa fa-arrow-up" style="color:#FFFFFF;"></i>
+                                            <span class='span_connection'>Export</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <h3 class="mb-3">Total Sales</h3>
+                                <div class="d-flex elements conn_custom_bg count_sales">
+                                    <img src="/quickbook_online_connector/static/src/img/sales.png" class="px-3 img img-fluid"/>
+                                    <div class="px-3">
+                                        <h5><t t-esc="extra_data['order']['count']"/>+</h5>
+                                        <h6>Sales</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <h3 class="mb-3">Total Purchase Orders</h3>
+                                <div class="d-flex elements conn_custom_bg count_sales">
+                                    <img src="/quickbook_online_connector/static/src/img/purchase.png" class="px-3 img img-fluid"/>
+                                    <div class="px-3">
+                                        <h5><t t-esc="extra_data['purchase_order']['count']"/>+</h5>
+                                        <h6>Purchase</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-0 mb-3">
+                            <div class="col-lg-6 analytics">
+                                <h2 class="mb-3">Analytics</h2>
+                                <div class="conn_custom_bg px-3 py-3">
+                                    <div class="d-flex justify-content-between">
+                                        <!-- date -->
+                                        <div class="select">
+                                            <select class="custom-select w-auto" id="line_obj_change" t-on-change="reload_line_graph">
+                                                <option value="zero" selected="true">Select Month</option>
+                                                <option value="Jan">January</option>
+                                                <option value="Feb">February</option>
+                                                <option value="Mar">March</option>
+                                                <option value="Apr">April</option>
+                                                <option value="May">May</option>
+                                                <option value="Jun">June</option>
+                                                <option value="Jul">July</option>
+                                                <option value="Aug">August</option>
+                                                <option value="Sep">September</option>
+                                                <option value="Oct">October</option>
+                                                <option value="Nov">November</option>
+                                                <option value="Dec">December</option>
+                                            </select>
+                                        </div>
+                                        <div class="labels">
+                                            <div class="change_graph" id='invoice' t-on-click="change_line_graph">
+                                                <i class="fa fa-square mr-3" style="color:#5E2160"/>
+                                                    <span>Customer Invoice</span>
+                                            </div>
+                                            <div class="change_graph" id='payment' t-on-click="change_line_graph">
+                                                <i class="fa fa-square mr-3" style="color:#2492E1"/>
+                                                    <span>Customer Payment</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="line_chart"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 status">
+                                <h2 class="mb-3">Orders Stats</h2>
+                                <div class="conn_custom_bg px-3 py-3 mb-3">
+                                    <div>
+                                        <span class='doughnut_name'>Purchase Order</span>
+                                    </div> 
+                                    <div class="d-flex justify-content-between">
+                                        <canvas id='quickbook_purchase_order'/>
+                                        <!-- Graph -->
+                                    </div>
+                                </div>
+
+                                <div class="conn_custom_bg px-3 py-3">
+                                    <div>
+                                        <span class='doughnut_name'>Sale Order</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <canvas id='quickbook_sale_order'/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 activity">
+                                <h2 class="mb-3">Activity</h2>
+                                <div class="conn_custom_bg px-3 py-3 mb-3">
+                                    <div class="wrapper">
+                                        <h5>Customer</h5>
+                                        <div class="d-flex line_js" id="quickbook_partner">
+                                           <t t-out="extra_data['partner']['html']" />
+                                        </div>
+                                        <div class='d-flex line_js_wrapper'>
+                                            <span style='flex: 0 0 70%;'>Odoo</span>
+                                            <span style='flex: 0 0 30%;'>QuickBook</span>
+                                        </div>
+                                    </div>
+                                    <div class="wrapper mt-3">
+                                       <h5>Category</h5>
+                                        <div class="d-flex line_js" id="quickbook_category">
+                                           <t t-raw="extra_data['category']['html']"/>
+                                        </div>
+                                        <div class='d-flex line_js_wrapper'>
+                                            <span style='flex: 0 0 70%;'>Odoo</span>
+                                            <span style='flex: 0 0 30%;'>QuickBook</span>
+                                        </div>
+                                    </div>
+                                    <div class="wrapper mt-3">
+                                        <h5>Invoice</h5>
+                                        <div class="d-flex line_js" id="quickbook_invoice">
+                                           <t t-raw="extra_data['invoice']['html']"/>
+                                        </div>
+                                        <div class='d-flex line_js_wrapper'>
+                                            <span style='flex: 0 0 70%;'>Odoo</span>
+                                            <span style='flex: 0 0 30%;'>QuickBook</span>
+                                        </div>
+                                    </div>
+                                    <div class="wrapper mt-3">
+                                       <h5>Product</h5>
+                                        <div class="d-flex line_js" id="quickbook_product">
+                                           <t t-raw="extra_data['product']['html']"/>
+                                        </div>
+                                        <div class='d-flex line_js_wrapper'>
+                                            <span style='flex: 0 0 70%;'>Odoo</span>
+                                            <span style='flex: 0 0 30%;'>QuickBook</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="/quickbook_online_connector/static/src/js/main.js"/>
+	</t>
+</templates>
