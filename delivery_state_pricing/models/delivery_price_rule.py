@@ -81,17 +81,11 @@ class DeliveryCarrier(models.Model):
                 elif rule.variable_factor == "wv":
                     factor = wv
 
-                # Pick cost based on rule type
+                # Pick cost based on rule type (base price per pallet)
                 if rule.variable == "state" and state:
-                    if order_weight > 0.00:
-                        price = state.cost * order_weight
-                    else:
-                        price = state.cost
+                    price = state.cost
                 elif rule.variable == "country" and postal_id:
-                    if order_weight > 0.00:
-                        price = postal_id.cost * order_weight
-                    else:
-                        price = postal_id.cost
+                    price = postal_id.cost
                 else:
                     price = rule.list_base_price
 

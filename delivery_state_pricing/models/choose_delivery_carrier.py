@@ -12,6 +12,8 @@ class ChooseDeliveryCarrier(models.TransientModel):
     postal_id = fields.Many2one('shipping.cost')
     postal_id_domain = fields.Many2many('postal.code' , compute="_compute_available_postal_codes",store=False)
     zip_code = fields.Char(string="Postal Code", compute="_compute_state_id")
+    # New independent field for pallets (not related to computed field)
+    pallets = fields.Float(string="No. of Pallets", default=1.0)
 
 
     # @api.depends('state_id')
@@ -57,6 +59,22 @@ class ChooseDeliveryCarrier(models.TransientModel):
             wizard.zip_code = wizard.order_id.partner_shipping_id.zip
             wizard.state_id = wizard.order_id.partner_shipping_id.state_id
             wizard.postal_id = wizard.order_id.partner_shipping_id.postal_id
+
+    def button_confirm(self):
+        """Override to pass pallets via context to set_delivery_line."""
+        # Ensure delivery price is calculated before creating the line
+        if not self.delivery_price:
+            self._get_delivery_rate()
+
+        # Pass pallets and price via context to set_delivery_line
+        self.order_id.with_context(
+            pallets=self.pallets,
+            delivery_price=self.delivery_price
+        ).set_delivery_line(self.carrier_id, self.delivery_price)
+        # self.order_id.write({
+        #     'recompute_delivery_price': False,
+        #     'delivery_message': self.delivery_message,
+        # })
 
     def _get_delivery_rate(self):
         ctx = dict(self.env.context, order=self.order_id, order_weight=self.total_weight,wizard_state=self.state_id,wizard_postal_id=self.postal_id)
