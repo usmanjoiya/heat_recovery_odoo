@@ -8,13 +8,14 @@
                 <field name="zip_code" invisible="1"/>
                 <field name="state_id"/>
                 <field name="postal_id"/>
+                <field name="pallets" string="No of Pallets"/>
             </xpath>
              <!-- Make weight_uom_name invisible -->
             <xpath expr="//field[@name='weight_uom_name']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='total_weight']" position="attributes">
-                <attribute name="string">No of Pallets</attribute>
+                <attribute name="invisible">0</attribute>
             </xpath>
         </field>
     </record>
