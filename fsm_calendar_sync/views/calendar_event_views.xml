@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Calendar Event Form View -->
+    <record id="view_calendar_event_form_fsm" model="ir.ui.view">
+        <field name="name">calendar.event.form.fsm</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Add FSM task reference field and indicator -->
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-info" role="alert" invisible="not task_id">
+                    <strong>FSM Controlled Event:</strong>
+                    This calendar event is linked to a Field Service task.
+                    To modify this event, please edit the linked task directly.
+                </div>
+            </xpath>
+
+            <!-- Add smart button to open FSM task -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_fsm_task"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-tasks"
+                        invisible="not task_id">
+                    <span class="o_stat_text">FSM Task</span>
+                </button>
+            </xpath>
+
+            <!-- Add task_id field -->
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="task_id" readonly="1" invisible="not task_id"/>
+                <field name="is_fsm_controlled" invisible="1"/>
+            </xpath>
+
+            <!-- Make name field readonly when FSM controlled -->
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="readonly">task_id</attribute>
+            </xpath>
+
+            <!-- Make start field readonly when FSM controlled -->
+            <xpath expr="//field[@name='start']" position="attributes">
+                <attribute name="readonly">task_id</attribute>
+            </xpath>
+
+            <!-- Make stop field readonly when FSM controlled -->
+            <xpath expr="//field[@name='stop']" position="attributes">
+                <attribute name="readonly">task_id</attribute>
+            </xpath>
+
+            <!-- Make duration field readonly when FSM controlled -->
+            <xpath expr="//field[@name='duration']" position="attributes">
+                <attribute name="readonly">task_id</attribute>
+            </xpath>
+
+            <!-- Make allday field readonly when FSM controlled -->
+            <xpath expr="//field[@name='allday']" position="attributes">
+                <attribute name="readonly">task_id</attribute>
+            </xpath>
+
+            <!-- Make partner_ids field readonly when FSM controlled -->
+            <xpath expr="//field[@name='partner_ids']" position="attributes">
+                <attribute name="readonly">task_id</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Calendar Event Tree View - Add task_id column -->
+    <record id="view_calendar_event_tree_fsm" model="ir.ui.view">
+        <field name="name">calendar.event.tree.fsm</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="task_id" string="FSM Task" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_calendar_fsm" model="ir.ui.view">
+        <field name="name">calendar.event.calendar.fsm</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+        <field name="arch" type="xml">
+
+            <!-- Make task_id available to calendar -->
+            <field name="location" position="after">
+                <field name="task_id" invisible="0"/>
+            </field>
+
+        </field>
+    </record>
+
+</odoo>

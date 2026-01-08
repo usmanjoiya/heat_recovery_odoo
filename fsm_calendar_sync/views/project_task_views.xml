@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    &lt;!&ndash; Inherit FSM Task Form View - Add Smart Button &ndash;&gt;-->
+<!--    <record id="view_task_form_fsm_calendar_smart_button" model="ir.ui.view">-->
+<!--        <field name="name">project.task.form.fsm.calendar.smart.button</field>-->
+<!--        <field name="model">project.task</field>-->
+<!--        <field name="inherit_id" ref="project.view_task_form2"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; Add smart button for calendar event &ndash;&gt;-->
+<!--            <xpath expr="//div[@name='button_box']" position="inside">-->
+<!--                <button name="action_open_calendar_event"-->
+<!--                        type="object"-->
+<!--                        class="oe_stat_button"-->
+<!--                        icon="fa-calendar"-->
+<!--                        invisible="not calendar_event_id">-->
+<!--                    <field name="calendar_event_count" widget="statinfo" string="Calendar"/>-->
+<!--                </button>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- Inherit FSM Task Form View - Add Calendar Event Field -->
+    <record id="view_task_form_fsm_calendar_field" model="ir.ui.view">
+        <field name="name">project.task.form.fsm.calendar.field</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <!-- Add calendar_event_id field after planned dates section -->
+            <xpath expr="//field[@name='partner_id']/.." position="after">
+                <group string="Calendar Synchronization" invisible="not is_fsm">
+                    <field name="calendar_event_id" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Standard Task Form View (for non-FSM view) -->
+    <record id="view_task_form_calendar_field" model="ir.ui.view">
+        <field name="name">project.task.form.calendar.field</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <!-- Add smart button -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_calendar_event"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-calendar"
+                        invisible="not calendar_event_id">
+                    <field name="calendar_event_count" widget="statinfo" string="Calendar"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
