@@ -51,6 +51,7 @@
             </xpath>
 
             <xpath expr="//field[@name='order_line']/list" position="inside">
+                <field name="machine_id"/>
                 <field name="part_of_id"/>
             </xpath>
             <xpath expr="//page[@name='order_lines']" position="after">

@@ -24,6 +24,7 @@
         'views/inh_prod_category_view.xml',
         'views/coring_coster_view.xml',
         'views/inh_mrp_bom.xml',
+        'views/inh_sale_portal_templates.xml',
         'data/prod_attrs_name.xml',
         'data/service_prod_cal.xml',
         'data/data_cron.xml',

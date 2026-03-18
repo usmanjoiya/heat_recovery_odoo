@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Show totals table only when sale order is confirmed -->
+    <template id="report_saleorder_hide_totals" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@name='so_total_summary']" position="attributes">
+            <attribute name="t-if">doc.state == 'sale'</attribute>
+        </xpath>
+    </template>
+
+    <!-- Show totals table in portal only when sale order is confirmed -->
+    <template id="portal_hide_totals" inherit_id="sale.sale_order_portal_content">
+        <xpath expr="//div[@name='total']" position="attributes">
+            <attribute name="t-if">sale_order.state == 'sale'</attribute>
+        </xpath>
+    </template>
+</odoo>

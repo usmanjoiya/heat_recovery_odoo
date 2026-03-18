@@ -172,25 +172,17 @@ class SaleOrder(models.Model):
         return product.product_variant_id
 
     def action_add_calculator_product(self):
-        """Add the calculator service product to order lines"""
+        """Add the calculator total to the price_unit of the order line where machine_id is set"""
         for order in self:
             if not order.total:
                 raise UserError(_("Total value is missing, please compute it before adding the product."))
 
-            product = order._get_service_product()
+            machine_line = order.order_line.filtered(lambda l: l.machine_id)
+            if not machine_line:
+                raise UserError(_("No order line with a machine selected. Please select a machine on a line first."))
 
-            # Check if product already exists in order lines
-            existing_line = order.order_line.filtered(lambda l: l.product_id == product)
-            if existing_line:
-                existing_line.price_unit = order.total
-                existing_line.product_uom_qty = 1
-            else:
-                order.order_line = [(0, 0, {
-                    'product_id': product.id,
-                    'product_uom_qty': 1,
-                    'price_unit': order.total,
-                    'name': product.name,
-                })]
+            for line in machine_line:
+                line.price_unit += order.total
         return True
 
     @api.onchange('global_discount')

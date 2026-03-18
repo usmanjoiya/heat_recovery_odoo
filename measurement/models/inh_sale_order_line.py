@@ -8,6 +8,8 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     part_of_id = fields.Many2one('product.product' ,string="Part Of")
+    machine_id = fields.Many2one('product.product', string="Machine", domain="[('product_type', 'in', ['base', 'upgraded', 'premium'])]")
+    machine_price = fields.Float(string="Machine Price")
     price_unit = fields.Float(
         string="Unit Price",
         compute='_compute_price_unit',
@@ -61,3 +63,16 @@ class SaleOrderLine(models.Model):
 
                 line.price_unit = price
                 line.technical_price_unit = price
+
+    @api.onchange('machine_id')
+    def _onchange_machine_id(self):
+        """Add/remove machine sale price on price_unit."""
+        for line in self:
+            if line.machine_id:
+                line.price_unit = line.product_id.lst_price or 0.0
+                line.machine_price = line.machine_id.lst_price or 0.0
+                line.price_unit += line.machine_price
+            else:
+                line.machine_price = 0.0
+                line.price_unit = line.product_id.lst_price or 0.0
+
